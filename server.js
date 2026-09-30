@@ -295,6 +295,6 @@ app.put("/api/admin/change-pin",adminAuth,(req,res)=>{
   s.adminPin=hashSecret(next);saveSettings(s);res.json({success:true})
 });
 
-app.get("*",(req,res)=>res.sendFile(path.join(PUBLIC_DIR,"index.html")));
+app.get("/{*splat}",(req,res)=>res.sendFile(path.join(PUBLIC_DIR,"index.html")));
 app.use((err,req,res,next)=>{console.error(err);res.status(500).json({success:false,message:err.message||"Server error"})});
 app.listen(PORT,()=>console.log(`KalaiyaBazar V7 running: http://localhost:${PORT}`));
