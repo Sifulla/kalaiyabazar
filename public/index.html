@@ -674,6 +674,56 @@ body.shopMode .searchWrap{margin-top:8px}
   .bazarTrust small{display:none}.bazarTrust b{font-size:7px}.goBazar{font-size:15px;padding:13px}
 }
 
+
+/* ===== V17 SIMPLE PREMIUM ORDER ===== */
+.simpleBuy{
+  min-height:46px;border:0;border-radius:13px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#17191e 0%,#282c34 58%,#111318 100%);
+  color:#fff;font-weight:1000;font-size:10px;letter-spacing:.15px;
+  box-shadow:0 10px 24px rgba(16,18,23,.16),inset 0 1px rgba(255,255,255,.12);
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.simpleBuy:before{
+  content:"";position:absolute;inset:-70% -30%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.23),transparent);
+  transform:translateX(-82%) rotate(12deg);transition:transform .55s ease
+}
+.simpleBuy:hover:before,.simpleBuy:active:before{transform:translateX(88%) rotate(12deg)}
+.simpleBuy:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(16,18,23,.22)}
+.simpleBuy:active{transform:scale(.985)}
+.buyArrow{display:inline-block;margin-left:5px;opacity:.78;transition:transform .18s}
+.simpleBuy:hover .buyArrow{transform:translateX(3px)}
+.checkoutPremiumNote{
+  grid-column:1/-1;display:flex;align-items:center;gap:9px;padding:10px 11px;
+  border:1px solid #eadfce;border-radius:12px;background:linear-gradient(135deg,#fffaf4,#fff);
+  color:#6f5b48;font-size:8px;line-height:1.45
+}
+.checkoutPremiumNote b{color:#2d261f}.checkoutPremiumNote .shield{
+  width:30px;height:30px;flex:0 0 30px;border-radius:10px;display:grid;place-items:center;
+  background:#17191e;color:#fff;font-size:13px
+}
+#confirmBtn.premiumOrderBtn{
+  min-height:52px;border:0;border-radius:14px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#ff9b36,#ff7419 52%,#f2540b);
+  color:#fff;font-size:12px;font-weight:1000;letter-spacing:.1px;
+  box-shadow:0 14px 34px rgba(244,100,19,.27),inset 0 1px rgba(255,255,255,.35);
+  transition:transform .16s ease,box-shadow .18s ease
+}
+#confirmBtn.premiumOrderBtn:after{
+  content:"";position:absolute;inset:-70% -25%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.36),transparent);
+  transform:translateX(-85%) rotate(12deg);animation:v17OrderShine 3.2s infinite
+}
+#confirmBtn.premiumOrderBtn:active{transform:scale(.985)}
+#confirmBtn.premiumOrderBtn:disabled{opacity:.62;box-shadow:none}
+.checkoutTrust{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.checkoutTrust div{
+  text-align:center;padding:8px 4px;border:1px solid #eceef1;border-radius:10px;
+  background:#fafbfc;font-size:7px;font-weight:850;color:#68717c
+}
+.checkoutTrust b{display:block;color:#20242a;font-size:9px;margin-bottom:2px}
+@keyframes v17OrderShine{0%,58%{transform:translateX(-85%) rotate(12deg)}100%{transform:translateX(88%) rotate(12deg)}}
+
 </style>
 </head>
 <body class="homeMode">
@@ -692,7 +742,7 @@ body.shopMode .searchWrap{margin-top:8px}
 
   <div class="bazarCenter">
     <div class="bazarGlass">
-      <div class="bazarDomain"><i></i> KALAIYABAZAR.COM</div>
+      <div class="bazarDomain"><i></i> KALAIYABAZAR.ONLINE</div>
       <h1>কালাইয়া বাজারে <span>স্বাগতম</span></h1>
 
       <div class="genderGrid">
@@ -739,7 +789,7 @@ body.shopMode .searchWrap{margin-top:8px}
   <div class="head">
     <div class="brand" id="secretBrand">
       <div class="logo">Kalaiya<span>Bazar</span></div>
-      <div class="domain" id="domainText">KALAIYABAZAR.COM</div>
+      <div class="domain" id="domainText">KALAIYABAZAR.ONLINE</div>
     </div>
 
     <nav class="v8NavLinks">
@@ -789,31 +839,23 @@ body.shopMode .searchWrap{margin-top:8px}
 <div class="miniCart hide" id="miniCart"><div><b id="miniCount">0 items</b><br><small id="miniTotal">৳0</small></div><button onclick="openCart()">View Cart</button></div>
 <div class="overlay" id="overlay" onclick="closeDrawers()"></div>
 
-<aside class="drawer" id="cartDrawer"><div class="drawerHead"><b>Your Cart / আপনার কার্ট</b><button class="close" onclick="closeDrawers()"><svg class="ico"><use href="#x"/></svg></button></div><div class="drawerBody" id="cartItems"></div><div class="drawerFoot"><div class="cartFun" id="cartFun"></div><div class="freeShip"><div class="freeShipText" id="freeShipText"></div><div class="freeTrack"><i id="freeShipBar" style="width:0%"></i></div></div><div class="sum"><span>Subtotal / পণ্যের মোট</span><span id="cartSubtotal">৳0</span></div><div class="sum total"><span>Total / সর্বমোট</span><span id="cartTotal">৳0</span></div><button class="primary" style="width:100%" onclick="checkoutCart()">Buy Now / কিনুন</button></div></aside>
+<aside class="drawer" id="cartDrawer"><div class="drawerHead"><b>Your Cart / আপনার কার্ট</b><button class="close" onclick="closeDrawers()"><svg class="ico"><use href="#x"/></svg></button></div><div class="drawerBody" id="cartItems"></div><div class="drawerFoot"><div class="cartFun" id="cartFun"></div><div class="freeShip"><div class="freeShipText" id="freeShipText"></div><div class="freeTrack"><i id="freeShipBar" style="width:0%"></i></div></div><div class="sum"><span>Subtotal / পণ্যের মোট</span><span id="cartSubtotal">৳0</span></div><div class="sum total"><span>Total / সর্বমোট</span><span id="cartTotal">৳0</span></div><button class="primary" style="width:100%" onclick="checkoutCart()">Buy Now <span class="buyArrow">→</span> / কিনুন</button></div></aside>
 <aside class="drawer" id="wishDrawer"><div class="drawerHead"><b>Wishlist</b><button class="close" onclick="closeDrawers()"><svg class="ico"><use href="#x"/></svg></button></div><div class="drawerBody" id="wishItems"></div></aside>
 
 <div class="modal" id="productModal"><div class="modalCard"><div class="modalHead"><b>Product Details</b><button class="close" onclick="closeModal('productModal')"><svg class="ico"><use href="#x"/></svg></button></div><div id="productDetail"></div></div></div>
 
-<div class="modal" id="checkoutModal"><div class="modalCard"><div class="modalHead"><b>Checkout / চেকআউট</b><button class="close" onclick="closeModal('checkoutModal')"><svg class="ico"><use href="#x"/></svg></button></div>
+<div class="modal" id="checkoutModal"><div class="modalCard"><div class="modalHead"><b>Secure Checkout / চেকআউট</b><button class="close" onclick="closeModal('checkoutModal')"><svg class="ico"><use href="#x"/></svg></button></div>
 <div class="checkout">
   <div class="formGrid">
-    <div class="field"><label>Customer Name / গ্রাহকের নাম *</label><input id="cName" minlength="3"></div>
-    <div class="field"><label>Verified Mobile / যাচাইকৃত মোবাইল *</label><input id="cPhone" readonly></div>
-    <div class="field"><label>District / জেলা *</label><select id="cDistrict" onchange="onDistrictChange();resetCodVerification()"><option value="">Select District / জেলা নির্বাচন করুন</option></select></div>
+    <div class="checkoutPremiumNote"><span class="shield">✓</span><span><b>Simple professional checkout</b><br>শুধু প্রয়োজনীয় তথ্য দিন—অতিরিক্ত verification ধাপ নেই।</span></div>
+    <div class="field"><label>Customer Name / গ্রাহকের নাম *</label><input id="cName" minlength="3" autocomplete="name"></div>
+    <div class="field"><label>Mobile Number / মোবাইল নম্বর *</label><input id="cPhone" readonly inputmode="tel"></div>
+    <div class="field"><label>District / জেলা *</label><select id="cDistrict" onchange="onDistrictChange()"><option value="">Select District / জেলা নির্বাচন করুন</option></select></div>
     <div class="field"><label>Upazila / Thana / উপজেলা / থানা *</label><input id="cUpazila" placeholder="e.g. Kalapara / কলাপাড়া"></div>
     <div class="field"><label>Delivery Area / ডেলিভারি এলাকা *</label><select id="cArea" onchange="checkoutPreview()"><option value="inside">Inside Dhaka / ঢাকার ভিতরে</option><option value="outside">Outside Dhaka / ঢাকার বাইরে</option></select></div>
+    <div class="field"><label>Payment Method / পেমেন্ট পদ্ধতি *</label><select id="cPayment"><option value="Cash on Delivery">Cash on Delivery / ক্যাশ অন ডেলিভারি</option><option value="bKash">bKash / বিকাশ</option><option value="Nagad">Nagad / নগদ</option></select></div>
     <div class="field full"><label>Full Address / পূর্ণ ঠিকানা *</label><textarea id="cAddress" minlength="10" placeholder="House/Road/Village, Post Office, landmark / বাড়ি-রোড-গ্রাম, পোস্ট অফিস, পরিচিত স্থান"></textarea></div>
-    <div class="field full"><label>Order Note / অর্ডার নোট</label><textarea id="cOrderNote" placeholder="Optional delivery instruction / প্রয়োজন হলে নির্দেশনা লিখুন"></textarea></div>
-    <div class="field full"><label>Payment Method / পেমেন্ট পদ্ধতি</label><select id="cPayment" onchange="paymentChanged()"><option value="Cash on Delivery">Cash on Delivery / ক্যাশ অন ডেলিভারি</option><option value="bKash">bKash / বিকাশ</option><option value="Nagad">Nagad / নগদ</option></select></div>
-    <div class="locationNote" id="checkoutLocationNote">Login-এর সময় location permission Allow করলে delivery order-এর সঙ্গে আপনার অনুমোদিত map location-ও Admin দেখতে পারবে।</div>
-    <div class="codBox" id="codVerifyBox">
-      <div class="codTitle">COD Phone Verification / COD ফোন যাচাই</div>
-      <div class="codHelp" id="codHelp">OTP চালু থাকলে আপনার login করা mobile number-এ OTP যাবে।</div>
-      <div class="otpRow"><button class="otpBtn" id="sendOtpBtn" onclick="sendCodOtp()">Send OTP / OTP পাঠান</button><span></span></div>
-      <div class="otpRow" style="margin-top:8px"><input id="cOtp" inputmode="numeric" maxlength="10" placeholder="Enter OTP / OTP লিখুন"><button class="otpBtn alt" id="verifyOtpBtn" onclick="verifyCodOtp()">Verify OTP / OTP যাচাই</button></div>
-      <div class="otpState" id="otpState">Not verified / যাচাই হয়নি</div>
-    </div>
-    <label class="agreeBox"><input type="checkbox" id="confirmAccurate"><span><b>I confirm the information is correct / আমি নিশ্চিত করছি তথ্যগুলো সঠিক।</b><br>ভুল নাম, ভুল ঠিকানা বা অসম্পূর্ণ তথ্য দিলে অর্ডার গ্রহণ করা হবে না।</span></label>
+    <div class="field full"><label>Order Note / অর্ডার নোট <span style="color:#999">(Optional)</span></label><textarea id="cOrderNote" placeholder="Delivery instruction / প্রয়োজন হলে নির্দেশনা লিখুন"></textarea></div>
   </div>
   <div class="summary">
     <b>Order Summary / অর্ডার সারাংশ</b>
@@ -823,11 +865,13 @@ body.shopMode .searchWrap{margin-top:8px}
     <div class="sum"><span>Delivery / ডেলিভারি</span><span id="sumDelivery">৳0</span></div>
     <div class="sum"><span>Discount / ছাড়</span><span id="sumDiscount">-৳0</span></div>
     <div class="sum total"><span>Total / সর্বমোট</span><span id="sumTotal">৳0</span></div>
-    <button class="primary" style="width:100%" id="confirmBtn" onclick="confirmOrder()">Complete Purchase / কেনাকাটা সম্পন্ন করুন</button>
-    <div style="font-size:8px;color:#858d98;line-height:1.5;margin-top:8px">Login is required / অর্ডারের জন্য Login বাধ্যতামূলক। Price, stock, coupon ও delivery charge server আবার যাচাই করবে।</div>
+    <button class="premiumOrderBtn" style="width:100%" id="confirmBtn" onclick="confirmOrder()">Place Order / অর্ডার করুন</button>
+    <div class="checkoutTrust">
+      <div><b>✓</b>Secure Order</div><div><b>🚚</b>Delivery Support</div><div><b>↺</b>Easy Assistance</div>
+    </div>
+    <div style="font-size:8px;color:#858d98;line-height:1.5;margin-top:8px">Login is required / অর্ডারের জন্য Login প্রয়োজন। Price, stock, coupon ও delivery charge server আবার যাচাই করবে।</div>
   </div>
 </div></div></div>
-
 
 <div class="modal" id="giftModal"><div class="modalCard" style="max-width:760px"><div class="modalHead"><b>Gift Finder / উপহার খুঁজুন</b><button class="close" onclick="closeModal('giftModal')"><svg class="ico"><use href="#x"/></svg></button></div>
   <div class="giftGrid">
@@ -852,7 +896,7 @@ body.shopMode .searchWrap{margin-top:8px}
 <div class="field"><label>District / জেলা</label><select id="profileDistrict"><option value="">Select District / জেলা নির্বাচন করুন</option></select></div>
 <div class="field"><label>Upazila / Thana / উপজেলা / থানা</label><input id="profileUpazila"></div>
 <div class="field full"><label>Saved Address / সংরক্ষিত ঠিকানা</label><textarea id="profileAddress"></textarea></div>
-<div class="locationNote" id="profileLocationState">Location: not saved / লোকেশন সংরক্ষিত নয়</div>
+
 </div><button class="primary" onclick="saveProfile()">Save Profile / প্রোফাইল সেভ করুন</button></div>
     <div class="accountPane" id="acc-orders"><div id="myOrders"></div></div>
     <div class="accountPane" id="acc-wishlist"><div id="accountWishlist"></div></div>
@@ -862,7 +906,7 @@ body.shopMode .searchWrap{margin-top:8px}
 <!-- ADMIN -->
 <div class="modal adminModal" id="adminModal"><div class="modalCard adminCard">
   <div class="adminTop"><div><div class="adminLogo">Kalaiya<span>Bazar</span> Admin</div><small style="color:#8992a2">Complete Store Control Center</small></div><button class="logout" onclick="adminLogout()">Logout</button></div>
-  <div class="stats"><div class="stat"><b id="stProducts">0</b><small>Products</small></div><div class="stat"><b id="stOrders">0</b><small>Orders / অর্ডার</small></div><div class="stat"><b id="stCustomers">0</b><small>Customers</small></div><div class="stat"><b id="stRevenue">৳0</b><small>Revenue</small></div><div class="stat"><b id="stLow">0</b><small>Low Stock</small></div><div class="stat"><b id="stUnverified">0</b><small>Unverified COD</small></div><div class="stat"><b id="stHighRisk">0</b><small>High Risk</small></div></div>
+  <div class="stats"><div class="stat"><b id="stProducts">0</b><small>Products</small></div><div class="stat"><b id="stOrders">0</b><small>Orders / অর্ডার</small></div><div class="stat"><b id="stCustomers">0</b><small>Customers</small></div><div class="stat"><b id="stRevenue">৳0</b><small>Revenue</small></div><div class="stat"><b id="stLow">0</b><small>Low Stock</small></div><div class="stat"><b id="stUnverified">0</b><small>Pending Orders</small></div><div class="stat"><b id="stHighRisk">0</b><small>High Risk</small></div></div>
   <div class="adminTabs">
     <button class="adminTab on" onclick="adminTab('products',this)">Products</button><button class="adminTab" onclick="adminTab('amazon',this)">Amazon Import</button><button class="adminTab" onclick="adminTab('orders',this)">Orders / অর্ডার</button><button class="adminTab" onclick="adminTab('customers',this)">Customers</button><button class="adminTab" onclick="adminTab('telegram',this)">Telegram</button><button class="adminTab" onclick="adminTab('store',this)">Store Settings</button><button class="adminTab" onclick="adminTab('coupons',this)">Coupons</button><button class="adminTab" onclick="adminTab('security',this)">Security</button>
   </div>
@@ -899,7 +943,7 @@ body.shopMode .searchWrap{margin-top:8px}
     <button class="primary" style="width:100%;margin-top:11px" onclick="saveProduct()">Save Product</button></div>
     <div class="adminBox"><div id="adminProducts"></div></div>
   </section>
-  <section class="adminPane" id="pane-orders"><div class="adminBox"><h3 style="margin-top:0">Orders / অর্ডার</h3><div class="orderSearch"><input id="orderSearch" placeholder="Search Order ID, name or phone / অর্ডার খুঁজুন" oninput="filterAdminOrders()"><select id="orderFilter" onchange="filterAdminOrders()"><option value="">All Status / সব স্ট্যাটাস</option><option>Unverified</option><option>OTP Verified</option><option>Confirmed</option><option>Packed</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></div><div id="adminOrders"></div></div></section>
+  <section class="adminPane" id="pane-orders"><div class="adminBox"><h3 style="margin-top:0">Orders / অর্ডার</h3><div class="orderSearch"><input id="orderSearch" placeholder="Search Order ID, name or phone / অর্ডার খুঁজুন" oninput="filterAdminOrders()"><select id="orderFilter" onchange="filterAdminOrders()"><option value="">All Status / সব স্ট্যাটাস</option><option>Pending</option><option>Confirmed</option><option>Packed</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></div><div id="adminOrders"></div></div></section>
   <section class="adminPane" id="pane-customers"><div class="adminBox"><div id="adminCustomers"></div></div></section>
   <section class="adminPane" id="pane-telegram"><div class="adminBox"><h3>Telegram Bot Settings</h3><div class="field"><label>Bot Token</label><input id="tgToken" type="password" placeholder="Paste NEW Bot Token"></div><div class="field"><label>Chat ID</label><input id="tgChat" placeholder="Paste Chat ID"></div><div id="tgStatus" style="color:#98a2b3;font-size:10px;margin:8px 0"></div><div class="tgBtns"><button class="primary" onclick="saveTelegram()">Save / Update</button><button onclick="testTelegram()">Send Test</button><button onclick="clearTelegram()">Remove</button></div></div></section>
   <section class="adminPane" id="pane-store"><div class="adminBox"><h3>Store & Homepage Settings</h3><div class="formGrid"><div class="field"><label>Store Name</label><input id="sName"></div><div class="field"><label>Domain</label><input id="sDomain"></div><div class="field"><label>Support Phone</label><input id="sPhone"></div><div class="field"><label>Support Email</label><input id="sEmail"></div><div class="field full"><label>Hero Title</label><input id="sHeroTitle"></div><div class="field full"><label>Hero Bengali Support Text</label><textarea id="sHeroBangla"></textarea></div><div class="field"><label>Hero Button</label><input id="sHeroButton"></div><div class="field"><label>Announcement</label><input id="sAnnouncement"></div><div class="field"><label>Inside Dhaka Delivery</label><input id="sInside" type="number"></div><div class="field"><label>Outside Dhaka Delivery</label><input id="sOutside" type="number"></div><div class="field"><label>Free Delivery At</label><input id="sFree" type="number"></div></div><button class="primary" onclick="saveStoreSettings()">Save Settings</button></div></section>
@@ -924,7 +968,7 @@ body.shopMode .searchWrap{margin-top:8px}
 <script>
 const $=id=>document.getElementById(id),esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 let products=[],cart=JSON.parse(localStorage.getItem("kb7_cart")||"[]"),wishlist=JSON.parse(localStorage.getItem("kb7_wish")||"[]"),settings={};
-let checkoutItems=[],detailProduct=null,adminToken=sessionStorage.getItem("kb7_admin")||"",userToken=localStorage.getItem("kb7_user_token")||"",adminProducts=[],adminImages=[],editingId=null,adminCoupons=[],adminOrdersCache=[],codVerificationToken="",codOtpRequired=false,checkoutKey="",pendingCheckout=false,amazonImportData=null;
+let checkoutItems=[],detailProduct=null,adminToken=sessionStorage.getItem("kb7_admin")||"",userToken=localStorage.getItem("kb7_user_token")||"",adminProducts=[],adminImages=[],editingId=null,adminCoupons=[],adminOrdersCache=[],checkoutKey="",pendingCheckout=false,amazonImportData=null;
 let shopAudience="All";
 function toast(m,type="info"){const t=$("toast");t.textContent=m;t.classList.remove("success","error");if(type!=="info")t.classList.add(type);t.classList.add("show");clearTimeout(window.__t);window.__t=setTimeout(()=>t.classList.remove("show"),2600)}
 async function api(url,opt={}){const r=await fetch(url,opt);let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.message||"Request failed");return d}
@@ -972,23 +1016,12 @@ function launchConfetti(){
 }
 function journeyHtml(status){
   if(status==="Cancelled")return '<div style="font-size:8px;color:#c74750;margin-top:8px">Order cancelled / অর্ডার বাতিল হয়েছে</div>';
-  const steps=["Verified","Confirmed","Packed","Shipped","Delivered"];
-  const map={"Unverified":-1,"OTP Verified":0,"Pending":0,"Confirmed":1,"Packed":2,"Shipped":3,"Delivered":4};
+  const steps=["Placed","Confirmed","Packed","Shipped","Delivered"];
+  const map={"Pending":0,"Unverified":0,"OTP Verified":0,"Confirmed":1,"Packed":2,"Shipped":3,"Delivered":4};
   const n=map[status]??0;
   return `<div class="orderJourney">${steps.map((s,i)=>`<div class="journeyStep ${i<=n?"done":""}">${s}</div>`).join("")}</div>`;
 }
-function captureLocationAfterLogin(){
-  if(!userToken||!navigator.geolocation)return;
-  setTimeout(()=>navigator.geolocation.getCurrentPosition(async pos=>{
-    try{
-      await api("/api/account/location",{method:"PUT",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({latitude:pos.coords.latitude,longitude:pos.coords.longitude,accuracy:pos.coords.accuracy,consent:true})});
-      if($("profileLocationState"))$("profileLocationState").textContent="Location saved with permission / অনুমতি নিয়ে লোকেশন সংরক্ষিত হয়েছে";
-      toast("Location saved with permission / লোকেশন সংরক্ষিত হয়েছে");
-    }catch{}
-  },()=>{}, {enableHighAccuracy:false,timeout:8000,maximumAge:300000}),350);
-}
-
-async function loadSettings(){try{const d=await api("/api/settings");settings=d.settings||{};$("announcement").textContent=settings.announcement||"";$("domainText").textContent=(settings.domain||"kalaiyabazar.com").toUpperCase();$("heroTitle").innerHTML='কালাইয়া বাজারে <span>স্বাগতম</span>';$("heroBangla").textContent="বাজারে চলুন — পছন্দের কেনাকাটা শুরু হোক এখান থেকেই।";$("heroButton").textContent="Shop Now / শপিং করুন"}catch{}}
+async function loadSettings(){try{const d=await api("/api/settings");settings=d.settings||{};$("announcement").textContent=settings.announcement||"";$("domainText").textContent=(settings.domain||"kalaiyabazar.online").toUpperCase();$("heroTitle").innerHTML='কালাইয়া বাজারে <span>স্বাগতম</span>';$("heroBangla").textContent="বাজারে চলুন — পছন্দের কেনাকাটা শুরু হোক এখান থেকেই।";$("heroButton").textContent="Shop Now / শপিং করুন"}catch{}}
 async function loadProducts(){const d=await api("/api/products");products=d.products||[];renderProducts();renderRail();updateFunFeatures()}
 
 function enterShop(audience="All"){
@@ -1031,7 +1064,7 @@ window.addEventListener("popstate",()=>{
 function renderCategories(){const cats=["All","Fashion","Electronics","Beauty","Lifestyle"];$("categoryChips").innerHTML=cats.map(c=>`<button class="chip ${$("categoryFilter").value===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`).join("")}
 function setCategory(c){$("categoryFilter").value=c;renderCategories();renderProducts();goProducts()}
 function renderProducts(){let d=[...products],q=$("searchInput").value.trim().toLowerCase(),c=$("categoryFilter").value,p=$("priceFilter").value,s=$("sortFilter").value;d=d.filter(x=>audienceMatches(x)&&(c==="All"||x.category===c)&&(!q||(x.name+" "+x.category).toLowerCase().includes(q))&&(p==="all"||x.price<=Number(p)));if(s==="low")d.sort((a,b)=>a.price-b.price);if(s==="high")d.sort((a,b)=>b.price-a.price);if(s==="new")d.sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));$("resultText").textContent=`${d.length} products found`;$("productGrid").innerHTML=d.map(card).join("")||`<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No products found.</div>`;renderCategories()}
-function card(p){const first=p.images?.[0]||"",second=p.images?.[1]||first,liked=wishlist.includes(Number(p.id));return `<article class="product"><div class="photo" onclick="openProduct(${p.id})"><img class="first" src="${esc(first)}" loading="lazy"><img class="second" src="${esc(second)}" loading="lazy"><span class="badge">${esc(p.badge||"NEW")}</span><button class="heart ${liked?"on":""}" onclick="event.stopPropagation();toggleWish(${p.id})"><svg class="ico"><use href="#heart"/></svg></button><button class="quick" onclick="event.stopPropagation();openProduct(${p.id})">Quick View</button></div><div class="pBody"><div class="cat">${esc(p.category)}</div><div class="pName">${esc(p.name)}</div>${p.rating?`<div class="stars">★★★★★ <span>${p.rating}</span></div>`:""}<div class="priceRow"><span class="price">৳${p.price}</span><span class="old">৳${p.oldPrice||p.price}</span></div><div class="stock">${p.stock>0?(p.stock<=5?`Only ${p.stock} left`:`In stock • ${p.stock}`):"Out of stock"}</div><div class="actions"><button class="smallBtn" onclick="addCart(${p.id})"><svg class="ico"><use href="#cart"/></svg></button><button class="simpleBuy" onclick="buyNow(${p.id})">Buy Now / কিনুন</button></div></div></article>`}
+function card(p){const first=p.images?.[0]||"",second=p.images?.[1]||first,liked=wishlist.includes(Number(p.id));return `<article class="product"><div class="photo" onclick="openProduct(${p.id})"><img class="first" src="${esc(first)}" loading="lazy"><img class="second" src="${esc(second)}" loading="lazy"><span class="badge">${esc(p.badge||"NEW")}</span><button class="heart ${liked?"on":""}" onclick="event.stopPropagation();toggleWish(${p.id})"><svg class="ico"><use href="#heart"/></svg></button><button class="quick" onclick="event.stopPropagation();openProduct(${p.id})">Quick View</button></div><div class="pBody"><div class="cat">${esc(p.category)}</div><div class="pName">${esc(p.name)}</div>${p.rating?`<div class="stars">★★★★★ <span>${p.rating}</span></div>`:""}<div class="priceRow"><span class="price">৳${p.price}</span><span class="old">৳${p.oldPrice||p.price}</span></div><div class="stock">${p.stock>0?(p.stock<=5?`Only ${p.stock} left`:`In stock • ${p.stock}`):"Out of stock"}</div><div class="actions"><button class="smallBtn" onclick="addCart(${p.id})"><svg class="ico"><use href="#cart"/></svg></button><button class="simpleBuy" onclick="buyNow(${p.id})">Buy Now <span class="buyArrow">→</span> / কিনুন</button></div></div></article>`}
 function renderRail(){let d=[...products].sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0)).slice(0,8);$("newRail").innerHTML=d.map(p=>`<article class="railCard" onclick="openProduct(${p.id})"><img src="${esc(p.images?.[0]||"")}"><div><b>${esc(p.name)}</b><strong>৳${p.price}</strong></div></article>`).join("")}
 function searchChanged(){renderProducts();const q=$("searchInput").value.trim().toLowerCase();if(!q)return $("suggestions").classList.add("hide");const h=products.filter(x=>x.name.toLowerCase().includes(q)).slice(0,5);$("suggestions").innerHTML=h.map(x=>`<button onclick="openProduct(${x.id});$('suggestions').classList.add('hide')">${esc(x.name)} — ৳${x.price}</button>`).join("");$("suggestions").classList.toggle("hide",!h.length)}
 function clearSearch(){$("searchInput").value="";$("suggestions").classList.add("hide");renderProducts()}function focusSearch(){$("searchInput").focus()}function goProducts(){enterShop("All")}function resetFilters(){$("categoryFilter").value="All";$("priceFilter").value="all";$("sortFilter").value="popular";$("searchInput").value="";renderProducts()}
@@ -1052,28 +1085,35 @@ function toggleWish(id){id=Number(id);wishlist=wishlist.includes(id)?wishlist.fi
 function openWishlist(){$("overlay").classList.add("show");$("wishDrawer").classList.add("show");renderWish()}
 function renderWish(){$("wishItems").innerHTML=wishlist.length?wishlist.map(id=>{let p=products.find(x=>Number(x.id)===Number(id));if(!p)return"";return `<div class="cartItem"><img src="${esc(p.images?.[0]||"")}"><div><h4>${esc(p.name)}</h4><b style="color:var(--brand)">৳${p.price}</b></div><button class="remove" onclick="toggleWish(${p.id})">×</button></div>`}).join(""):`<div style="padding:40px;text-align:center;color:#777">Wishlist is empty.</div>`}
 async function syncWishlist(){if(!userToken)return;try{await api("/api/account/wishlist",{method:"PUT",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({wishlist})})}catch{}}
-function openProduct(id){const p=products.find(x=>Number(x.id)===Number(id));if(!p)return;detailProduct=p;$("productDetail").innerHTML=`<div class="detail"><div><div class="mainImg"><img id="detailMain" src="${esc(p.images?.[0]||"")}"></div><div class="thumbs">${(p.images||[]).map((x,i)=>`<button class="thumb ${i===0?"on":""}" onclick="$('detailMain').src='${esc(x)}';document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('on'));this.classList.add('on')"><img src="${esc(x)}"></button>`).join("")}</div></div><div><div class="cat">${esc(p.category)}</div><h2>${esc(p.name)}</h2>${p.rating?`<div class="stars">★★★★★ <span>${p.rating}</span></div>`:""}<div class="price" style="font-size:29px;margin:10px 0">৳${p.price}</div><div class="stock">${p.stock>0?`In stock • ${p.stock}`:"Out of stock"}</div><p class="desc">${esc(p.description||"")}</p><div class="info">Fast delivery available<br>Cash on Delivery available<br>Return conditions apply according to store policy</div><div class="actions"><button class="smallBtn" onclick="addCart(${p.id})"><svg class="ico"><use href="#cart"/></svg></button><button class="simpleBuy" onclick="closeModal('productModal');buyNow(${p.id})">Buy Now / কিনুন</button></div></div></div>`;$("productModal").classList.add("show");document.body.classList.add("lock")}
+function openProduct(id){const p=products.find(x=>Number(x.id)===Number(id));if(!p)return;detailProduct=p;$("productDetail").innerHTML=`<div class="detail"><div><div class="mainImg"><img id="detailMain" src="${esc(p.images?.[0]||"")}"></div><div class="thumbs">${(p.images||[]).map((x,i)=>`<button class="thumb ${i===0?"on":""}" onclick="$('detailMain').src='${esc(x)}';document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('on'));this.classList.add('on')"><img src="${esc(x)}"></button>`).join("")}</div></div><div><div class="cat">${esc(p.category)}</div><h2>${esc(p.name)}</h2>${p.rating?`<div class="stars">★★★★★ <span>${p.rating}</span></div>`:""}<div class="price" style="font-size:29px;margin:10px 0">৳${p.price}</div><div class="stock">${p.stock>0?`In stock • ${p.stock}`:"Out of stock"}</div><p class="desc">${esc(p.description||"")}</p><div class="info">Fast delivery available<br>Cash on Delivery available<br>Return conditions apply according to store policy</div><div class="actions"><button class="smallBtn" onclick="addCart(${p.id})"><svg class="ico"><use href="#cart"/></svg></button><button class="simpleBuy" onclick="closeModal('productModal');buyNow(${p.id})">Buy Now <span class="buyArrow">→</span> / কিনুন</button></div></div></div>`;$("productModal").classList.add("show");document.body.classList.add("lock")}
 function closeModal(id){$(id).classList.remove("show");document.body.classList.remove("lock")}
 function buyNow(id){checkoutItems=[{id:Number(id),qty:1}];openCheckout()}function checkoutCart(){if(!cart.length)return toast("Cart is empty / কার্ট খালি");checkoutItems=cart.map(x=>({...x}));closeDrawers();openCheckout()}
 async function openCheckout(){
   if(!userToken){pendingCheckout=true;await openAccount();toast("Order করতে আগে Login করুন / Login required");return}
   try{await prefillAccount()}catch{return}
   checkoutKey=(crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(36).slice(2));
-  resetCodVerification();paymentChanged();checkoutPreview();$("confirmAccurate").checked=false;
+  checkoutPreview();
   $("checkoutModal").classList.add("show");document.body.classList.add("lock");
-  try{
-    const d=await api("/api/cod/config");codOtpRequired=Boolean(d.otpRequired);
-    $("otpState").textContent=d.otpEnabled?"SMS OTP available / SMS OTP চালু":(d.otpRequired?"OTP service unavailable / OTP সাময়িকভাবে বন্ধ":"SMS OTP not configured — Admin will call to verify / Admin ফোন করে যাচাই করবে");
-    $("otpState").className="otpState "+(d.otpEnabled?"":"warn");
-    $("codHelp").textContent=d.otpEnabled?"COD order-এর আগে login mobile number OTP দিয়ে verify করুন।":"OTP configured না থাকলে Admin ফোন করে COD order যাচাই করবে।";
-  }catch{}
 }
-function paymentChanged(){const cod=$("cPayment").value==="Cash on Delivery";$("codVerifyBox").classList.toggle("show",cod);if(!cod)resetCodVerification()}
-function resetCodVerification(){codVerificationToken="";const s=$("otpState");if(s){s.textContent="Not verified / যাচাই হয়নি";s.className="otpState"}}
-function onDistrictChange(){const d=$("cDistrict").value;if(d&&d!=="Dhaka"){$("cArea").value="outside";$("cArea").disabled=true}else{$("cArea").disabled=false;if(d==="Dhaka"&&!$("cArea").value)$("cArea").value="inside"}checkoutPreview()}
-async function sendCodOtp(){const phone=$("cPhone").value.trim(),b=$("sendOtpBtn");b.disabled=true;b.textContent="Sending… / পাঠানো হচ্ছে…";try{const d=await api("/api/cod/send-otp",{method:"POST",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({phone})});$("otpState").textContent="OTP sent. Check your phone / OTP পাঠানো হয়েছে";$("otpState").className="otpState ok"}catch(e){$("otpState").textContent=e.message;$("otpState").className="otpState warn";toast(e.message)}finally{b.disabled=false;b.textContent="Send OTP / OTP পাঠান"}}
-async function verifyCodOtp(){const phone=$("cPhone").value.trim(),code=$("cOtp").value.trim(),b=$("verifyOtpBtn");b.disabled=true;b.textContent="Checking…";try{const d=await api("/api/cod/verify-otp",{method:"POST",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({phone,code})});codVerificationToken=d.verificationToken;$("otpState").textContent="OTP Verified / OTP যাচাই সম্পন্ন";$("otpState").className="otpState ok";toast("Phone verified / ফোন যাচাই হয়েছে")}catch(e){codVerificationToken="";$("otpState").textContent=e.message;$("otpState").className="otpState warn";toast(e.message)}finally{b.disabled=false;b.textContent="Verify OTP / OTP যাচাই"}}
-function checkoutPreview(){const subtotal=checkoutItems.reduce((s,i)=>{let p=products.find(x=>Number(x.id)===Number(i.id));return s+(p?p.price*i.qty:0)},0),area=$("cArea").value,delivery=subtotal>=Number(settings.freeDeliveryAt||2500)?0:(area==="outside"?Number(settings.outsideDelivery||130):Number(settings.insideDelivery||80));let discount=0,code=$("coupon").value.trim().toUpperCase(),c=(settings.coupons||[]).find(x=>x.active&&String(x.code).toUpperCase()===code&&subtotal>=Number(x.minOrder||0));if(c)discount=c.type==="fixed"?Number(c.value):Math.round(subtotal*Number(c.value)/100);$("checkoutLines").innerHTML=checkoutItems.map(i=>{let p=products.find(x=>Number(x.id)===Number(i.id));return p?`${esc(p.name)} × ${i.qty} — <b>৳${p.price*i.qty}</b><br>`:""}).join("");$("sumSubtotal").textContent=`৳${subtotal}`;$("sumDelivery").textContent=delivery?`৳${delivery}`:"FREE";$("sumDiscount").textContent=`-৳${discount}`;$("sumTotal").textContent=`৳${subtotal+delivery-discount}`}
+function onDistrictChange(){
+  const d=$("cDistrict").value;
+  if(d&&d!=="Dhaka"){$("cArea").value="outside";$("cArea").disabled=true}
+  else{$("cArea").disabled=false;if(d==="Dhaka")$("cArea").value="inside"}
+  checkoutPreview()
+}
+function checkoutPreview(){
+  const subtotal=checkoutItems.reduce((s,i)=>{let p=products.find(x=>Number(x.id)===Number(i.id));return s+(p?p.price*i.qty:0)},0),
+    area=$("cArea").value,
+    delivery=subtotal>=Number(settings.freeDeliveryAt||2500)?0:(area==="outside"?Number(settings.outsideDelivery||130):Number(settings.insideDelivery||80));
+  let discount=0,code=$("coupon").value.trim().toUpperCase(),
+    c=(settings.coupons||[]).find(x=>x.active&&String(x.code).toUpperCase()===code&&subtotal>=Number(x.minOrder||0));
+  if(c)discount=c.type==="fixed"?Number(c.value):Math.round(subtotal*Number(c.value)/100);
+  const total=subtotal+delivery-discount;
+  $("checkoutLines").innerHTML=checkoutItems.map(i=>{let p=products.find(x=>Number(x.id)===Number(i.id));return p?`${esc(p.name)} × ${i.qty} — <b>৳${p.price*i.qty}</b><br>`:""}).join("");
+  $("sumSubtotal").textContent=`৳${subtotal}`;$("sumDelivery").textContent=delivery?`৳${delivery}`:"FREE";
+  $("sumDiscount").textContent=`-৳${discount}`;$("sumTotal").textContent=`৳${total}`;
+  const b=$("confirmBtn");if(b&&!b.disabled)b.textContent=`Place Order • ৳${total} / অর্ডার করুন`;
+}
 
 function fieldHint(el,msg,type){
   if(!el)return;
@@ -1113,8 +1153,6 @@ function clientCheckoutValid(){
   const ids=["cName","cPhone","cDistrict","cUpazila","cAddress"];let firstBad=null,ok=true;
   ids.forEach(id=>{const good=validateLiveField(id);if(!good){ok=false;if(!firstBad)firstBad=$(id)}});
   if(!ok){firstBad?.focus();toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন / Please correct highlighted fields","error");return false}
-  if(!$("confirmAccurate").checked){toast("তথ্য সঠিক—এই ঘরে টিক দিন / Please confirm your information","error");return false}
-  if($("cPayment").value==="Cash on Delivery"&&codOtpRequired&&!codVerificationToken){toast("COD order-এর জন্য OTP verify করুন","error");return false}
   return true
 }
 async function confirmOrder(){
@@ -1125,16 +1163,14 @@ async function confirmOrder(){
     const d=await api("/api/orders",{method:"POST",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({
       name:$("cName").value.trim(),phone:$("cPhone").value.trim(),district:$("cDistrict").value,upazila:$("cUpazila").value.trim(),
       address:$("cAddress").value.trim(),orderNote:$("cOrderNote").value.trim(),payment:$("cPayment").value,area:$("cArea").value,
-      coupon:$("coupon").value.trim(),codVerificationToken,confirmAccurate:true,clientOrderKey:checkoutKey,items:checkoutItems
+      coupon:$("coupon").value.trim(),clientOrderKey:checkoutKey,items:checkoutItems
     })});
     if(!d.duplicate){
       const ids=new Set(checkoutItems.map(x=>Number(x.id)));cart=cart.filter(x=>!ids.has(Number(x.id)));saveLocal()
     }
-    closeModal("checkoutModal");codVerificationToken="";checkoutKey="";$("cOtp").value="";launchConfetti();
-    showPurchaseSuccess(d.orderId,d.total,d.status);
-    await loadProducts()
-  }catch(e){toast(e.message)}
-  finally{b.disabled=false;b.textContent="Complete Purchase / কেনাকাটা সম্পন্ন করুন"}
+    closeModal("checkoutModal");checkoutKey="";launchConfetti();showPurchaseSuccess(d.orderId,d.total,d.status);await loadProducts()
+  }catch(e){toast(e.message,"error")}
+  finally{b.disabled=false;checkoutPreview()}
 }
 
 /* ACCOUNT */
@@ -1144,20 +1180,19 @@ async function openAccount(){$("accountModal").classList.add("show");document.bo
 function showAccountGuest(){$("accountGuest").classList.remove("hide");$("accountLogged").classList.add("hide")}
 async function accountLogin(){
   const p=validateLiveField("loginPhone"),pw=validateLiveField("loginPassword");if(!p||!pw)return toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন","error");
-  try{const d=await api("/api/account/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({phone:$("loginPhone").value.trim(),password:$("loginPassword").value})});userToken=d.token;localStorage.setItem("kb7_user_token",userToken);await loadAccount();toast("✓ Login successful / লগইন সফল","success");captureLocationAfterLogin();if(pendingCheckout){pendingCheckout=false;closeModal("accountModal");setTimeout(openCheckout,250)}}catch(e){markField("loginPhone",false,"Login information মিলছে না");markField("loginPassword",false,"Phone/Password আবার যাচাই করুন");toast(e.message,"error")}
+  try{const d=await api("/api/account/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({phone:$("loginPhone").value.trim(),password:$("loginPassword").value})});userToken=d.token;localStorage.setItem("kb7_user_token",userToken);await loadAccount();toast("✓ Login successful / লগইন সফল","success");if(pendingCheckout){pendingCheckout=false;closeModal("accountModal");setTimeout(openCheckout,250)}}catch(e){markField("loginPhone",false,"Login information মিলছে না");markField("loginPassword",false,"Phone/Password আবার যাচাই করুন");toast(e.message,"error")}
 }
 async function accountRegister(){
   const a=validateLiveField("regName"),b=validateLiveField("regPhone"),c=validateLiveField("regPassword");if(!a||!b||!c)return toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন","error");
-  try{const d=await api("/api/account/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:$("regName").value.trim(),phone:$("regPhone").value.trim(),password:$("regPassword").value})});userToken=d.token;localStorage.setItem("kb7_user_token",userToken);await loadAccount();toast("✓ Account created / অ্যাকাউন্ট তৈরি হয়েছে","success");captureLocationAfterLogin();if(pendingCheckout){pendingCheckout=false;closeModal("accountModal");setTimeout(openCheckout,250)}}catch(e){toast(e.message,"error")}
+  try{const d=await api("/api/account/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:$("regName").value.trim(),phone:$("regPhone").value.trim(),password:$("regPassword").value})});userToken=d.token;localStorage.setItem("kb7_user_token",userToken);await loadAccount();toast("✓ Account created / অ্যাকাউন্ট তৈরি হয়েছে","success");if(pendingCheckout){pendingCheckout=false;closeModal("accountModal");setTimeout(openCheckout,250)}}catch(e){toast(e.message,"error")}
 }
-const STATUS_BN={"Pending":"Pending / অপেক্ষমান","Unverified":"Unverified / যাচাই হয়নি","OTP Verified":"OTP Verified / OTP যাচাই হয়েছে","Confirmed":"Confirmed / নিশ্চিত","Packed":"Packed / প্যাক করা হয়েছে","Shipped":"Shipped / পাঠানো হয়েছে","Delivered":"Delivered / ডেলিভারি সম্পন্ন","Cancelled":"Cancelled / বাতিল"};
+const STATUS_BN={"Pending":"Pending / অর্ডার গ্রহণ করা হয়েছে","Unverified":"Pending / অর্ডার গ্রহণ করা হয়েছে","OTP Verified":"Pending / অর্ডার গ্রহণ করা হয়েছে","Confirmed":"Confirmed / নিশ্চিত","Packed":"Packed / প্যাক করা হয়েছে","Shipped":"Shipped / পাঠানো হয়েছে","Delivered":"Delivered / ডেলিভারি সম্পন্ন","Cancelled":"Cancelled / বাতিল"};
 function statusBi(s){return STATUS_BN[s]||s||"Pending / অপেক্ষমান"}
 async function loadAccount(){
   const d=await api("/api/account/me",{headers:uHeaders()});
   $("accountGuest").classList.add("hide");$("accountLogged").classList.remove("hide");
   $("profileName").value=d.user.name;$("profilePhone").value=d.user.phone;
   $("profileDistrict").value=d.user.district||"";$("profileUpazila").value=d.user.upazila||"";$("profileAddress").value=d.user.address||"";
-  $("profileLocationState").textContent=d.user.location?"Location saved with permission / অনুমতি নিয়ে লোকেশন সংরক্ষিত":"Location not saved / লোকেশন সংরক্ষিত নয়";
   wishlist=d.user.wishlist||wishlist;saveLocal();
   $("myOrders").innerHTML=d.orders.length?d.orders.map(o=>`<div class="orderCard"><b>${esc(o.id)}</b> <span class="status">${esc(statusBi(o.status))}</span><br><small>${new Date(o.createdAt).toLocaleString()} • ৳${o.total}</small>${journeyHtml(o.status)}</div>`).join(""):`<div style="color:#777">No orders yet / এখনো কোনো অর্ডার নেই।</div>`;
   $("accountWishlist").innerHTML=wishlist.length?wishlist.map(id=>{let p=products.find(x=>Number(x.id)===Number(id));return p?`<div class="orderCard"><b>${esc(p.name)}</b><br><small>৳${p.price}</small></div>`:""}).join(""):`<div style="color:#777">Wishlist is empty.</div>`
@@ -1168,7 +1203,7 @@ async function saveProfile(){
 }
 
 async function accountLogout(){try{await api("/api/account/logout",{method:"POST",headers:uHeaders()})}catch{}userToken="";localStorage.removeItem("kb7_user_token");showAccountGuest();toast("Logged out")}
-async function prefillAccount(){const d=await api("/api/account/me",{headers:uHeaders()});$("cName").value=d.user.name||"";$("cPhone").value=d.user.phone||"";$("cDistrict").value=d.user.district||"";$("cUpazila").value=d.user.upazila||"";$("cAddress").value=d.user.address||"";onDistrictChange();$("checkoutLocationNote").textContent=d.user.location?"Permission-based location saved and will be attached to the order / অনুমোদিত লোকেশন অর্ডারের সঙ্গে থাকবে":"Location not saved. Address is still required / লোকেশন নেই, পূর্ণ ঠিকানা অবশ্যই দিন"}
+async function prefillAccount(){const d=await api("/api/account/me",{headers:uHeaders()});$("cName").value=d.user.name||"";$("cPhone").value=d.user.phone||"";$("cDistrict").value=d.user.district||"";$("cUpazila").value=d.user.upazila||"";$("cAddress").value=d.user.address||"";onDistrictChange()}
 
 /* ADMIN */
 let taps=0,tapTimer;$("secretBrand").addEventListener("click",()=>{taps++;clearTimeout(tapTimer);if(taps>=5){taps=0;adminEnter()}else tapTimer=setTimeout(()=>taps=0,2200)});
@@ -1202,11 +1237,15 @@ function useAmazonProduct(){
   const btn=[...document.querySelectorAll(".adminTab")].find(x=>x.textContent.trim()==="Products");adminTab("products",btn);toast("Amazon preview loaded. Set cost, selling price and stock.")
 }
 
-async function loadAdmin(){const [dash,pro,ord,cus,st]=await Promise.all([api("/api/admin/dashboard",{headers:aHeaders()}),api("/api/admin/products",{headers:aHeaders()}),api("/api/admin/orders",{headers:aHeaders()}),api("/api/admin/customers",{headers:aHeaders()}),api("/api/admin/settings",{headers:aHeaders()})]);adminProducts=pro.products||[];adminOrdersCache=ord.orders||[];settings=st.settings||settings;adminCoupons=settings.coupons||[];$("stProducts").textContent=dash.stats.products;$("stOrders").textContent=dash.stats.orders;$("stCustomers").textContent=dash.stats.customers;$("stRevenue").textContent=`৳${dash.stats.revenue}`;$("stLow").textContent=dash.stats.lowStock;$("stUnverified").textContent=dash.stats.unverified||0;$("stHighRisk").textContent=dash.stats.highRisk||0;renderAdminProducts();renderAdminOrders(adminOrdersCache);renderAdminCustomers(cus.customers||[])}
+async function loadAdmin(){const [dash,pro,ord,cus,st]=await Promise.all([api("/api/admin/dashboard",{headers:aHeaders()}),api("/api/admin/products",{headers:aHeaders()}),api("/api/admin/orders",{headers:aHeaders()}),api("/api/admin/customers",{headers:aHeaders()}),api("/api/admin/settings",{headers:aHeaders()})]);adminProducts=pro.products||[];adminOrdersCache=ord.orders||[];settings=st.settings||settings;adminCoupons=settings.coupons||[];$("stProducts").textContent=dash.stats.products;$("stOrders").textContent=dash.stats.orders;$("stCustomers").textContent=dash.stats.customers;$("stRevenue").textContent=`৳${dash.stats.revenue}`;$("stLow").textContent=dash.stats.lowStock;$("stUnverified").textContent=dash.stats.pending??dash.stats.unverified??0;$("stHighRisk").textContent=dash.stats.highRisk||0;renderAdminProducts();renderAdminOrders(adminOrdersCache);renderAdminCustomers(cus.customers||[])}
 function renderAdminProducts(){$("adminProducts").innerHTML=adminProducts.map(p=>`<div class="adminItem"><img src="${esc(p.images?.[0]||"")}"><div><b>${esc(p.name)}</b><small>Sell ৳${p.price} • Cost ৳${p.costPrice||0} • Stock ${p.stock}<br>${esc(p.sourceWebsite||"")} ${p.sourcePrice?`• Source ${esc(p.sourceCurrency||"")} ${p.sourcePrice}`:""} ${p.featured?"• Featured":""}</small></div><div class="aBtns"><button class="edit" onclick="editProduct(${p.id})">Edit</button><button class="del" onclick="deleteProduct(${p.id})">Delete</button></div></div>`).join("")}
-function renderAdminOrders(list){const ss=["Unverified","OTP Verified","Confirmed","Packed","Shipped","Delivered","Cancelled","Pending"];$("adminOrders").innerHTML=list.length?list.map(o=>{const r=o.riskLevel||"Low",verify=o.codVerified?"OTP Verified":(o.manualVerified?"Admin Call Verified":"Needs Verification");return `<div class="adminOrderCard"><div class="adminOrderTop"><div><b>${esc(o.id)}</b><span class="riskBadge risk-${esc(r)}">${esc(r)} Risk</span><div class="adminOrderMeta">${esc(o.name)} • <a href="tel:${esc(o.phone)}" style="color:#c9d2df">${esc(o.phone)}</a> • ৳${o.total}<br>${esc(o.address||"")}${o.orderNote?`<br>Note / নোট: ${esc(o.orderNote)}`:""}<br>Payment / পেমেন্ট: ${esc(o.payment||"")} • ${esc(verify)}${o.riskReasons?.length?`<br>Risk: ${esc(o.riskReasons.join(", "))}`:""}</div></div><span class="status">${esc(statusBi(o.status))}</span></div><div class="adminOrderActions"><a href="tel:${esc(o.phone)}">Call / কল করুন</a>${o.location?`<a href="https://www.google.com/maps?q=${encodeURIComponent(o.location.latitude+","+o.location.longitude)}" target="_blank" rel="noopener">Map / ম্যাপ</a>`:""}${(o.status==="Unverified"||o.status==="OTP Verified")?`<button class="confirm" onclick="orderStatus('${esc(o.id)}','Confirmed')">Confirm / নিশ্চিত করুন</button>`:""}${o.status!=="Cancelled"&&o.status!=="Delivered"?`<button class="cancel" onclick="orderStatus('${esc(o.id)}','Cancelled')">Cancel / বাতিল</button>`:""}<select onchange="orderStatus('${esc(o.id)}',this.value)" style="background:#0f1117;color:#fff;border:1px solid #30343e;border-radius:8px;padding:7px">${ss.map(s=>`<option value="${s}" ${s===o.status?"selected":""}>${statusBi(s)}</option>`).join("")}</select></div></div>`}).join(""):`No orders / কোনো অর্ডার নেই`}
-function filterAdminOrders(){const q=($("orderSearch")?.value||"").trim().toLowerCase(),st=$("orderFilter")?.value||"";const list=adminOrdersCache.filter(o=>(!st||o.status===st)&&(!q||`${o.id} ${o.name} ${o.phone}`.toLowerCase().includes(q)));renderAdminOrders(list)}
-function renderAdminCustomers(list){$("adminCustomers").innerHTML=list.length?list.map(c=>`<div style="padding:10px 0;border-bottom:1px solid #292d36"><b>${esc(c.name)}</b><div style="font-size:9px;color:#8992a2">${esc(c.phone)} • Orders ${c.orderCount||1}<br>${esc(c.address||"")}</div></div>`).join(""):`No customers`}
+function renderAdminOrders(list){
+  const ss=["Pending","Confirmed","Packed","Shipped","Delivered","Cancelled"];
+  $("adminOrders").innerHTML=list.length?list.map(o=>{
+    const r=o.riskLevel||"Low";
+    return `<div class="adminOrderCard"><div class="adminOrderTop"><div><b>${esc(o.id)}</b><span class="riskBadge risk-${esc(r)}">${esc(r)} Risk</span><div class="adminOrderMeta">${esc(o.name)} • <a href="tel:${esc(o.phone)}" style="color:#c9d2df">${esc(o.phone)}</a> • ৳${o.total}<br>${esc(o.address||"")}${o.orderNote?`<br>Note / নোট: ${esc(o.orderNote)}`:""}<br>Payment / পেমেন্ট: ${esc(o.payment||"")}</div></div><span class="status">${esc(statusBi(o.status))}</span></div><div class="adminOrderActions"><a href="tel:${esc(o.phone)}">Call / কল করুন</a>${(o.status==="Pending"||o.status==="Unverified"||o.status==="OTP Verified")?`<button class="confirm" onclick="orderStatus('${esc(o.id)}','Confirmed')">Confirm / নিশ্চিত করুন</button>`:""}${o.status!=="Cancelled"&&o.status!=="Delivered"?`<button class="cancel" onclick="orderStatus('${esc(o.id)}','Cancelled')">Cancel / বাতিল</button>`:""}<select onchange="orderStatus('${esc(o.id)}',this.value)" style="background:#0f1117;color:#fff;border:1px solid #30343e;border-radius:8px;padding:7px">${ss.map(s=>`<option value="${s}" ${s===o.status?"selected":""}>${statusBi(s)}</option>`).join("")}</select></div></div>`
+  }).join(""):`No orders / কোনো অর্ডার নেই`
+}
 async function orderStatus(id,status){try{await api(`/api/admin/orders/${encodeURIComponent(id)}`,{method:"PATCH",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({status})});toast("Order updated / অর্ডার আপডেট হয়েছে");await loadAdmin()}catch(e){toast(e.message)}}
 async function uploadAdminImages(e){const files=[...e.target.files].slice(0,6);if(!files.length)return;const fd=new FormData();files.forEach(f=>fd.append("images",f));try{const d=await api("/api/admin/upload",{method:"POST",headers:aHeaders(),body:fd});adminImages=[...adminImages,...d.urls].slice(0,6);renderPreviews();toast("Images uploaded")}catch(er){toast(er.message)}e.target.value=""}
 function renderPreviews(){$("aPreviews").innerHTML=adminImages.map((u,i)=>`<div class="preview"><img src="${esc(u)}"><button onclick="adminImages.splice(${i},1);renderPreviews()">×</button></div>`).join("")}
