@@ -389,93 +389,100 @@ header{background:rgba(251,250,248,.88);border-bottom:1px solid rgba(17,19,24,.0
 .locationNote{grid-column:1/-1;font-size:8px;color:#77808c;background:#f7f8fa;border-radius:9px;padding:8px}
 @media(max-width:760px){.funDeck{grid-template-columns:1fr}.mascot{display:none}.amazonPanel{grid-template-columns:1fr}.amazonProduct{grid-template-columns:92px 1fr}.amazonProduct>img{width:92px;height:92px}.giftResults{grid-template-columns:repeat(2,1fr)}}
 
+
+/* ===== V14 HOME WELCOME HERO ===== */
+.homeWelcomeHero{
+  max-width:1200px;margin:16px auto 0;padding:0 14px;
+}
+.homeWelcomeStage{
+  position:relative;overflow:hidden;min-height:520px;
+  display:grid;grid-template-columns:.86fr 1.3fr .86fr;align-items:end;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(255,126,78,.18),transparent 30%),
+    radial-gradient(circle at 13% 86%,rgba(255,255,255,.08),transparent 28%),
+    linear-gradient(145deg,#0b0d11,#151923 58%,#0a0c10);
+  border:1px solid #ffffff12;
+  box-shadow:0 28px 80px rgba(11,15,22,.20);
+  isolation:isolate;
+}
+.homeWelcomeStage:before{
+  content:"";position:absolute;inset:-30% -20%;z-index:-1;
+  background:linear-gradient(110deg,transparent 39%,rgba(255,145,98,.10) 48%,rgba(255,255,255,.04) 52%,transparent 61%);
+  transform:translateX(-40%);animation:homeHeroBeam 9s ease-in-out infinite;
+}
+.homeWelcomeStage:after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.20;
+  background:repeating-linear-gradient(105deg,transparent 0 94px,rgba(255,255,255,.014) 95px 96px);
+}
+.homeWelcomeModel{
+  position:relative;height:480px;z-index:1;overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.homeWelcomeModel svg{
+  width:100%;height:96%;filter:drop-shadow(0 28px 38px rgba(0,0,0,.30));
+  transform:translateY(12px);opacity:0;
+}
+.homeWelcomeModel.boy svg{animation:homeBoyIn .9s .12s cubic-bezier(.16,.85,.26,1) forwards}
+.homeWelcomeModel.girl svg{animation:homeGirlIn .9s .22s cubic-bezier(.16,.85,.26,1) forwards}
+.homeWelcomeText{
+  position:relative;z-index:4;align-self:center;text-align:center;color:#fff;padding:44px 6px 50px;
+  opacity:0;transform:translateY(18px);animation:homeTextIn .85s .35s cubic-bezier(.16,.85,.26,1) forwards;
+}
+.homeWelcomeKicker{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;
+  border:1px solid #ffffff20;background:#ffffff0c;color:#d8dde5;
+  font-size:8px;font-weight:950;letter-spacing:1.6px;backdrop-filter:blur(12px);
+}
+.homeWelcomeKicker i{width:6px;height:6px;background:#ff7447;border-radius:50%;box-shadow:0 0 18px #ff7447}
+.homeWelcomeText h1{
+  margin:18px auto 10px;max-width:620px;
+  font-size:clamp(34px,4.7vw,62px);line-height:1.05;letter-spacing:-2px;font-weight:1000;
+}
+.homeWelcomeText h1 span{color:#ff7d50}
+.homeWelcomeTagline{
+  margin:0 auto;color:#f1f3f6!important;font-size:clamp(17px,2vw,23px)!important;
+  line-height:1.55!important;font-weight:850;max-width:620px!important;
+}
+.homeWelcomeSub{
+  max-width:570px;margin:8px auto 0;color:#abb3bf;font-size:10px;line-height:1.75;
+}
+.homeWelcomeBtns{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:21px}
+.homeWelcomeBtns .heroMain{
+  border:0;border-radius:13px;background:linear-gradient(135deg,#ff6d40,#ff8c64);color:#fff;
+  padding:13px 19px;font-weight:950;box-shadow:0 14px 32px rgba(255,103,55,.22)
+}
+.homeWelcomeBtns .heroAlt{
+  border:1px solid #ffffff24;background:#ffffff0b;color:#fff;border-radius:13px;padding:13px 17px;font-weight:900;
+}
+.homeWelcomeTrust{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:19px}
+.homeWelcomeTrust span{font-size:7px;font-weight:850;color:#c0c7d0;border:1px solid #ffffff16;background:#ffffff08;border-radius:999px;padding:7px 9px}
+.homeModelBadge{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  font-size:7px;font-weight:900;letter-spacing:1.4px;color:#d8dde5;
+  background:#080a0eb8;border:1px solid #ffffff16;border-radius:999px;padding:7px 10px;backdrop-filter:blur(12px);
+}
+@keyframes homeHeroBeam{0%,100%{transform:translateX(-48%)}50%{transform:translateX(50%)}}
+@keyframes homeBoyIn{from{opacity:0;transform:translateX(-45px) translateY(18px) scale(.96)}to{opacity:1;transform:translateY(12px)}}
+@keyframes homeGirlIn{from{opacity:0;transform:translateX(45px) translateY(18px) scale(.96)}to{opacity:1;transform:translateY(12px)}}
+@keyframes homeTextIn{to{opacity:1;transform:none}}
+@media(max-width:760px){
+  .homeWelcomeHero{padding:0 8px;margin-top:10px}
+  .homeWelcomeStage{min-height:500px;border-radius:24px;grid-template-columns:1fr;display:block}
+  .homeWelcomeModel{position:absolute;bottom:0;width:43%;height:405px;opacity:.52}
+  .homeWelcomeModel.boy{left:-7%}.homeWelcomeModel.girl{right:-7%}
+  .homeWelcomeText{position:relative;z-index:5;padding:70px 13% 42px;min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .homeWelcomeText h1{font-size:clamp(32px,9vw,43px);text-shadow:0 8px 28px #0008}
+  .homeWelcomeTagline{font-size:18px!important;text-shadow:0 5px 20px #000b}
+  .homeWelcomeSub{font-size:9px;background:#080a0e35;border-radius:12px;padding:5px 8px;backdrop-filter:blur(4px)}
+  .homeWelcomeTrust span:nth-child(3){display:none}
+  .homeModelBadge{display:none}
+}
+
 </style>
 </head>
 <body>
 
-<div class="welcomeGate" id="welcomeGate" aria-label="KalaiyaBazar welcome">
-  <div class="welcomeBeam"></div>
-  <div class="welcomeOrb o1"></div><div class="welcomeOrb o2"></div><div class="welcomeOrb o3"></div>
-  <div class="floatingGlyph g1">⌚</div><div class="floatingGlyph g2">◈</div><div class="floatingGlyph g3">◒</div><div class="floatingGlyph g4">✦</div>
-
-  <div class="welcomeTopline">
-    <div class="welcomeMonogram"><i>KB</i><span>KALAIYABAZAR • PREMIUM MARKETPLACE</span></div>
-    <button class="welcomeSkipTop" onclick="closeWelcome()">Skip / এড়িয়ে যান</button>
-  </div>
-
-  <div class="welcomeStage" id="welcomeStage">
-    <div class="welcomeModel boy" aria-label="Premium illustrated male model">
-      <div class="modelLabel">MEN • EDITORIAL</div><div class="modelShine"></div>
-      <svg viewBox="0 0 320 600" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#242b36"/><stop offset="1" stop-color="#0a0d12"/></linearGradient>
-          <linearGradient id="mcoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171b22"/><stop offset=".55" stop-color="#2a303a"/><stop offset="1" stop-color="#101319"/></linearGradient>
-          <linearGradient id="mskin" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#d99b74"/><stop offset="1" stop-color="#9b674d"/></linearGradient>
-          <linearGradient id="maccent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff7b4e"/><stop offset="1" stop-color="#ce4f25"/></linearGradient>
-        </defs>
-        <ellipse cx="160" cy="572" rx="112" ry="24" fill="#000" opacity=".35"/>
-        <path d="M95 585c8-125 12-204 22-286h89c12 81 17 169 21 286z" fill="url(#mcoat)"/>
-        <path d="M117 310c-30 37-41 95-48 157l44 7 31-154z" fill="#202630"/>
-        <path d="M205 310c31 39 41 95 47 159l-44 5-29-156z" fill="#202630"/>
-        <path d="M142 276h39v54h-39z" fill="url(#mskin)"/>
-        <ellipse cx="161" cy="218" rx="55" ry="70" fill="url(#mskin)"/>
-        <path d="M108 215c4-54 29-89 61-87 34 2 54 31 52 78-21-18-40-28-64-31-20 13-34 28-49 40z" fill="#171717"/>
-        <path d="M111 214c1 55 22 80 51 80 29 0 49-24 55-70-13 9-27 13-43 12-22-2-42-10-63-22z" fill="url(#mskin)" opacity=".42"/>
-        <path d="M140 230c7 6 14 8 22 8 8 0 16-2 23-8" fill="none" stroke="#6e4335" stroke-width="4" stroke-linecap="round"/>
-        <path d="M125 195c10-7 20-8 31-3M171 191c11-3 21-1 29 6" fill="none" stroke="#29201d" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="145" cy="207" r="3.5" fill="#171717"/><circle cx="188" cy="207" r="3.5" fill="#171717"/>
-        <path d="M120 315l21-27 20 22 20-22 24 27-16 45h-53z" fill="#f5f4f1"/>
-        <path d="M123 311l22 30 17-31 17 31 24-30 12 55-34 215h-79z" fill="url(#mcoat)"/>
-        <path d="M153 317l9 15 9-15 5 109-14 25-14-25z" fill="url(#maccent)"/>
-        <rect x="91" y="461" width="52" height="23" rx="11" fill="#0b0d11" transform="rotate(-8 91 461)"/>
-        <circle cx="112" cy="472" r="7" fill="#151b22" stroke="#ff7b4e" stroke-width="2"/>
-      </svg>
-    </div>
-
-    <div class="welcomeCenter">
-      <div class="welcomeKicker"><i></i> KALAIYABAZAR.COM • CURATED SHOPPING</div>
-      <div class="welcomeLogoMark">K<span>B</span></div>
-      <h1>কালাইয়া বাজারে <span class="accent">স্বাগতম</span></h1>
-      <p>স্টাইল, প্রযুক্তি ও লাইফস্টাইল—একসাথে। Premium shopping experience, সহজ অর্ডার এবং স্মার্ট পছন্দ।</p>
-      <div class="welcomePills"><span>✓ Secure Checkout</span><span>✓ Cash on Delivery</span><span>✓ WhatsApp Support</span></div>
-      <div class="welcomeActions">
-        <button class="welcomeEnter" onclick="closeWelcome()">Enter Store / প্রবেশ করুন</button>
-        <button class="welcomeSecondary" onclick="closeWelcome();setTimeout(()=>openGiftFinder(),450)">Find a Gift / উপহার খুঁজুন</button>
-      </div>
-      <div class="welcomeProgress"><i></i></div>
-      <div class="welcomeHint">Opening automatically • স্বয়ংক্রিয়ভাবে খুলবে</div>
-    </div>
-
-    <div class="welcomeModel girl" aria-label="Premium illustrated female model">
-      <div class="modelLabel">WOMEN • EDITORIAL</div><div class="modelShine"></div>
-      <svg viewBox="0 0 320 600" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="fcoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2ece8"/><stop offset=".52" stop-color="#cfb8ae"/><stop offset="1" stop-color="#8f7067"/></linearGradient>
-          <linearGradient id="fskin" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#dca27e"/><stop offset="1" stop-color="#a66f55"/></linearGradient>
-          <linearGradient id="faccent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff8a62"/><stop offset="1" stop-color="#d6542f"/></linearGradient>
-        </defs>
-        <ellipse cx="160" cy="572" rx="112" ry="24" fill="#000" opacity=".32"/>
-        <path d="M93 585c8-121 19-205 32-284h73c18 81 26 168 30 284z" fill="url(#fcoat)"/>
-        <path d="M129 281h55v50h-55z" fill="url(#fskin)"/>
-        <ellipse cx="159" cy="214" rx="53" ry="69" fill="url(#fskin)"/>
-        <path d="M109 222c-9-53 10-103 51-105 43-2 70 42 60 105-9-15-24-30-43-43-24 23-45 36-68 43z" fill="#241b1b"/>
-        <path d="M112 207c-8 41 3 89 19 119-31-13-42-47-38-83 4-42 15-65 39-86-13 20-20 34-20 50z" fill="#2c2020"/>
-        <path d="M208 207c9 44-1 91-18 121 30-11 43-44 40-82-3-42-16-70-38-88 11 19 16 31 16 49z" fill="#2c2020"/>
-        <path d="M123 194c9-6 19-7 29-3M170 191c11-2 20 0 28 7" fill="none" stroke="#3f2a25" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="143" cy="207" r="3.5" fill="#191515"/><circle cx="188" cy="207" r="3.5" fill="#191515"/>
-        <path d="M143 239c11 7 23 7 34 0" fill="none" stroke="#8e4e4b" stroke-width="4" stroke-linecap="round"/>
-        <path d="M126 310l30-23 30 23 22 59-27 210h-61l-14-208z" fill="url(#fcoat)"/>
-        <path d="M150 311l8 13 10-13 18 125-25 45-23-45z" fill="url(#faccent)" opacity=".92"/>
-        <path d="M113 328c-26 39-37 89-42 145l43 8 30-154z" fill="#b3958c"/>
-        <path d="M201 327c28 42 38 92 42 148l-43 6-26-154z" fill="#b3958c"/>
-        <path d="M203 450c27 0 45 17 45 42v48h-92v-48c0-25 19-42 47-42z" fill="#191b20"/>
-        <rect x="164" y="444" width="78" height="74" rx="16" fill="#181a1f"/>
-        <path d="M179 451c3-23 17-35 27-35 11 0 25 12 28 35" fill="none" stroke="#ff8a62" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="204" cy="480" r="5" fill="#ff8a62"/>
-      </svg>
-    </div>
-  </div>
-</div>
 
 <svg style="display:none">
 <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
@@ -521,31 +528,77 @@ header{background:rgba(251,250,248,.88);border-bottom:1px solid rgba(17,19,24,.0
   <div class="suggest hide" id="suggestions"></div>
 </div>
 
-<section class="heroWrap">
-  <div class="hero">
-    <div class="heroCopy">
-      <span class="eyebrow"><i></i> KALAIYABAZAR • PREMIUM MARKETPLACE</span>
-      <h1 id="heroTitle">Shop better.<br>Live smarter.</h1>
-      <p id="heroBangla">ফ্যাশন, টেক, বিউটি ও লাইফস্টাইল—আপনার দৈনন্দিন প্রয়োজনকে আরও premium, সহজ এবং সুন্দরভাবে সাজানো হয়েছে।</p>
-      <div class="heroBtns">
-        <button class="primary" id="heroButton" onclick="goProducts()">Shop Now</button>
-        <button class="ghost" onclick="setCategory('Fashion')">Explore Fashion</button>
+<section class="homeWelcomeHero">
+  <div class="homeWelcomeStage">
+
+    <div class="homeWelcomeModel boy" aria-label="Premium illustrated boy">
+      <svg viewBox="0 0 320 600" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="v14mskin" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#d99b74"/><stop offset="1" stop-color="#9b674d"/></linearGradient>
+          <linearGradient id="v14mcoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171b22"/><stop offset=".55" stop-color="#2a303a"/><stop offset="1" stop-color="#101319"/></linearGradient>
+          <linearGradient id="v14maccent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff7b4e"/><stop offset="1" stop-color="#ce4f25"/></linearGradient>
+        </defs>
+        <ellipse cx="160" cy="572" rx="112" ry="24" fill="#000" opacity=".35"/>
+        <path d="M95 585c8-125 12-204 22-286h89c12 81 17 169 21 286z" fill="url(#v14mcoat)"/>
+        <path d="M117 310c-30 37-41 95-48 157l44 7 31-154z" fill="#202630"/>
+        <path d="M205 310c31 39 41 95 47 159l-44 5-29-156z" fill="#202630"/>
+        <path d="M142 276h39v54h-39z" fill="url(#v14mskin)"/>
+        <ellipse cx="161" cy="218" rx="55" ry="70" fill="url(#v14mskin)"/>
+        <path d="M108 215c4-54 29-89 61-87 34 2 54 31 52 78-21-18-40-28-64-31-20 13-34 28-49 40z" fill="#171717"/>
+        <path d="M140 230c7 6 14 8 22 8 8 0 16-2 23-8" fill="none" stroke="#6e4335" stroke-width="4" stroke-linecap="round"/>
+        <path d="M125 195c10-7 20-8 31-3M171 191c11-3 21-1 29 6" fill="none" stroke="#29201d" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="145" cy="207" r="3.5" fill="#171717"/><circle cx="188" cy="207" r="3.5" fill="#171717"/>
+        <path d="M120 315l21-27 20 22 20-22 24 27-16 45h-53z" fill="#f5f4f1"/>
+        <path d="M123 311l22 30 17-31 17 31 24-30 12 55-34 215h-79z" fill="url(#v14mcoat)"/>
+        <path d="M153 317l9 15 9-15 5 109-14 25-14-25z" fill="url(#v14maccent)"/>
+      </svg>
+      <div class="homeModelBadge">MEN • PREMIUM STYLE</div>
+    </div>
+
+    <div class="homeWelcomeText">
+      <div class="homeWelcomeKicker"><i></i> KALAIYABAZAR.COM</div>
+      <h1 id="heroTitle">কালাইয়া বাজারে <span>স্বাগতম</span></h1>
+      <p class="homeWelcomeTagline" id="heroBangla">বাজারে চলুন — পছন্দের কেনাকাটা শুরু হোক এখান থেকেই।</p>
+      <div class="homeWelcomeSub">Fashion, Electronics, Beauty & Lifestyle — আপনার প্রয়োজনীয় এবং পছন্দের পণ্য এক জায়গায়।</div>
+      <div class="homeWelcomeBtns">
+        <button class="heroMain" id="heroButton" onclick="goProducts()">Shop Now / শপিং করুন</button>
+        <button class="heroAlt" onclick="document.getElementById('categoryFilter')?.scrollIntoView({behavior:'smooth',block:'center'})">Explore Categories / ক্যাটাগরি দেখুন</button>
       </div>
-      <div class="heroMeta">
-        <div><b>Secure Checkout</b><small>ORDER WITH CONFIDENCE</small></div>
-        <div><b>COD Available</b><small>PAY ON DELIVERY</small></div>
-        <div><b>Mobile First</b><small>FAST APP-LIKE EXPERIENCE</small></div>
+      <div class="homeWelcomeTrust">
+        <span>✓ Secure Order</span>
+        <span>✓ Cash on Delivery</span>
+        <span>✓ WhatsApp: 01604540726</span>
       </div>
     </div>
-    <div class="heroVisual">
-      <span class="v8HeroTag">THE SIGNATURE EDIT</span>
-      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=88" alt="KalaiyaBazar premium shopping">
-      <div class="floatCard">
-        <small>CURATED FOR YOU</small>
-        <b>Modern Everyday Picks</b>
-        <p>নিত্যপ্রয়োজন, style এবং smart tech—একটি clean shopping experience-এ।</p>
-      </div>
+
+    <div class="homeWelcomeModel girl" aria-label="Premium illustrated girl">
+      <svg viewBox="0 0 320 600" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="v14fcoat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2ece8"/><stop offset=".52" stop-color="#cfb8ae"/><stop offset="1" stop-color="#8f7067"/></linearGradient>
+          <linearGradient id="v14fskin" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#dca27e"/><stop offset="1" stop-color="#a66f55"/></linearGradient>
+          <linearGradient id="v14faccent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff8a62"/><stop offset="1" stop-color="#d6542f"/></linearGradient>
+        </defs>
+        <ellipse cx="160" cy="572" rx="112" ry="24" fill="#000" opacity=".32"/>
+        <path d="M93 585c8-121 19-205 32-284h73c18 81 26 168 30 284z" fill="url(#v14fcoat)"/>
+        <path d="M129 281h55v50h-55z" fill="url(#v14fskin)"/>
+        <ellipse cx="159" cy="214" rx="53" ry="69" fill="url(#v14fskin)"/>
+        <path d="M109 222c-9-53 10-103 51-105 43-2 70 42 60 105-9-15-24-30-43-43-24 23-45 36-68 43z" fill="#241b1b"/>
+        <path d="M112 207c-8 41 3 89 19 119-31-13-42-47-38-83 4-42 15-65 39-86-13 20-20 34-20 50z" fill="#2c2020"/>
+        <path d="M208 207c9 44-1 91-18 121 30-11 43-44 40-82-3-42-16-70-38-88 11 19 16 31 16 49z" fill="#2c2020"/>
+        <path d="M123 194c9-6 19-7 29-3M170 191c11-2 20 0 28 7" fill="none" stroke="#3f2a25" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="143" cy="207" r="3.5" fill="#191515"/><circle cx="188" cy="207" r="3.5" fill="#191515"/>
+        <path d="M143 239c11 7 23 7 34 0" fill="none" stroke="#8e4e4b" stroke-width="4" stroke-linecap="round"/>
+        <path d="M126 310l30-23 30 23 22 59-27 210h-61l-14-208z" fill="url(#v14fcoat)"/>
+        <path d="M150 311l8 13 10-13 18 125-25 45-23-45z" fill="url(#v14faccent)" opacity=".92"/>
+        <path d="M113 328c-26 39-37 89-42 145l43 8 30-154z" fill="#b3958c"/>
+        <path d="M201 327c28 42 38 92 42 148l-43 6-26-154z" fill="#b3958c"/>
+        <rect x="164" y="444" width="78" height="74" rx="16" fill="#181a1f"/>
+        <path d="M179 451c3-23 17-35 27-35 11 0 25 12 28 35" fill="none" stroke="#ff8a62" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="204" cy="480" r="5" fill="#ff8a62"/>
+      </svg>
+      <div class="homeModelBadge">WOMEN • PREMIUM STYLE</div>
     </div>
+
   </div>
 </section>
 
@@ -892,7 +945,7 @@ function captureLocationAfterLogin(){
   },()=>{}, {enableHighAccuracy:false,timeout:8000,maximumAge:300000}),350);
 }
 
-async function loadSettings(){try{const d=await api("/api/settings");settings=d.settings||{};$("announcement").textContent=settings.announcement||"";$("domainText").textContent=(settings.domain||"kalaiyabazar.com").toUpperCase();$("heroTitle").innerHTML=esc(settings.heroTitle||"Shop better. Live smarter.").replace(". ",".<br>");$("heroBangla").textContent=settings.heroBangla||"";$("heroButton").textContent=settings.heroButton||"Shop Collection"}catch{}}
+async function loadSettings(){try{const d=await api("/api/settings");settings=d.settings||{};$("announcement").textContent=settings.announcement||"";$("domainText").textContent=(settings.domain||"kalaiyabazar.com").toUpperCase();$("heroTitle").innerHTML='কালাইয়া বাজারে <span>স্বাগতম</span>';$("heroBangla").textContent="বাজারে চলুন — পছন্দের কেনাকাটা শুরু হোক এখান থেকেই।";$("heroButton").textContent="Shop Now / শপিং করুন"}catch{}}
 async function loadProducts(){const d=await api("/api/products");products=d.products||[];renderProducts();renderRail();updateFunFeatures()}
 function renderCategories(){const cats=["All","Fashion","Electronics","Beauty","Lifestyle"];$("categoryChips").innerHTML=cats.map(c=>`<button class="chip ${$("categoryFilter").value===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`).join("")}
 function setCategory(c){$("categoryFilter").value=c;renderCategories();renderProducts();goProducts()}
@@ -1053,7 +1106,7 @@ function addCoupon(){const c={code:$("cpCode").value.trim().toUpperCase(),type:$
 async function changeAdminPin(){try{await api("/api/admin/change-pin",{method:"PUT",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({currentPin:$("pinCurrent").value,newPin:$("pinNew").value})});$("pinCurrent").value="";$("pinNew").value="";toast("Admin PIN changed")}catch(e){toast(e.message)}}
 
 /* INIT */
-populateDistricts();setSmartGreeting();initWelcome();renderCategories();updateCounts();loadSettings();loadProducts();
+populateDistricts();setSmartGreeting();renderCategories();updateCounts();loadSettings();loadProducts();
 </script>
 </body>
 </html>
