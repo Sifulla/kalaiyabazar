@@ -1,648 +1,1280 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0d11">
+<title>KalaiyaBazar — Premium Marketplace</title>
+<style>
+:root{--brand:#ef5a29;--ink:#111318;--muted:#717986;--bg:#f5f6f7;--card:#fff;--line:#e7e9ed;--good:#16865a;--bad:#d9434a;--dark:#0e1015;--dark2:#171a22;--shadow:0 18px 55px rgba(16,18,22,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,"Noto Sans Bengali",sans-serif;padding-bottom:72px}button,input,select,textarea{font:inherit}button{cursor:pointer}img{display:block;width:100%}.hide{display:none!important}.lock{overflow:hidden}
+.top{background:#101216;color:#fff;text-align:center;padding:7px 12px;font-size:10px;transition:.2s}
+header{position:sticky;top:0;z-index:100;background:#fffffff0;backdrop-filter:blur(18px);border-bottom:1px solid #e9eaed}.head{max-width:1200px;margin:auto;padding:10px 14px;display:flex;align-items:center;gap:9px}.brand{flex:1;cursor:pointer;user-select:none}.logo{font-weight:950;font-size:24px;letter-spacing:-1px}.logo span{color:var(--brand)}.domain{font-size:8px;color:#969da7;letter-spacing:.8px;margin-top:3px}.iconBtn{width:42px;height:42px;border:0;border-radius:13px;background:#f1f2f4;display:grid;place-items:center;position:relative}.count{position:absolute;top:-5px;right:-3px;background:var(--brand);color:#fff;min-width:18px;height:18px;border-radius:20px;font-size:9px;font-weight:900;display:grid;place-items:center}.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.searchWrap{max-width:1200px;margin:11px auto 0;padding:0 14px;position:relative}.search{height:50px;border:1px solid var(--line);background:#fff;border-radius:15px;display:flex;align-items:center;gap:9px;padding:0 13px}.search input{flex:1;border:0;outline:0;background:none}.suggest{position:absolute;z-index:95;left:14px;right:14px;top:54px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}.suggest button{width:100%;border:0;background:#fff;padding:12px;text-align:left;border-bottom:1px solid #f0f1f2}
+.heroWrap{max-width:1200px;margin:16px auto;padding:0 14px}.hero{min-height:475px;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1.02fr .98fr;background:radial-gradient(circle at 78% 13%,#ef5a2940,transparent 25%),linear-gradient(135deg,#111318,#252a33);color:#fff;box-shadow:0 28px 90px #1113}.heroCopy{padding:54px;display:flex;flex-direction:column;justify-content:center}.eyebrow{display:inline-flex;align-items:center;gap:7px;width:max-content;padding:8px 11px;border:1px solid #ffffff22;border-radius:30px;background:#ffffff0d;font-size:9px;letter-spacing:1.1px}.eyebrow i{width:7px;height:7px;background:var(--brand);border-radius:50%}.hero h1{font-size:58px;line-height:.98;letter-spacing:-2.8px;margin:18px 0 15px}.hero p{color:#d8dce2;line-height:1.8;font-size:14px;margin:0 0 23px;max-width:560px}.heroBtns{display:flex;gap:8px;flex-wrap:wrap}.primary{border:0;border-radius:12px;background:var(--brand);color:#fff;padding:13px 18px;font-weight:900}.ghost{border:1px solid #ffffff26;background:#ffffff0d;color:#fff;border-radius:12px;padding:13px 18px;font-weight:900}.heroMeta{display:flex;gap:20px;margin-top:28px;padding-top:21px;border-top:1px solid #ffffff14}.heroMeta b{display:block;font-size:18px}.heroMeta small{font-size:8px;color:#aeb4bd}.heroVisual{position:relative;min-height:475px}.heroVisual:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#111318,transparent 22%);z-index:2}.heroVisual img{height:100%;object-fit:cover;position:absolute;inset:0}.floatCard{position:absolute;right:22px;bottom:22px;z-index:3;width:205px;background:#fffffff2;color:#111;border-radius:17px;padding:14px;backdrop-filter:blur(15px)}.floatCard small{font-size:8px;color:#868d98;letter-spacing:1px}.floatCard b{display:block;font-size:17px;margin:5px 0}.floatCard p{margin:0;color:#6d7480;font-size:9px;line-height:1.5}
+.shell{max-width:1200px;margin:auto;padding:20px 14px}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.sectionHead h2{margin:0;font-size:25px;letter-spacing:-.7px}.sectionHead p{margin:4px 0 0;color:var(--muted);font-size:10px}.trust{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:10px}.trustLead,.trustCard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px}.trustLead h3{margin:0 0 6px;font-size:18px}.trustLead p{margin:0;color:var(--muted);font-size:10px;line-height:1.7}.trustCard{display:flex;gap:9px}.trustNo{width:32px;height:32px;border-radius:10px;background:#fff0ea;color:var(--brand);display:grid;place-items:center;font-weight:950;font-size:10px;flex:none}.trustCard b{font-size:11px}.trustCard small{display:block;color:var(--muted);font-size:9px;margin-top:4px;line-height:1.5}
+.categoryGrid{display:grid;grid-template-columns:1.25fr .75fr .75fr;grid-template-rows:210px 170px;gap:10px}.catTile{position:relative;border-radius:22px;overflow:hidden;cursor:pointer}.catTile.large{grid-row:1/3}.catTile.wide{grid-column:2/4}.catTile img{height:100%;object-fit:cover;transition:.5s}.catTile:hover img{transform:scale(1.05)}.catTile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#000c)}.catCap{position:absolute;left:17px;bottom:15px;z-index:2;color:#fff}.catCap small{font-size:8px;letter-spacing:1.1px}.catCap h3{font-size:23px;margin:4px 0 0}
+.chips{display:flex;gap:8px;overflow:auto;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:30px;padding:10px 14px;font-weight:800;color:#525965;font-size:10px}.chip.active{background:#15171b;color:#fff;border-color:#15171b}
+.filters{display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:8px;margin-bottom:13px}.filters select,.filters button{border:1px solid var(--line);border-radius:11px;background:#fff;padding:11px}.filters button{background:#15171b;color:#fff;font-weight:850}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product{background:#fff;border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:.25s}.product:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.photo{aspect-ratio:1/1;overflow:hidden;position:relative;background:#eee}.photo img{height:100%;object-fit:cover;transition:.35s}.photo .second{position:absolute;inset:0;opacity:0}.product:hover .photo .second{opacity:1}.product:hover .photo .first{opacity:0}.badge{position:absolute;left:9px;top:9px;background:#111;color:#fff;border-radius:7px;padding:6px 8px;font-size:8px;font-weight:950}.heart{position:absolute;right:8px;top:8px;width:35px;height:35px;border:0;border-radius:50%;background:#fffffff0;display:grid;place-items:center}.heart.on{background:#111;color:#fff}.quick{position:absolute;left:50%;bottom:9px;transform:translate(-50%,10px);opacity:0;border:0;background:#fff;color:#111;border-radius:9px;padding:8px 12px;font-size:9px;font-weight:900;transition:.2s;white-space:nowrap}.product:hover .quick{opacity:1;transform:translate(-50%,0)}.pBody{padding:12px}.cat{font-size:8px;color:#9aa1ab;text-transform:uppercase;letter-spacing:.7px}.pName{font-size:12px;font-weight:850;line-height:1.4;margin:6px 0;min-height:34px}.stars{font-size:10px;color:#ed9d1c}.stars span{color:#999}.priceRow{display:flex;gap:7px;align-items:center;margin:8px 0}.price{font-size:18px;font-weight:950;color:var(--brand)}.old{text-decoration:line-through;color:#aab0b8;font-size:10px}.stock{font-size:9px;color:var(--good);margin-bottom:9px}.actions{display:flex;gap:6px}.smallBtn{width:43px;height:43px;border:1px solid var(--line);border-radius:11px;background:#fff;display:grid;place-items:center}.orderBtn{flex:1;border:0;border-radius:11px;background:#15171b;color:#fff;font-weight:900;font-size:10px}
+.rail{display:flex;gap:11px;overflow:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.railCard{min-width:230px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.railCard img{height:225px;object-fit:cover}.railCard div{padding:11px}.railCard b{font-size:11px}.railCard strong{display:block;color:var(--brand);margin-top:6px}
+.lookbook{display:grid;grid-template-columns:1fr 1.1fr;background:#15181e;color:#fff;border-radius:25px;overflow:hidden;min-height:330px}.lookCopy{padding:37px;display:flex;flex-direction:column;justify-content:center}.lookCopy small{font-size:8px;letter-spacing:1.2px;color:#c3c8d0}.lookCopy h2{font-size:34px;line-height:1.08;margin:10px 0 12px}.lookCopy p{font-size:11px;color:#c8cdd4;line-height:1.8}.lookbook img{height:100%;object-fit:cover}
+.overlay{display:none;position:fixed;inset:0;background:#090b0fcc;z-index:200}.overlay.show{display:block}.drawer{position:fixed;z-index:210;top:0;right:-450px;width:min(430px,100%);height:100%;background:#fff;transition:.3s;display:flex;flex-direction:column}.drawer.show{right:0}.drawerHead{padding:17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.close{width:36px;height:36px;border:0;border-radius:50%;background:#f0f1f3}.drawerBody{padding:14px;overflow:auto;flex:1}.drawerFoot{padding:14px;border-top:1px solid var(--line)}.cartItem{display:grid;grid-template-columns:66px 1fr auto;gap:9px;padding:10px 0;border-bottom:1px solid var(--line)}.cartItem img{width:66px;height:66px;border-radius:9px;object-fit:cover}.cartItem h4{font-size:11px;margin:0 0 5px}.qty{display:flex;gap:7px;align-items:center;margin-top:7px}.qty button{width:26px;height:26px;border:1px solid var(--line);background:#fff;border-radius:7px}.remove{border:0;background:none;color:var(--bad)}.sum{display:flex;justify-content:space-between;font-size:11px;margin:7px 0}.sum.total{font-size:18px;font-weight:950;border-top:1px solid var(--line);padding-top:10px}
+.modal{display:none;position:fixed;inset:0;z-index:300;background:#090b0fbd;padding:14px;align-items:center;justify-content:center}.modal.show{display:flex}.modalCard{width:min(900px,100%);max-height:94vh;overflow:auto;background:#fff;border-radius:23px;padding:19px;box-shadow:0 30px 90px #0004}.modalHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.detail{display:grid;grid-template-columns:1.05fr 1fr;gap:20px}.mainImg{aspect-ratio:1/1;border-radius:17px;overflow:hidden;background:#eee}.mainImg img{height:100%;object-fit:cover}.thumbs{display:flex;gap:7px;overflow:auto;margin-top:8px}.thumb{width:60px;height:60px;border:2px solid transparent;border-radius:9px;overflow:hidden;padding:0}.thumb.on{border-color:var(--brand)}.thumb img{height:100%;object-fit:cover}.detail h2{font-size:29px;line-height:1.1;margin:8px 0}.desc{font-size:11px;line-height:1.7;color:#626a75}.info{background:#f7f8f9;padding:12px;border-radius:12px;font-size:10px;line-height:1.7;margin:12px 0}
+.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field.full{grid-column:1/-1}.field label{display:block;font-size:9px;font-weight:850;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;outline:0}.field textarea{min-height:76px;resize:vertical}.checkout{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.summary{background:#f7f8f9;border-radius:14px;padding:14px;height:max-content}
+.adminModal{background:#000d}.adminCard{width:min(1180px,100%);background:var(--dark);color:#f5f7fa;border:1px solid #282c36}.adminTop{display:flex;justify-content:space-between;align-items:center}.adminLogo{font-size:23px;font-weight:950}.adminLogo span{color:#ff784c}.logout{border:1px solid #44312c;background:#211816;color:#ff8b67;border-radius:10px;padding:10px 12px;font-weight:850}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}.stat{background:var(--dark2);border:1px solid #292d36;border-radius:13px;padding:13px}.stat b{font-size:20px}.stat small{display:block;color:#8992a2;margin-top:3px}.adminTabs{display:flex;gap:4px;border-bottom:1px solid #2a2e37;margin:15px 0;overflow:auto}.adminTab{border:0;background:none;color:#8d96a6;padding:11px 12px;white-space:nowrap;font-weight:800}.adminTab.on{color:#fff;border-bottom:2px solid #ff784c}.adminPane{display:none}.adminPane.on{display:block}.adminBox{background:var(--dark2);border:1px solid #292d36;border-radius:14px;padding:14px;margin-top:12px}.adminBox input,.adminBox select,.adminBox textarea{background:#0f1117;border-color:#30343e;color:#fff}.adminBox .field label{color:#a8b0bc}.upload{border:1px dashed #3a404b;border-radius:12px;padding:14px;text-align:center}.upload input{display:none}.uploadLabel{display:inline-flex;align-items:center;gap:7px;background:#242833;border-radius:10px;padding:10px 13px;font-size:10px;font-weight:850}.previews{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:9px}.preview{aspect-ratio:1/1;position:relative;border-radius:8px;overflow:hidden}.preview img{height:100%;object-fit:cover}.preview button{position:absolute;right:3px;top:3px;width:23px;height:23px;border:0;border-radius:50%;background:#000c;color:#fff}.adminItem{display:grid;grid-template-columns:54px 1fr auto;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid #292d36}.adminItem img{width:54px;height:54px;border-radius:8px;object-fit:cover}.adminItem b{font-size:10px}.adminItem small{display:block;color:#8992a2;margin-top:3px}.aBtns button{border:0;border-radius:8px;padding:7px 9px;margin-left:4px;font-size:9px;font-weight:850}.edit{background:#203049;color:#7fb6ff}.del{background:#351b1f;color:#ff8b90}.tgBtns{display:flex;gap:8px;flex-wrap:wrap}.tgBtns button{border:0;border-radius:10px;padding:10px 12px;font-weight:900}
+.accountTabs{display:flex;gap:6px;overflow:auto;margin-bottom:14px}.accountTabs button{border:1px solid var(--line);background:#fff;border-radius:30px;padding:9px 12px;font-size:9px;font-weight:850}.accountTabs button.on{background:#15171b;color:#fff}.accountPane{display:none}.accountPane.on{display:block}.orderCard{border:1px solid var(--line);border-radius:13px;padding:12px;margin-bottom:9px}.orderCard small{color:var(--muted);font-size:9px}.status{display:inline-block;background:#fff0ea;color:#bd4a24;border-radius:30px;padding:5px 8px;font-size:8px;font-weight:900}
+.miniCart{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);z-index:150;background:#15171b;color:#fff;border-radius:16px;padding:9px 10px 9px 14px;display:flex;gap:12px;align-items:center;min-width:280px;box-shadow:0 18px 45px #0003}.miniCart button{margin-left:auto;border:0;background:var(--brand);color:#fff;border-radius:9px;padding:9px 12px;font-weight:900}.bottom{display:none}.toast{position:fixed;z-index:900;left:50%;bottom:91px;transform:translate(-50%,20px);opacity:0;background:#15171b;color:#fff;border-radius:30px;padding:11px 16px;font-size:10px;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}.toast.success{background:#123929}.toast.error{background:#4b1d22}.footer{margin-top:30px;background:#101216;color:#aeb5bf}.foot{max-width:1172px;margin:auto;padding:34px 14px;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:20px}.foot h4{color:#fff;font-size:10px}.foot p,.foot a{font-size:9px;line-height:1.7;color:#9fa6b0;text-decoration:none;display:block;margin:5px 0}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.heroVisual{min-height:350px}.heroCopy{padding:38px}.hero h1{font-size:48px}.products{grid-template-columns:repeat(3,1fr)}.trust{grid-template-columns:1fr 1fr}.trustLead{grid-column:1/-1}.categoryGrid{grid-template-columns:1fr 1fr;grid-template-rows:230px 155px 155px}.catTile.large{grid-column:1/3;grid-row:auto}.catTile.wide{grid-column:1/3}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){body{padding-bottom:68px}.heroWrap{padding:0 11px;margin-top:12px}.hero{border-radius:23px}.heroCopy{padding:27px 22px}.hero h1{font-size:39px;letter-spacing:-1.8px}.hero p{font-size:12px}.heroVisual{min-height:300px}.floatCard{right:12px;bottom:12px;width:185px}.shell{padding:18px 11px}.products{grid-template-columns:repeat(2,1fr);gap:9px}.filters{grid-template-columns:1fr 1fr}.detail,.checkout,.lookbook{grid-template-columns:1fr}.lookbook img{height:260px}.formGrid{grid-template-columns:1fr}.field.full{grid-column:auto}.previews{grid-template-columns:repeat(3,1fr)}.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}.bottom{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:180;left:0;right:0;bottom:0;height:67px;background:#fff;border-top:1px solid var(--line)}.bottom button{border:0;background:#fff;color:#79818c;font-size:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}.bottom .ico{width:18px;height:18px}.miniCart{bottom:76px}}
 
-const express = require("express");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
-const crypto = require("crypto");
-require("dotenv").config();
+/* ===== KALAIYABAZAR V8 — LUXURY HOMEPAGE ===== */
+:root{
+  --brand:#ff642f;
+  --brand2:#ff8b61;
+  --lux:#0b0d11;
+  --lux2:#151820;
+  --cream:#f7f4ef;
+  --soft:#f3f4f6;
+  --ink:#111318;
+  --muted:#737b87;
+  --line:#e8e9ec;
+  --shadow:0 24px 70px rgba(13,15,19,.10);
+}
+body{background:linear-gradient(180deg,#fbfaf8 0,#f5f6f7 35%,#f5f6f7 100%)}
+.top{background:#0b0d11;padding:9px 14px;font-size:9px;letter-spacing:.25px}
+header{background:rgba(251,250,248,.88);border-bottom:1px solid rgba(17,19,24,.07);box-shadow:0 8px 30px rgba(13,15,19,.04)}
+.head{max-width:1240px;padding:12px 16px}
+.logo{font-size:25px;letter-spacing:-1.2px}
+.domain{font-size:7px;letter-spacing:1.2px}
+.iconBtn{background:#fff;border:1px solid rgba(17,19,24,.07);border-radius:14px;box-shadow:0 7px 20px rgba(13,15,19,.04)}
+.desktopAccount{display:grid}
+.v8NavLinks{display:flex;align-items:center;gap:20px;margin-right:8px}
+.v8NavLinks a{font-size:9px;font-weight:900;color:#464d58;text-decoration:none;letter-spacing:.35px}
+.v8NavLinks a:hover{color:var(--brand)}
+.searchWrap{max-width:1240px;margin-top:12px;padding:0 16px}
+.search{height:54px;border-radius:17px;border-color:#e4e5e8;box-shadow:0 12px 35px rgba(13,15,19,.055)}
+.search input{font-size:12px}
+.heroWrap{max-width:1240px;padding:0 16px;margin-top:16px}
+.hero{
+  min-height:560px;
+  grid-template-columns:1fr 1fr;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 16% 18%,rgba(255,100,47,.24),transparent 23%),
+    radial-gradient(circle at 82% 8%,rgba(255,255,255,.08),transparent 26%),
+    linear-gradient(135deg,#090b0f,#171a22 58%,#101318);
+  box-shadow:0 34px 95px rgba(10,12,16,.22);
+}
+.heroCopy{padding:64px 58px}
+.eyebrow{padding:9px 12px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);font-size:8px}
+.hero h1{font-size:67px;line-height:.94;letter-spacing:-3.8px;margin:22px 0 18px;max-width:600px}
+.hero p{font-size:13px;line-height:1.85;color:#d7dbe2;max-width:540px}
+.heroBtns{gap:10px}
+.primary{border-radius:13px;padding:14px 20px;box-shadow:0 9px 24px rgba(255,100,47,.22)}
+.ghost{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06);backdrop-filter:blur(14px)}
+.heroMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border:0;margin-top:30px;padding-top:0}
+.heroMeta>div{border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.05);padding:13px;border-radius:14px}
+.heroMeta b{font-size:11px}
+.heroMeta small{font-size:7px;letter-spacing:.65px}
+.heroVisual{min-height:560px}
+.heroVisual:before{background:linear-gradient(90deg,#111318 0,rgba(17,19,24,.35) 23%,transparent 55%)}
+.heroVisual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(5,7,10,.35));z-index:1}
+.floatCard{right:24px;bottom:24px;width:230px;border:1px solid rgba(255,255,255,.35);box-shadow:0 22px 55px rgba(0,0,0,.20)}
+.floatCard b{font-size:18px}
+.v8HeroTag{position:absolute;z-index:3;left:24px;top:24px;padding:9px 12px;border-radius:99px;background:rgba(12,14,18,.64);color:#fff;border:1px solid rgba(255,255,255,.13);font-size:8px;font-weight:900;letter-spacing:.9px;backdrop-filter:blur(14px)}
+.shell{max-width:1240px;padding:24px 16px}
+.v8Trust{display:grid;grid-template-columns:1.45fr repeat(3,1fr);gap:10px}
+.v8Trust .trustLead,.v8Trust .trustCard{border-radius:20px;box-shadow:0 13px 35px rgba(13,15,19,.035)}
+.trustLead{background:linear-gradient(135deg,#fff,#faf7f2)}
+.trustLead h3{font-size:20px;letter-spacing:-.5px}
+.trustCard{align-items:flex-start}
+.trustNo{background:#111318;color:#fff;border-radius:11px}
+.sectionHead{margin-bottom:17px}
+.sectionHead h2{font-size:30px;letter-spacing:-1.1px}
+.sectionHead p{font-size:10px;line-height:1.6}
+.v8Kicker{font-size:8px;font-weight:950;color:var(--brand);letter-spacing:1.4px;margin-bottom:6px}
+.categoryGrid{grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:230px 185px;gap:12px}
+.catTile{border-radius:25px;box-shadow:0 15px 40px rgba(13,15,19,.08)}
+.catTile:after{background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.78))}
+.catCap{left:20px;bottom:18px}
+.catCap h3{font-size:25px;letter-spacing:-.5px}
+.catCap small{letter-spacing:1.25px}
+.v8Editorial{display:grid;grid-template-columns:1.25fr .75fr;gap:12px}
+.v8EditorialCard{position:relative;min-height:270px;border-radius:26px;overflow:hidden;color:#fff;background:#111318;box-shadow:var(--shadow)}
+.v8EditorialCard img{position:absolute;inset:0;height:100%;object-fit:cover}
+.v8EditorialCard:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,13,.88),rgba(8,10,13,.16))}
+.v8EditorialCopy{position:relative;z-index:2;padding:28px;max-width:500px}
+.v8EditorialCopy small{font-size:8px;letter-spacing:1.2px;color:#ffb59d;font-weight:900}
+.v8EditorialCopy h3{font-size:31px;line-height:1.05;letter-spacing:-1px;margin:10px 0}
+.v8EditorialCopy p{font-size:10px;line-height:1.75;color:#d8dce2}
+.v8EditorialCard.compact:after{background:linear-gradient(180deg,transparent 20%,rgba(8,10,13,.82))}
+.v8EditorialCard.compact .v8EditorialCopy{position:absolute;left:0;right:0;bottom:0}
+.v8EditorialCard.compact h3{font-size:24px}
+.products{gap:16px}
+.product{border-radius:22px;border-color:#e9eaed;box-shadow:0 9px 26px rgba(13,15,19,.035);overflow:hidden}
+.product:hover{transform:translateY(-5px);box-shadow:0 24px 55px rgba(13,15,19,.10)}
+.photo{background:#f0f1f2}
+.badge{left:11px;top:11px;border-radius:99px;padding:7px 9px;background:#111318}
+.heart{right:10px;top:10px;border:1px solid rgba(17,19,24,.08)}
+.quick{bottom:11px;border-radius:99px;padding:9px 13px;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.pBody{padding:14px}
+.pName{font-size:12px;min-height:36px}
+.price{font-size:19px}
+.orderBtn{border-radius:12px}
+.chip{border-radius:99px;padding:10px 15px}
+.filters select,.filters button{border-radius:13px;padding:12px}
+.v8Spotlight{display:grid;grid-template-columns:.8fr 1.2fr;background:linear-gradient(135deg,#efe8de,#fff);border:1px solid #e7e0d8;border-radius:27px;overflow:hidden;min-height:310px}
+.v8SpotlightMedia{position:relative;min-height:310px}
+.v8SpotlightMedia img{position:absolute;inset:0;height:100%;object-fit:cover}
+.v8SpotlightCopy{padding:34px;display:flex;flex-direction:column;justify-content:center}
+.v8SpotlightCopy .mini{font-size:8px;color:var(--brand);font-weight:950;letter-spacing:1.2px}
+.v8SpotlightCopy h2{font-size:36px;line-height:1.03;letter-spacing:-1.3px;margin:10px 0}
+.v8SpotlightCopy p{font-size:11px;line-height:1.8;color:#646b75;max-width:540px}
+.rail{gap:13px}
+.railCard{min-width:245px;border-radius:21px;box-shadow:0 10px 28px rgba(13,15,19,.04)}
+.railCard img{height:245px}
+.lookbook{border-radius:28px;min-height:380px;background:linear-gradient(135deg,#0c0e13,#1a1e27)}
+.lookCopy{padding:44px}
+.lookCopy h2{font-size:41px;letter-spacing:-1.2px}
+.lookCopy p{font-size:11px;max-width:500px}
+.footer{background:#090b0f;margin-top:42px}
+.foot{max-width:1210px;padding:46px 16px 92px}
+.foot h4{letter-spacing:1.1px}
+.v8FooterNote{font-size:8px;color:#6f7782;margin-top:13px}
+.bottom{box-shadow:0 -12px 35px rgba(13,15,19,.06)}
+@media(max-width:980px){
+  .v8NavLinks{display:none}
+  .hero h1{font-size:54px}
+  .v8Trust{grid-template-columns:1fr 1fr}
+  .v8Trust .trustLead{grid-column:1/-1}
+  .v8Editorial{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .desktopAccount{display:none}
+  .head{padding:10px 11px}
+  .searchWrap{padding:0 11px;margin-top:9px}
+  .heroWrap{padding:0 10px}
+  .hero{min-height:0}
+  .heroCopy{padding:31px 22px}
+  .hero h1{font-size:43px;line-height:.96;letter-spacing:-2.3px}
+  .heroMeta{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .heroMeta>div{padding:10px 8px}
+  .heroVisual{min-height:315px}
+  .v8HeroTag{left:13px;top:13px}
+  .floatCard{right:13px;bottom:13px;width:190px}
+  .shell{padding:20px 11px}
+  .sectionHead h2{font-size:26px}
+  .v8Trust{grid-template-columns:1fr}
+  .v8Trust .trustLead{grid-column:auto}
+  .categoryGrid{grid-template-columns:1fr 1fr;grid-template-rows:225px 160px 160px}
+  .catTile.large{grid-column:1/3}
+  .catTile.wide{grid-column:1/3}
+  .v8EditorialCard{min-height:245px}
+  .v8EditorialCopy h3{font-size:27px}
+  .v8Spotlight{grid-template-columns:1fr}
+  .v8SpotlightMedia{min-height:240px}
+  .v8SpotlightCopy{padding:25px}
+  .v8SpotlightCopy h2{font-size:31px}
+  .lookCopy{padding:30px 24px}
+  .lookCopy h2{font-size:33px}
+}
 
-const app = express();
-const PORT = Number(process.env.PORT || 3000);
-const DEFAULT_ADMIN_PIN = String(process.env.ADMIN_PIN || "64686123");
 
-const ROOT = __dirname;
-const PUBLIC_DIR = path.join(ROOT,"public");
-const DATA_DIR = path.join(ROOT,"data");
-const UPLOAD_DIR = path.join(ROOT,"uploads");
-const PRODUCTS_FILE = path.join(DATA_DIR,"products.json");
-const ORDERS_FILE = path.join(DATA_DIR,"orders.json");
-const CUSTOMERS_FILE = path.join(DATA_DIR,"customers.json");
-const USERS_FILE = path.join(DATA_DIR,"users.json");
-const SETTINGS_FILE = path.join(ROOT,"private-settings.json");
+/* ===== V10 COD VERIFY + BILINGUAL ORDER ===== */
+@media(min-width:901px){.stats{grid-template-columns:repeat(7,1fr)}}
+.dual{display:block}.dual small{display:block;font-size:8px;color:#8b929c;font-weight:650;margin-top:2px}
+.codBox{grid-column:1/-1;border:1px solid #f0d8cb;background:#fff8f4;border-radius:13px;padding:12px;display:none}
+.codBox.show{display:block}.codTitle{font-size:11px;font-weight:950;margin-bottom:4px}.codHelp{font-size:9px;color:#7d6a61;line-height:1.55;margin-bottom:9px}
+.otpRow{display:grid;grid-template-columns:1fr auto;gap:7px}.otpRow input{min-width:0}.otpBtn{border:0;border-radius:10px;padding:10px 12px;background:#171a20;color:#fff;font-weight:900;font-size:9px}
+.otpBtn.alt{background:#ef5a29}.otpState{font-size:9px;margin-top:8px;color:#8b6e60}.otpState.ok{color:#16865a;font-weight:850}.otpState.warn{color:#c56b2e}
+.riskBadge{display:inline-flex;align-items:center;gap:5px;border-radius:30px;padding:5px 8px;font-size:8px;font-weight:950;margin-left:5px}
+.risk-Low{background:#163528;color:#8fe0b4}.risk-Medium{background:#3c3017;color:#ffd070}.risk-High{background:#451e21;color:#ff989e}
+.verifyBadge{display:inline-flex;border-radius:30px;padding:5px 8px;font-size:8px;font-weight:950;margin:4px 4px 0 0}
+.adminOrderCard{padding:13px 0;border-bottom:1px solid #292d36}.adminOrderTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.adminOrderMeta{font-size:9px;color:#8992a2;line-height:1.65;margin-top:4px}.adminOrderActions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.adminOrderActions a,.adminOrderActions button{border:1px solid #343946;background:#11141a;color:#fff;border-radius:8px;padding:7px 9px;font-size:8px;font-weight:850;text-decoration:none}
+.adminOrderActions button.confirm{background:#173b2a;border-color:#24563d;color:#9be2ba}.adminOrderActions button.cancel{background:#3b1c20;border-color:#5d2c33;color:#ff9da4}
+.orderSearch{display:grid;grid-template-columns:1fr 180px;gap:8px;margin-bottom:10px}.orderSearch input,.orderSearch select{background:#0f1117;color:#fff;border:1px solid #30343e;border-radius:9px;padding:9px}
+@media(max-width:650px){.otpRow{grid-template-columns:1fr}.orderSearch{grid-template-columns:1fr}}
 
-for(const d of [DATA_DIR,UPLOAD_DIR]) if(!fs.existsSync(d)) fs.mkdirSync(d,{recursive:true});
 
-function readJson(file,fallback){
+/* ===== V12 PREMIUM SMART SHOP ===== */
+/* V13 adds cinematic luxury welcome intro */
+
+/* ===== V13 CINEMATIC WELCOME EXPERIENCE ===== */
+.welcomeGate{
+  --mx:0px;--my:0px;
+  position:fixed;inset:0;z-index:9999;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom));
+  color:#fff;
+  background:
+    radial-gradient(circle at 50% 16%,rgba(255,119,70,.19),transparent 27%),
+    radial-gradient(circle at 17% 52%,rgba(255,151,98,.08),transparent 26%),
+    radial-gradient(circle at 83% 45%,rgba(125,146,255,.07),transparent 28%),
+    linear-gradient(145deg,#050608 0%,#0b0e13 38%,#161a22 68%,#07090c 100%);
+  transition:opacity .75s ease,visibility .75s ease,transform .9s cubic-bezier(.2,.7,.2,1),filter .75s ease;
+  isolation:isolate
+}
+.welcomeGate.out{opacity:0;visibility:hidden;transform:scale(1.035);filter:blur(10px)}
+.welcomeGate:before{
+  content:"";position:absolute;inset:-25%;z-index:-3;pointer-events:none;
+  background:
+    repeating-linear-gradient(105deg,transparent 0 90px,rgba(255,255,255,.018) 91px 92px),
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.035),transparent 52%);
+  animation:welcomeDrift 14s linear infinite
+}
+.welcomeGate:after{
+  content:"";position:absolute;inset:0;z-index:20;pointer-events:none;opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light
+}
+.welcomeBeam{
+  position:absolute;inset:-35% -20%;z-index:-2;pointer-events:none;
+  background:linear-gradient(112deg,transparent 38%,rgba(255,141,91,.14) 48%,rgba(255,255,255,.08) 51%,transparent 61%);
+  transform:translateX(-42%) rotate(2deg);
+  animation:welcomeBeam 5.8s cubic-bezier(.2,.7,.2,1) forwards
+}
+.welcomeOrb{position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none;opacity:.65}
+.welcomeOrb.o1{width:280px;height:280px;left:-110px;top:12%;border:1px solid rgba(255,255,255,.055)}
+.welcomeOrb.o2{width:380px;height:380px;right:-180px;bottom:-70px;border:1px solid rgba(255,119,70,.10)}
+.welcomeOrb.o3{width:160px;height:160px;left:48%;top:-80px;background:radial-gradient(circle,rgba(255,119,70,.13),transparent 70%);filter:blur(15px)}
+.welcomeTopline{position:absolute;top:max(18px,env(safe-area-inset-top));left:22px;right:22px;display:flex;justify-content:space-between;align-items:center;z-index:9}
+.welcomeMonogram{display:flex;align-items:center;gap:9px;font-size:8px;font-weight:900;letter-spacing:1.5px;color:#d5dae2}
+.welcomeMonogram i{
+  width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-style:normal;
+  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  box-shadow:inset 0 1px rgba(255,255,255,.16),0 12px 34px rgba(0,0,0,.28);
+  color:#fff;font-size:11px;letter-spacing:-.5px
+}
+.welcomeSkipTop{
+  border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.055);color:#dfe3e9;
+  border-radius:999px;padding:9px 12px;font-size:8px;font-weight:900;letter-spacing:.35px;
+  backdrop-filter:blur(14px)
+}
+.welcomeStage{
+  position:relative;width:min(1180px,100%);min-height:min(690px,86vh);
+  display:grid;grid-template-columns:minmax(220px,.88fr) minmax(320px,1.22fr) minmax(220px,.88fr);
+  align-items:center;gap:16px;text-align:center;z-index:2
+}
+.welcomeModel{
+  position:relative;height:min(590px,72vh);border-radius:38px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.115);
+  background:
+    radial-gradient(circle at 50% 12%,rgba(255,255,255,.09),transparent 30%),
+    linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.018));
+  box-shadow:inset 0 1px rgba(255,255,255,.1),0 32px 90px rgba(0,0,0,.28);
+  backdrop-filter:blur(14px);
+  opacity:0;
+  transform:translateY(36px) scale(.95)
+}
+.welcomeModel.boy{animation:modelLeft 1.15s .2s cubic-bezier(.16,.85,.26,1) forwards}
+.welcomeModel.girl{animation:modelRight 1.15s .35s cubic-bezier(.16,.85,.26,1) forwards}
+.welcomeModel:before{
+  content:"";position:absolute;inset:auto 9% 7% 9%;height:62%;
+  border-radius:50% 50% 22% 22%;
+  background:radial-gradient(circle at 50% 15%,rgba(255,125,72,.20),transparent 58%);
+  filter:blur(16px)
+}
+.welcomeModel:after{
+  content:"";position:absolute;left:12%;right:12%;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)
+}
+.welcomeModel svg{position:absolute;inset:auto 0 0;width:100%;height:94%;filter:drop-shadow(0 30px 38px rgba(0,0,0,.34));transform:translate(var(--mx),var(--my)) scale(1.02);transition:transform .18s ease-out}
+.modelLabel{
+  position:absolute;left:16px;top:16px;z-index:3;padding:8px 10px;border-radius:999px;
+  background:rgba(7,9,12,.52);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(12px);
+  font-size:7px;font-weight:900;letter-spacing:1.3px;color:#d9dde4
+}
+.modelShine{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(108deg,transparent 35%,rgba(255,255,255,.10) 48%,transparent 60%);transform:translateX(-120%);animation:modelShine 3.8s 1.2s ease forwards}
+.welcomeCenter{position:relative;z-index:5;padding:18px 24px;opacity:0;transform:translateY(24px);animation:centerReveal .95s .8s cubic-bezier(.16,.85,.26,1) forwards}
+.welcomeKicker{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.055);
+  backdrop-filter:blur(12px);font-size:7px;font-weight:950;letter-spacing:1.8px;color:#d7dce3
+}
+.welcomeKicker i{width:6px;height:6px;border-radius:50%;background:#ff7346;box-shadow:0 0 18px #ff7346}
+.welcomeLogoMark{
+  width:82px;height:82px;margin:21px auto 18px;border-radius:28px;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.15);
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  box-shadow:inset 0 1px rgba(255,255,255,.17),0 22px 55px rgba(0,0,0,.26),0 0 60px rgba(255,103,54,.08);
+  font-size:24px;font-weight:1000;letter-spacing:-2px;color:#fff;position:relative;overflow:hidden
+}
+.welcomeLogoMark span{color:#ff784d}.welcomeLogoMark:after{content:"";position:absolute;width:120%;height:22%;background:linear-gradient(90deg,transparent,#fff8,transparent);transform:rotate(-28deg) translate(-70%,-20%);animation:logoSweep 2.8s 1.1s ease forwards}
+.welcomeCenter h1{
+  max-width:600px;margin:0 auto;font-size:clamp(34px,4.2vw,64px);line-height:1.04;letter-spacing:-2.2px;
+  font-weight:950;text-wrap:balance;
+  background:linear-gradient(180deg,#fff 0%,#f7f7f8 60%,#bec4ce 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.welcomeCenter h1 .accent{color:#ff7a4e;-webkit-text-fill-color:#ff7a4e}
+.welcomeCenter p{max-width:520px;margin:15px auto 0;color:#b9c0cb;font-size:11px;line-height:1.9}
+.welcomePills{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:20px auto 0}
+.welcomePills span{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);font-size:7px;font-weight:850;color:#c6ccd5}
+.welcomeActions{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:23px}
+.welcomeEnter{
+  position:relative;overflow:hidden;border:0;border-radius:14px;padding:13px 20px;
+  background:linear-gradient(135deg,#ff6b3c,#ff8d66);color:#fff;font-size:9px;font-weight:950;
+  box-shadow:0 14px 36px rgba(255,100,47,.24);min-width:165px
+}
+.welcomeEnter:after{content:"";position:absolute;inset:-40%;background:linear-gradient(90deg,transparent,#fff5,transparent);transform:translateX(-70%) rotate(14deg);animation:enterGlow 2.2s 2.3s ease infinite}
+.welcomeSecondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);color:#d4d9e0;border-radius:14px;padding:13px 15px;font-size:8px;font-weight:900}
+.welcomeProgress{width:min(330px,72%);height:2px;margin:24px auto 0;background:rgba(255,255,255,.095);overflow:hidden;border-radius:20px}
+.welcomeProgress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff6d40,#ffc3a9);box-shadow:0 0 18px rgba(255,120,78,.55);animation:welcomeProgress 6.2s linear forwards}
+.welcomeHint{margin-top:8px;font-size:7px;color:#777f8a;letter-spacing:.5px}
+.floatingGlyph{position:absolute;z-index:1;color:#fff;opacity:.10;filter:blur(.1px);font-size:26px;animation:glyphFloat 5.5s ease-in-out infinite}
+.floatingGlyph.g1{left:9%;top:18%}.floatingGlyph.g2{right:9%;top:20%;animation-delay:.8s}.floatingGlyph.g3{left:7%;bottom:14%;animation-delay:1.6s}.floatingGlyph.g4{right:8%;bottom:15%;animation-delay:2.3s}
+@keyframes modelLeft{0%{opacity:0;transform:translateX(-70px) translateY(32px) scale(.92)}100%{opacity:1;transform:none}}
+@keyframes modelRight{0%{opacity:0;transform:translateX(70px) translateY(32px) scale(.92)}100%{opacity:1;transform:none}}
+@keyframes centerReveal{to{opacity:1;transform:none}}
+@keyframes welcomeBeam{0%{transform:translateX(-55%) rotate(2deg);opacity:0}18%{opacity:1}100%{transform:translateX(54%) rotate(2deg);opacity:.15}}
+@keyframes welcomeDrift{to{transform:translate3d(3%,2%,0) rotate(.5deg)}}
+@keyframes modelShine{0%{transform:translateX(-120%)}100%{transform:translateX(130%)}}
+@keyframes logoSweep{0%{transform:rotate(-28deg) translate(-75%,-20%)}100%{transform:rotate(-28deg) translate(85%,100%)}}
+@keyframes enterGlow{0%,55%{transform:translateX(-75%) rotate(14deg)}100%{transform:translateX(75%) rotate(14deg)}}
+@keyframes welcomeProgress{to{width:100%}}
+@keyframes glyphFloat{50%{transform:translateY(-12px) rotate(4deg);opacity:.16}}
+@media(max-width:820px){
+  .welcomeStage{min-height:86vh;grid-template-columns:.72fr 1.56fr .72fr;gap:5px}
+  .welcomeModel{height:min(430px,58vh);border-radius:28px;opacity:.74}
+  .welcomeModel.boy{transform-origin:right center}.welcomeModel.girl{transform-origin:left center}
+  .welcomeCenter{padding:14px 4px}
+  .welcomeLogoMark{width:66px;height:66px;border-radius:22px;margin:14px auto 13px;font-size:19px}
+  .welcomeCenter h1{font-size:clamp(30px,8vw,43px);letter-spacing:-1.5px}
+  .welcomeCenter p{font-size:9px;line-height:1.7;margin-top:11px}
+  .welcomePills span{font-size:6px;padding:7px 8px}
+  .welcomeActions{margin-top:17px;gap:7px;flex-direction:column}
+  .welcomeEnter,.welcomeSecondary{width:min(240px,88%);padding:12px}
+  .modelLabel{display:none}.floatingGlyph{display:none}
+}
+@media(max-width:560px){
+  .welcomeGate{padding-left:8px;padding-right:8px}
+  .welcomeTopline{left:12px;right:12px}
+  .welcomeMonogram span{display:none}
+  .welcomeStage{width:100%;min-height:88vh;grid-template-columns:1fr;display:block}
+  .welcomeModel{position:absolute;top:17%;width:39%;height:55vh;max-height:460px;z-index:1;border-radius:26px;opacity:.54}
+  .welcomeModel.boy{left:-8%;}.welcomeModel.girl{right:-8%}
+  .welcomeModel svg{height:90%}
+  .welcomeCenter{position:absolute;left:10%;right:10%;top:50%;transform:translateY(-46%);padding:0;z-index:6;animation:centerRevealMobile .95s .72s cubic-bezier(.16,.85,.26,1) forwards}
+  .welcomeKicker{font-size:6px;padding:7px 9px}
+  .welcomeLogoMark{width:58px;height:58px;border-radius:19px;font-size:17px;margin:12px auto}
+  .welcomeCenter h1{font-size:clamp(29px,9vw,39px);text-shadow:0 8px 28px rgba(0,0,0,.55)}
+  .welcomeCenter p{max-width:310px;background:rgba(6,8,11,.20);backdrop-filter:blur(4px);border-radius:12px;padding:6px}
+  .welcomePills{margin-top:13px}.welcomePills span:nth-child(3){display:none}
+  .welcomeActions{margin-top:15px}.welcomeProgress{margin-top:18px}
+}
+@keyframes centerRevealMobile{from{opacity:0;transform:translateY(-39%)}to{opacity:1;transform:translateY(-46%)}}
+@media(prefers-reduced-motion:reduce){
+  .welcomeGate *{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+.funDeck{max-width:1200px;margin:10px auto 0;padding:0 14px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px}
+.funCard{border:1px solid var(--line);background:#fff;border-radius:18px;padding:16px;box-shadow:0 10px 35px #16202b0a;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:94px}
+.funCard b{display:block;font-size:12px}.funCard p{font-size:9px;color:#7e8793;margin:4px 0 0;line-height:1.5}.funIcon{font-size:30px}.funCard button{border:0;background:#11151b;color:#fff;border-radius:10px;padding:9px 11px;font-size:8px;font-weight:900}
+.funCard.today{background:linear-gradient(135deg,#11151b,#242b35);color:#fff;border:0}.funCard.today p{color:#bdc5cf}.funCard.today button{background:var(--brand)}
+.whatsappFloat{position:fixed;right:17px;bottom:92px;z-index:175;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;background:#25D366;color:#fff;font-size:25px;box-shadow:0 12px 32px #0b5b2e4d;border:3px solid #fff}
+.mascot{position:fixed;right:16px;bottom:154px;z-index:174;max-width:205px;background:#11151b;color:#fff;border-radius:15px 15px 4px 15px;padding:10px 12px;box-shadow:0 12px 36px #0003;font-size:9px;line-height:1.5;cursor:pointer}
+.mascot b{color:#ff8d66}.mascot:after{content:"";position:absolute;right:13px;bottom:-8px;border:8px solid transparent;border-top-color:#11151b;border-right:0}
+.freeShip{margin:8px 0 12px;padding:10px;border-radius:11px;background:#f7f8fa;border:1px solid #e7e9ed}.freeShipText{font-size:9px;color:#69717d;margin-bottom:6px}.freeTrack{height:7px;background:#e4e7eb;border-radius:20px;overflow:hidden}.freeTrack i{display:block;height:100%;background:linear-gradient(90deg,#ff784c,#ffae7c);border-radius:20px;transition:.3s}
+.cartFun{font-size:9px;color:#7c8490;text-align:center;padding:7px 0}
+.heart.on{animation:heartPop .34s ease}@keyframes heartPop{50%{transform:scale(1.35) rotate(-8deg)}}
+.confetti{position:fixed;inset:0;z-index:10000;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-18px;width:9px;height:16px;border-radius:2px;animation:confettiFall 1.8s linear forwards}@keyframes confettiFall{to{transform:translate3d(var(--x),110vh,0) rotate(650deg);opacity:.2}}
+.orderJourney{display:flex;align-items:center;margin-top:10px}.journeyStep{flex:1;position:relative;text-align:center;color:#a1a8b2;font-size:7px;padding-top:17px}.journeyStep:before{content:"";position:absolute;top:3px;left:50%;width:9px;height:9px;border-radius:50%;background:#d8dce2;transform:translateX(-50%);z-index:2}.journeyStep:not(:first-child):after{content:"";position:absolute;top:7px;right:50%;width:100%;height:2px;background:#d8dce2}.journeyStep.done{color:#171b22;font-weight:850}.journeyStep.done:before,.journeyStep.done:not(:first-child):after{background:#ff784c}
+.giftGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.giftResults{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.giftItem{border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;background:#fff}.giftItem img{width:100%;aspect-ratio:1/1;object-fit:cover}.giftItem div{padding:8px}.giftItem b{font-size:9px}.giftItem small{display:block;color:#ff7048;margin-top:3px;font-weight:900}
+.amazonPanel{display:grid;grid-template-columns:.9fr 1.1fr;gap:12px}.amazonFetch{display:flex;gap:8px}.amazonFetch input{flex:1}.amazonPreview{min-height:220px;border:1px solid #2d323c;background:#0f1218;border-radius:14px;padding:13px}.amazonProduct{display:grid;grid-template-columns:125px 1fr;gap:12px}.amazonProduct>img{width:125px;height:125px;object-fit:contain;background:#fff;border-radius:10px}.amazonThumbs{display:flex;gap:5px;overflow:auto;margin:9px 0}.amazonThumbs img{width:54px;height:54px;object-fit:contain;background:#fff;border-radius:8px}.amazonNote{font-size:8px;line-height:1.6;color:#9ca5b4;margin:9px 0}
+.agreeBox{grid-column:1/-1;display:flex;gap:8px;align-items:flex-start;background:#f8f9fb;border:1px solid #e7e9ed;border-radius:11px;padding:10px;font-size:9px;line-height:1.5}.agreeBox input{width:auto;margin-top:2px}
+.fieldError{border-color:#e95d5d!important;box-shadow:0 0 0 2px #e95d5d17!important}
+.locationNote{grid-column:1/-1;font-size:8px;color:#77808c;background:#f7f8fa;border-radius:9px;padding:8px}
+@media(max-width:760px){.funDeck{grid-template-columns:1fr}.mascot{display:none}.amazonPanel{grid-template-columns:1fr}.amazonProduct{grid-template-columns:92px 1fr}.amazonProduct>img{width:92px;height:92px}.giftResults{grid-template-columns:repeat(2,1fr)}}
+
+
+/* ===== V14 HOME WELCOME HERO ===== */
+.homeWelcomeHero{
+  max-width:1200px;margin:16px auto 0;padding:0 14px;
+}
+.homeWelcomeStage{
+  position:relative;overflow:hidden;min-height:520px;
+  display:grid;grid-template-columns:.86fr 1.3fr .86fr;align-items:end;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(255,126,78,.18),transparent 30%),
+    radial-gradient(circle at 13% 86%,rgba(255,255,255,.08),transparent 28%),
+    linear-gradient(145deg,#0b0d11,#151923 58%,#0a0c10);
+  border:1px solid #ffffff12;
+  box-shadow:0 28px 80px rgba(11,15,22,.20);
+  isolation:isolate;
+}
+.homeWelcomeStage:before{
+  content:"";position:absolute;inset:-30% -20%;z-index:-1;
+  background:linear-gradient(110deg,transparent 39%,rgba(255,145,98,.10) 48%,rgba(255,255,255,.04) 52%,transparent 61%);
+  transform:translateX(-40%);animation:homeHeroBeam 9s ease-in-out infinite;
+}
+.homeWelcomeStage:after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.20;
+  background:repeating-linear-gradient(105deg,transparent 0 94px,rgba(255,255,255,.014) 95px 96px);
+}
+.homeWelcomeModel{
+  position:relative;height:480px;z-index:1;overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.homeWelcomeModel svg{
+  width:100%;height:96%;filter:drop-shadow(0 28px 38px rgba(0,0,0,.30));
+  transform:translateY(12px);opacity:0;
+}
+.homeWelcomeModel.boy svg{animation:homeBoyIn .9s .12s cubic-bezier(.16,.85,.26,1) forwards}
+.homeWelcomeModel.girl svg{animation:homeGirlIn .9s .22s cubic-bezier(.16,.85,.26,1) forwards}
+.homeWelcomeText{
+  position:relative;z-index:4;align-self:center;text-align:center;color:#fff;padding:44px 6px 50px;
+  opacity:0;transform:translateY(18px);animation:homeTextIn .85s .35s cubic-bezier(.16,.85,.26,1) forwards;
+}
+.homeWelcomeKicker{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;
+  border:1px solid #ffffff20;background:#ffffff0c;color:#d8dde5;
+  font-size:8px;font-weight:950;letter-spacing:1.6px;backdrop-filter:blur(12px);
+}
+.homeWelcomeKicker i{width:6px;height:6px;background:#ff7447;border-radius:50%;box-shadow:0 0 18px #ff7447}
+.homeWelcomeText h1{
+  margin:18px auto 10px;max-width:620px;
+  font-size:clamp(34px,4.7vw,62px);line-height:1.05;letter-spacing:-2px;font-weight:1000;
+}
+.homeWelcomeText h1 span{color:#ff7d50}
+.homeWelcomeTagline{
+  margin:0 auto;color:#f1f3f6!important;font-size:clamp(17px,2vw,23px)!important;
+  line-height:1.55!important;font-weight:850;max-width:620px!important;
+}
+.homeWelcomeSub{
+  max-width:570px;margin:8px auto 0;color:#abb3bf;font-size:10px;line-height:1.75;
+}
+.homeWelcomeBtns{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:21px}
+.homeWelcomeBtns .heroMain{
+  border:0;border-radius:13px;background:linear-gradient(135deg,#ff6d40,#ff8c64);color:#fff;
+  padding:13px 19px;font-weight:950;box-shadow:0 14px 32px rgba(255,103,55,.22)
+}
+.homeWelcomeBtns .heroAlt{
+  border:1px solid #ffffff24;background:#ffffff0b;color:#fff;border-radius:13px;padding:13px 17px;font-weight:900;
+}
+.homeWelcomeTrust{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:19px}
+.homeWelcomeTrust span{font-size:7px;font-weight:850;color:#c0c7d0;border:1px solid #ffffff16;background:#ffffff08;border-radius:999px;padding:7px 9px}
+.homeModelBadge{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  font-size:7px;font-weight:900;letter-spacing:1.4px;color:#d8dde5;
+  background:#080a0eb8;border:1px solid #ffffff16;border-radius:999px;padding:7px 10px;backdrop-filter:blur(12px);
+}
+@keyframes homeHeroBeam{0%,100%{transform:translateX(-48%)}50%{transform:translateX(50%)}}
+@keyframes homeBoyIn{from{opacity:0;transform:translateX(-45px) translateY(18px) scale(.96)}to{opacity:1;transform:translateY(12px)}}
+@keyframes homeGirlIn{from{opacity:0;transform:translateX(45px) translateY(18px) scale(.96)}to{opacity:1;transform:translateY(12px)}}
+@keyframes homeTextIn{to{opacity:1;transform:none}}
+@media(max-width:760px){
+  .homeWelcomeHero{padding:0 8px;margin-top:10px}
+  .homeWelcomeStage{min-height:500px;border-radius:24px;grid-template-columns:1fr;display:block}
+  .homeWelcomeModel{position:absolute;bottom:0;width:43%;height:405px;opacity:.52}
+  .homeWelcomeModel.boy{left:-7%}.homeWelcomeModel.girl{right:-7%}
+  .homeWelcomeText{position:relative;z-index:5;padding:70px 13% 42px;min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .homeWelcomeText h1{font-size:clamp(32px,9vw,43px);text-shadow:0 8px 28px #0008}
+  .homeWelcomeTagline{font-size:18px!important;text-shadow:0 5px 20px #000b}
+  .homeWelcomeSub{font-size:9px;background:#080a0e35;border-radius:12px;padding:5px 8px;backdrop-filter:blur(4px)}
+  .homeWelcomeTrust span:nth-child(3){display:none}
+  .homeModelBadge{display:none}
+}
+
+
+
+/* ===== V16 PREMIUM HERITAGE HOME ===== */
+body.homeMode{overflow:hidden}
+body.shopMode{overflow:auto}
+#bazarHome{
+  position:fixed;inset:0;z-index:600;min-height:100dvh;overflow:hidden;
+  background:#100c09 url("/market-home.webp") center/cover no-repeat;
+  color:#fff;display:flex;flex-direction:column
+}
+#bazarHome.hide{display:none}
+#bazarHome:before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(180deg,rgba(5,6,8,.82),rgba(7,8,10,.44) 25%,rgba(7,8,10,.5) 65%,rgba(5,6,8,.91)),
+    radial-gradient(ellipse at center,rgba(9,10,12,.20),rgba(5,6,8,.75) 74%)
+}
+.bazarTop{
+  position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;
+  padding:max(12px,env(safe-area-inset-top)) 14px 7px
+}
+.bazarBrand{
+  display:flex;align-items:center;gap:9px;padding:8px 10px;border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;background:rgba(6,7,9,.44);backdrop-filter:blur(16px);box-shadow:0 12px 34px rgba(0,0,0,.25)
+}
+.bazarBrandMark{
+  width:32px;height:32px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#ff9b43,#ff6b18);font-size:12px;font-weight:1000;box-shadow:0 8px 24px rgba(255,112,29,.27)
+}
+.bazarBrand strong{font-size:13px;letter-spacing:.4px}.bazarBrand strong span{color:#ff9d4d}
+.bazarBrand small{display:block;font-size:6.7px;color:#cbd0d8;margin-top:1px}
+.bazarTopActions{display:flex;gap:6px}
+.bazarTopBtn{
+  border:1px solid rgba(255,255,255,.13);background:rgba(8,9,11,.44);backdrop-filter:blur(15px);
+  color:#fff;border-radius:12px;padding:9px 10px;font-size:7.5px;font-weight:900
+}
+.bazarCenter{
+  position:relative;z-index:3;flex:1;display:flex;align-items:center;justify-content:center;
+  padding:0 12px 9px;min-height:0
+}
+.bazarGlass{
+  width:min(650px,94vw);max-height:calc(100dvh - 74px);padding:16px 18px 15px;border-radius:27px;text-align:center;
+  background:linear-gradient(150deg,rgba(7,9,12,.77),rgba(22,18,15,.64));
+  border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(15px);
+  box-shadow:0 28px 88px rgba(0,0,0,.58),inset 0 1px rgba(255,255,255,.09);
+  animation:v16CardIn .75s cubic-bezier(.16,.85,.26,1) both
+}
+.bazarDomain{
+  display:inline-flex;align-items:center;gap:7px;font-size:7px;font-weight:950;letter-spacing:1.6px;
+  color:#f0c8a5;text-transform:uppercase
+}
+.bazarDomain i{width:6px;height:6px;border-radius:50%;background:#ff8a35;box-shadow:0 0 14px #ff8a35}
+.bazarGlass h1{
+  margin:7px 0 10px;font-size:clamp(35px,7.5vw,60px);line-height:1.03;letter-spacing:-1.6px;
+  text-shadow:0 7px 32px rgba(0,0,0,.75);font-weight:1000
+}
+.bazarGlass h1 span{
+  background:linear-gradient(135deg,#ffd09d,#ff8b35 66%,#ffb665);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.genderGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px auto 10px;max-width:490px}
+.genderCard{
+  position:relative;height:118px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.16);
+  background:#171717;box-shadow:0 14px 40px rgba(0,0,0,.28);cursor:pointer;isolation:isolate;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease
+}
+.genderCard:before{
+  content:"";position:absolute;inset:0;z-index:-1;background-image:url("/market-home.webp");background-size:250% auto;
+  filter:saturate(.88) contrast(1.03);transform:scale(1.04);transition:transform .5s ease
+}
+.genderCard.men:before{background-position:4% 55%}
+.genderCard.women:before{background-position:96% 55%}
+.genderCard:after{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,8,.04),rgba(7,8,10,.20) 42%,rgba(5,6,8,.93) 100%)
+}
+.genderCard:hover,.genderCard:active{
+  transform:translateY(-3px);border-color:rgba(255,157,74,.72);box-shadow:0 17px 44px rgba(255,113,33,.14)
+}
+.genderCard:hover:before,.genderCard:active:before{transform:scale(1.10)}
+.genderLabel{
+  position:absolute;z-index:2;left:12px;right:12px;bottom:10px;display:flex;align-items:end;justify-content:space-between;text-align:left
+}
+.genderLabel strong{display:block;font-size:16px;letter-spacing:.2px}
+.genderLabel small{display:block;font-size:7px;color:#d4d8de;margin-top:1px}
+.genderArrow{
+  width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);font-size:13px
+}
+.genderCard.men{animation:v16GenderIn .55s .12s both}
+.genderCard.women{animation:v16GenderIn .55s .22s both}
+.heritagePanel{
+  position:relative;max-width:490px;margin:0 auto 10px;padding:11px 14px;border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,173,89,.10),rgba(255,255,255,.035));
+  border:1px solid rgba(255,189,115,.23);overflow:hidden;box-shadow:inset 0 1px rgba(255,255,255,.06);
+  animation:v16HeritageIn .55s .30s both
+}
+.heritagePanel:before{
+  content:"";position:absolute;left:-35%;top:0;width:25%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent);
+  transform:skewX(-18deg);animation:v16HeritageShine 4.4s 1.2s infinite
+}
+.heritageEyebrow{
+  display:flex;align-items:center;justify-content:center;gap:7px;color:#f3c796;font-size:7px;font-weight:950;
+  letter-spacing:1.35px;text-transform:uppercase
+}
+.heritageEyebrow:before,.heritageEyebrow:after{content:"";width:30px;height:1px;background:linear-gradient(90deg,transparent,#f2b770)}
+.heritageEyebrow:after{background:linear-gradient(90deg,#f2b770,transparent)}
+.heritagePanel h2{margin:4px 0 3px;font-size:clamp(17px,4vw,23px);line-height:1.15;font-weight:1000}
+.heritagePanel p{margin:0;color:#d8dce2;font-size:8.7px;line-height:1.55;font-weight:700}
+.goBazar{
+  width:min(490px,100%);border:0;border-radius:17px;padding:15px 18px;margin-top:0;
+  background:linear-gradient(135deg,#ff9d37 0%,#ff741a 48%,#f4510b 100%);
+  color:#fff;font-size:17px;font-weight:1000;letter-spacing:.1px;
+  box-shadow:0 15px 42px rgba(255,100,22,.36),0 0 0 1px rgba(255,203,145,.45) inset;
+  position:relative;overflow:hidden;animation:v16GoIn .55s .38s both,v16GoPulse 2.8s 1.6s infinite
+}
+.goBazar:after{
+  content:"";position:absolute;inset:-70% -30%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.48),transparent);
+  transform:translateX(-82%) rotate(12deg);animation:v16BazarShine 3.2s 1.4s infinite
+}
+@keyframes v16CardIn{from{opacity:0;transform:translateY(20px) scale(.975)}to{opacity:1;transform:none}}
+@keyframes v16GenderIn{from{opacity:0;transform:translateY(13px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes v16HeritageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes v16GoIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes v16GoPulse{0%,100%{box-shadow:0 15px 42px rgba(255,100,22,.30),0 0 0 1px rgba(255,203,145,.4) inset}50%{box-shadow:0 18px 48px rgba(255,100,22,.47),0 0 0 1px rgba(255,220,170,.55) inset}}
+@keyframes v16BazarShine{0%,55%{transform:translateX(-82%) rotate(12deg)}100%{transform:translateX(90%) rotate(12deg)}}
+@keyframes v16HeritageShine{0%,55%{left:-35%}100%{left:120%}}
+@media(max-width:650px){
+  .bazarTop{padding-left:9px;padding-right:9px}.bazarBrand{padding:7px 9px}
+  .bazarBrand strong{font-size:11.5px}.bazarBrand small{display:none}.bazarTopBtn{padding:8px 8px;font-size:7px}
+  .bazarCenter{padding:0 9px 7px}.bazarGlass{width:94vw;padding:13px 12px 12px;border-radius:24px}
+  .bazarGlass h1{font-size:36px;margin:5px 0 8px}.genderGrid{gap:8px;margin-top:6px;margin-bottom:8px}
+  .genderCard{height:112px;border-radius:18px}.genderLabel strong{font-size:15px}
+  .heritagePanel{padding:10px 11px;margin-bottom:8px}.heritagePanel h2{font-size:18px}.heritagePanel p{font-size:8px}
+  .goBazar{font-size:16px;padding:14px 16px;border-radius:15px}
+}
+@media(max-height:710px){
+  .bazarGlass{padding-top:10px;padding-bottom:10px}.bazarGlass h1{font-size:31px;margin:4px 0 6px}
+  .genderCard{height:94px}.genderGrid{margin:5px auto 7px}
+  .heritagePanel{padding:8px 10px;margin-bottom:7px}.heritagePanel h2{font-size:16px}.heritagePanel p{font-size:7.6px}
+  .goBazar{padding:12px 15px;font-size:15px}
+}
+
+/* Shop is deliberately product-first. */
+body.shopMode .v8NavLinks a:nth-child(n+2){display:none}
+body.shopMode header{position:sticky;top:0}
+body.shopMode .searchWrap{margin-top:8px}
+#productsSection{padding-top:10px}
+.shopBack{
+  display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;
+  font-size:9px;font-weight:900;margin-bottom:10px
+}
+.shopAudienceBar{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.shopAudienceBar button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:8px;font-weight:900}
+.shopAudienceBar button.on{background:#15171b;color:#fff;border-color:#15171b}
+
+/* Simpler shopping actions */
+.orderBtn{background:#15171b}
+.simpleBuy{width:100%;height:43px;border:0;border-radius:11px;background:#15171b;color:#fff;font-weight:950;font-size:10px}
+.drawerFoot .primary{font-weight:950}
+
+/* Smart form feedback */
+.field input,.field textarea,.field select{transition:border-color .18s,box-shadow .18s,background .18s}
+.field input.fieldError,.field textarea.fieldError,.field select.fieldError{
+  border-color:#e44b55!important;background:#fff7f7!important;box-shadow:0 0 0 3px #e44b5514!important
+}
+.field input.fieldSuccess,.field textarea.fieldSuccess,.field select.fieldSuccess{
+  border-color:#27a86c!important;background:#f7fffb!important;box-shadow:0 0 0 3px #27a86c12!important
+}
+.formHint{display:block;margin-top:5px;font-size:8px;line-height:1.35}
+.formHint.error{color:#d94450}.formHint.success{color:#168757}
+.smartToast.success{background:#123929}.smartToast.error{background:#4b1d22}
+
+.purchaseSuccess{
+  position:fixed;inset:0;z-index:1100;display:none;place-items:center;padding:18px;background:#080b10a8;backdrop-filter:blur(8px)
+}
+.purchaseSuccess.show{display:grid}
+.purchaseSuccessCard{
+  width:min(390px,94vw);background:#fff;border-radius:24px;padding:25px;text-align:center;box-shadow:0 28px 100px #0005;
+  animation:successPop .35s cubic-bezier(.16,.85,.26,1)
+}
+.successCheck{width:68px;height:68px;border-radius:50%;margin:0 auto 13px;display:grid;place-items:center;background:#eaf9f1;color:#17925c;font-size:32px;font-weight:1000}
+.purchaseSuccessCard h3{margin:0 0 7px;font-size:20px}.purchaseSuccessCard p{color:#69717c;font-size:10px;line-height:1.65;margin:0 0 13px}
+.successMeta{background:#f7f8fa;border:1px solid #e7e9ed;border-radius:13px;padding:11px;margin-bottom:13px;font-size:10px;line-height:1.7}
+.purchaseSuccessCard button{width:100%;border:0;border-radius:12px;padding:12px;background:#15171b;color:#fff;font-weight:950}
+@keyframes successPop{from{opacity:0;transform:scale(.92) translateY(10px)}to{opacity:1;transform:none}}
+
+@media(max-width:650px){
+  .bazarTop{padding-left:10px;padding-right:10px}.bazarBrand{padding:7px 9px}.bazarBrand strong{font-size:12px}
+  .bazarBrand small{display:none}.bazarTopBtn{padding:8px 9px}.bazarCenter{padding:0 10px}
+  .bazarGlass{width:92vw;padding:18px 14px 16px;border-radius:24px}.bazarGlass h1{font-size:34px}
+  .bazarTagline{font-size:14px}.bazarSub{font-size:8px}.bazarTrust{grid-template-columns:repeat(4,1fr);padding-left:8px;padding-right:8px}
+  .bazarTrust small{display:none}.bazarTrust b{font-size:7px}.goBazar{font-size:15px;padding:13px}
+}
+
+
+/* ===== V17 SIMPLE PREMIUM ORDER ===== */
+.simpleBuy{
+  min-height:46px;border:0;border-radius:13px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#17191e 0%,#282c34 58%,#111318 100%);
+  color:#fff;font-weight:1000;font-size:10px;letter-spacing:.15px;
+  box-shadow:0 10px 24px rgba(16,18,23,.16),inset 0 1px rgba(255,255,255,.12);
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.simpleBuy:before{
+  content:"";position:absolute;inset:-70% -30%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.23),transparent);
+  transform:translateX(-82%) rotate(12deg);transition:transform .55s ease
+}
+.simpleBuy:hover:before,.simpleBuy:active:before{transform:translateX(88%) rotate(12deg)}
+.simpleBuy:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(16,18,23,.22)}
+.simpleBuy:active{transform:scale(.985)}
+.buyArrow{display:inline-block;margin-left:5px;opacity:.78;transition:transform .18s}
+.simpleBuy:hover .buyArrow{transform:translateX(3px)}
+.checkoutPremiumNote{
+  grid-column:1/-1;display:flex;align-items:center;gap:9px;padding:10px 11px;
+  border:1px solid #eadfce;border-radius:12px;background:linear-gradient(135deg,#fffaf4,#fff);
+  color:#6f5b48;font-size:8px;line-height:1.45
+}
+.checkoutPremiumNote b{color:#2d261f}.checkoutPremiumNote .shield{
+  width:30px;height:30px;flex:0 0 30px;border-radius:10px;display:grid;place-items:center;
+  background:#17191e;color:#fff;font-size:13px
+}
+#confirmBtn.premiumOrderBtn{
+  min-height:52px;border:0;border-radius:14px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#ff9b36,#ff7419 52%,#f2540b);
+  color:#fff;font-size:12px;font-weight:1000;letter-spacing:.1px;
+  box-shadow:0 14px 34px rgba(244,100,19,.27),inset 0 1px rgba(255,255,255,.35);
+  transition:transform .16s ease,box-shadow .18s ease
+}
+#confirmBtn.premiumOrderBtn:after{
+  content:"";position:absolute;inset:-70% -25%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.36),transparent);
+  transform:translateX(-85%) rotate(12deg);animation:v17OrderShine 3.2s infinite
+}
+#confirmBtn.premiumOrderBtn:active{transform:scale(.985)}
+#confirmBtn.premiumOrderBtn:disabled{opacity:.62;box-shadow:none}
+.checkoutTrust{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.checkoutTrust div{
+  text-align:center;padding:8px 4px;border:1px solid #eceef1;border-radius:10px;
+  background:#fafbfc;font-size:7px;font-weight:850;color:#68717c
+}
+.checkoutTrust b{display:block;color:#20242a;font-size:9px;margin-bottom:2px}
+@keyframes v17OrderShine{0%,58%{transform:translateX(-85%) rotate(12deg)}100%{transform:translateX(88%) rotate(12deg)}}
+
+</style>
+</head>
+<body class="homeMode">
+
+<div id="bazarHome">
+  <div class="bazarTop">
+    <div class="bazarBrand">
+      <div class="bazarBrandMark">KB</div>
+      <div><strong>KALAIYA<span>BAZAR</span></strong><small>Premium Local Marketplace</small></div>
+    </div>
+    <div class="bazarTopActions">
+      <button class="bazarTopBtn" onclick="openAccount()">Account</button>
+      <button class="bazarTopBtn" onclick="openCart()">Cart</button>
+    </div>
+  </div>
+
+  <div class="bazarCenter">
+    <div class="bazarGlass">
+      <div class="bazarDomain"><i></i> KALAIYABAZAR.ONLINE</div>
+      <h1>কালাইয়া বাজারে <span>স্বাগতম</span></h1>
+
+      <div class="genderGrid">
+        <button class="genderCard men" onclick="enterShop('Men')" aria-label="Shop Men">
+          <span class="genderLabel">
+            <span><strong>MEN</strong><small>পুরুষদের কালেকশন</small></span>
+            <span class="genderArrow">→</span>
+          </span>
+        </button>
+        <button class="genderCard women" onclick="enterShop('Women')" aria-label="Shop Women">
+          <span class="genderLabel">
+            <span><strong>WOMEN</strong><small>নারীদের কালেকশন</small></span>
+            <span class="genderArrow">→</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="heritagePanel">
+        <div class="heritageEyebrow">KALAIYA HERITAGE</div>
+        <h2>২০০ বছরের প্রাচীন ঐতিহ্য</h2>
+        <p>এই বাজারে আছে আপনার পছন্দের যেকোনো পণ্য — ঐতিহ্য আর আধুনিক কেনাকাটার সুন্দর মিলন।</p>
+      </div>
+
+      <button class="goBazar" onclick="enterShop('All')">Go Bazar 💐😊</button>
+    </div>
+  </div>
+</div>
+
+<svg style="display:none">
+<symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+<symbol id="cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.5 11h10l2-7H6"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v11h14V10"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="upload" viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M5 20h14"/></symbol>
+</svg>
+
+
+<div class="top" id="announcement">Premium shopping • Cash on Delivery • Fast order support</div>
+
+<header>
+  <div class="head">
+    <div class="brand" id="secretBrand">
+      <div class="logo">Kalaiya<span>Bazar</span></div>
+      <div class="domain" id="domainText">KALAIYABAZAR.ONLINE</div>
+    </div>
+
+    <nav class="v8NavLinks">
+      <a href="#" onclick="goHome();return false">HOME</a>
+      <a href="#" onclick="enterShop('All');return false">SHOP</a>
+      <a href="#" onclick="setCategory('Fashion');return false">FASHION</a>
+      <a href="#" onclick="setCategory('Electronics');return false">TECH</a>
+    </nav>
+
+    <button class="iconBtn" onclick="focusSearch()" aria-label="Search"><svg class="ico"><use href="#search"/></svg></button>
+    <button class="iconBtn" onclick="openWishlist()" aria-label="Wishlist"><svg class="ico"><use href="#heart"/></svg><span class="count" id="wishCount">0</span></button>
+    <button class="iconBtn" onclick="openCart()" aria-label="Cart"><svg class="ico"><use href="#cart"/></svg><span class="count" id="cartCount">0</span></button>
+    <button class="iconBtn desktopAccount" onclick="openAccount()" aria-label="Account"><svg class="ico"><use href="#user"/></svg></button>
+  </div>
+</header>
+
+<div class="searchWrap">
+  <div class="search">
+    <svg class="ico"><use href="#search"/></svg>
+    <input id="searchInput" placeholder="Search products, categories and essentials…" oninput="searchChanged()">
+    <button class="close" onclick="clearSearch()" aria-label="Clear search"><svg class="ico"><use href="#x"/></svg></button>
+  </div>
+  <div class="suggest hide" id="suggestions"></div>
+</div>
+
+<section class="shell" id="productsSection">
+  <button class="shopBack" onclick="goHome()">← Home / হোম</button>
+  <div class="shopAudienceBar">
+    <button id="shopMen" onclick="setAudience('Men')">Men</button>
+    <button id="shopWomen" onclick="setAudience('Women')">Women</button>
+    <button id="shopAll" class="on" onclick="setAudience('All')">All</button>
+  </div>
+  <div class="sectionHead"><div><h2>Featured Products</h2><p id="resultText">Loading products...</p></div></div>
+  <div class="chips" id="categoryChips" style="margin-bottom:10px"></div>
+  <div class="filters">
+    <select id="categoryFilter" onchange="renderProducts()"><option value="All">All categories</option><option>Fashion</option><option>Electronics</option><option>Beauty</option><option>Lifestyle</option></select>
+    <select id="priceFilter" onchange="renderProducts()"><option value="all">All prices</option><option value="1000">Under ৳1,000</option><option value="1500">Under ৳1,500</option><option value="2500">Under ৳2,500</option></select>
+    <select id="sortFilter" onchange="renderProducts()"><option value="popular">Popular</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="new">Newest first</option></select>
+    <button onclick="resetFilters()">Reset</button>
+  </div>
+  <div class="products" id="productGrid"></div>
+</section>
+
+<a class="whatsappFloat" href="https://wa.me/8801604540726?text=Assalamu%20Alaikum%2C%20KalaiyaBazar%20product%20support%20chai." target="_blank" rel="noopener" aria-label="WhatsApp Support">✆</a>
+<div class="mascot" id="mascot" onclick="openGiftFinder()"><b>Kalaiya Buddy 🛍️</b><br><span id="mascotText">কোন product খুঁজছেন? Gift Finder try করতে পারেন!</span></div>
+
+<div class="miniCart hide" id="miniCart"><div><b id="miniCount">0 items</b><br><small id="miniTotal">৳0</small></div><button onclick="openCart()">View Cart</button></div>
+<div class="overlay" id="overlay" onclick="closeDrawers()"></div>
+
+<aside class="drawer" id="cartDrawer"><div class="drawerHead"><b>Your Cart / আপনার কার্ট</b><button class="close" onclick="closeDrawers()"><svg class="ico"><use href="#x"/></svg></button></div><div class="drawerBody" id="cartItems"></div><div class="drawerFoot"><div class="cartFun" id="cartFun"></div><div class="freeShip"><div class="freeShipText" id="freeShipText"></div><div class="freeTrack"><i id="freeShipBar" style="width:0%"></i></div></div><div class="sum"><span>Subtotal / পণ্যের মোট</span><span id="cartSubtotal">৳0</span></div><div class="sum total"><span>Total / সর্বমোট</span><span id="cartTotal">৳0</span></div><button class="primary" style="width:100%" onclick="checkoutCart()">Buy Now <span class="buyArrow">→</span> / কিনুন</button></div></aside>
+<aside class="drawer" id="wishDrawer"><div class="drawerHead"><b>Wishlist</b><button class="close" onclick="closeDrawers()"><svg class="ico"><use href="#x"/></svg></button></div><div class="drawerBody" id="wishItems"></div></aside>
+
+<div class="modal" id="productModal"><div class="modalCard"><div class="modalHead"><b>Product Details</b><button class="close" onclick="closeModal('productModal')"><svg class="ico"><use href="#x"/></svg></button></div><div id="productDetail"></div></div></div>
+
+<div class="modal" id="checkoutModal"><div class="modalCard"><div class="modalHead"><b>Secure Checkout / চেকআউট</b><button class="close" onclick="closeModal('checkoutModal')"><svg class="ico"><use href="#x"/></svg></button></div>
+<div class="checkout">
+  <div class="formGrid">
+    <div class="checkoutPremiumNote"><span class="shield">✓</span><span><b>Simple professional checkout</b><br>শুধু প্রয়োজনীয় তথ্য দিন—অতিরিক্ত verification ধাপ নেই।</span></div>
+    <div class="field"><label>Customer Name / গ্রাহকের নাম *</label><input id="cName" minlength="3" autocomplete="name"></div>
+    <div class="field"><label>Mobile Number / মোবাইল নম্বর *</label><input id="cPhone" readonly inputmode="tel"></div>
+    <div class="field"><label>District / জেলা *</label><select id="cDistrict" onchange="onDistrictChange()"><option value="">Select District / জেলা নির্বাচন করুন</option></select></div>
+    <div class="field"><label>Upazila / Thana / উপজেলা / থানা *</label><input id="cUpazila" placeholder="e.g. Kalapara / কলাপাড়া"></div>
+    <div class="field"><label>Delivery Area / ডেলিভারি এলাকা *</label><select id="cArea" onchange="checkoutPreview()"><option value="inside">Inside Dhaka / ঢাকার ভিতরে</option><option value="outside">Outside Dhaka / ঢাকার বাইরে</option></select></div>
+    <div class="field"><label>Payment Method / পেমেন্ট পদ্ধতি *</label><select id="cPayment"><option value="Cash on Delivery">Cash on Delivery / ক্যাশ অন ডেলিভারি</option><option value="bKash">bKash / বিকাশ</option><option value="Nagad">Nagad / নগদ</option></select></div>
+    <div class="field full"><label>Full Address / পূর্ণ ঠিকানা *</label><textarea id="cAddress" minlength="10" placeholder="House/Road/Village, Post Office, landmark / বাড়ি-রোড-গ্রাম, পোস্ট অফিস, পরিচিত স্থান"></textarea></div>
+    <div class="field full"><label>Order Note / অর্ডার নোট <span style="color:#999">(Optional)</span></label><textarea id="cOrderNote" placeholder="Delivery instruction / প্রয়োজন হলে নির্দেশনা লিখুন"></textarea></div>
+  </div>
+  <div class="summary">
+    <b>Order Summary / অর্ডার সারাংশ</b>
+    <div id="checkoutLines" style="font-size:10px;line-height:1.7;margin:12px 0"></div>
+    <div class="field"><label>Coupon / কুপন</label><input id="coupon" placeholder="Coupon code / কুপন কোড" oninput="checkoutPreview()"></div>
+    <div class="sum"><span>Subtotal / পণ্যের মোট</span><span id="sumSubtotal">৳0</span></div>
+    <div class="sum"><span>Delivery / ডেলিভারি</span><span id="sumDelivery">৳0</span></div>
+    <div class="sum"><span>Discount / ছাড়</span><span id="sumDiscount">-৳0</span></div>
+    <div class="sum total"><span>Total / সর্বমোট</span><span id="sumTotal">৳0</span></div>
+    <button class="premiumOrderBtn" style="width:100%" id="confirmBtn" onclick="confirmOrder()">Place Order / অর্ডার করুন</button>
+    <div class="checkoutTrust">
+      <div><b>✓</b>Secure Order</div><div><b>🚚</b>Delivery Support</div><div><b>↺</b>Easy Assistance</div>
+    </div>
+    <div style="font-size:8px;color:#858d98;line-height:1.5;margin-top:8px">Login is required / অর্ডারের জন্য Login প্রয়োজন। Price, stock, coupon ও delivery charge server আবার যাচাই করবে।</div>
+  </div>
+</div></div></div>
+
+<div class="modal" id="giftModal"><div class="modalCard" style="max-width:760px"><div class="modalHead"><b>Gift Finder / উপহার খুঁজুন</b><button class="close" onclick="closeModal('giftModal')"><svg class="ico"><use href="#x"/></svg></button></div>
+  <div class="giftGrid">
+    <div class="field"><label>Budget / বাজেট</label><select id="giftBudget"><option value="1000">Under ৳1,000</option><option value="2000">Under ৳2,000</option><option value="5000">Under ৳5,000</option><option value="999999">Any Budget / যেকোনো বাজেট</option></select></div>
+    <div class="field"><label>Category / ক্যাটাগরি</label><select id="giftCategory"><option>All</option><option>Fashion</option><option>Electronics</option><option>Beauty</option><option>Lifestyle</option></select></div>
+  </div>
+  <button class="primary" onclick="runGiftFinder()">Find Gifts / উপহার দেখুন</button>
+  <div class="giftResults" id="giftResults"></div>
+</div></div>
+
+<!-- CUSTOMER ACCOUNT -->
+<div class="modal" id="accountModal"><div class="modalCard" style="max-width:760px"><div class="modalHead"><b>My Account</b><button class="close" onclick="closeModal('accountModal')"><svg class="ico"><use href="#x"/></svg></button></div>
+  <div id="accountGuest">
+    <div class="accountTabs"><button class="on" onclick="accountGuestTab('login',this)">Login</button><button onclick="accountGuestTab('register',this)">Register</button></div>
+    <div class="accountPane on" id="guest-login"><div class="formGrid"><div class="field"><label>Phone</label><input id="loginPhone" placeholder="01XXXXXXXXX"></div><div class="field"><label>Password</label><input id="loginPassword" type="password"></div></div><button class="primary" onclick="accountLogin()">Login</button></div>
+    <div class="accountPane" id="guest-register"><div class="formGrid"><div class="field"><label>Name</label><input id="regName"></div><div class="field"><label>Phone</label><input id="regPhone" placeholder="01XXXXXXXXX"></div><div class="field full"><label>Password (6+)</label><input id="regPassword" type="password"></div></div><button class="primary" onclick="accountRegister()">Create Account</button></div>
+  </div>
+  <div id="accountLogged" class="hide">
+    <div class="accountTabs"><button class="on" onclick="accountTab('profile',this)">Profile</button><button onclick="accountTab('orders',this)">My Orders / আমার অর্ডার</button><button onclick="accountTab('wishlist',this)">Wishlist</button><button onclick="accountLogout()">Logout</button></div>
+    <div class="accountPane on" id="acc-profile"><div class="formGrid">
+<div class="field"><label>Name / নাম</label><input id="profileName"></div><div class="field"><label>Phone / ফোন</label><input id="profilePhone" disabled></div>
+<div class="field"><label>District / জেলা</label><select id="profileDistrict"><option value="">Select District / জেলা নির্বাচন করুন</option></select></div>
+<div class="field"><label>Upazila / Thana / উপজেলা / থানা</label><input id="profileUpazila"></div>
+<div class="field full"><label>Saved Address / সংরক্ষিত ঠিকানা</label><textarea id="profileAddress"></textarea></div>
+
+</div><button class="primary" onclick="saveProfile()">Save Profile / প্রোফাইল সেভ করুন</button></div>
+    <div class="accountPane" id="acc-orders"><div id="myOrders"></div></div>
+    <div class="accountPane" id="acc-wishlist"><div id="accountWishlist"></div></div>
+  </div>
+</div></div>
+
+<!-- ADMIN -->
+<div class="modal adminModal" id="adminModal"><div class="modalCard adminCard">
+  <div class="adminTop"><div><div class="adminLogo">Kalaiya<span>Bazar</span> Admin</div><small style="color:#8992a2">Complete Store Control Center</small></div><button class="logout" onclick="adminLogout()">Logout</button></div>
+  <div class="stats"><div class="stat"><b id="stProducts">0</b><small>Products</small></div><div class="stat"><b id="stOrders">0</b><small>Orders / অর্ডার</small></div><div class="stat"><b id="stCustomers">0</b><small>Customers</small></div><div class="stat"><b id="stRevenue">৳0</b><small>Revenue</small></div><div class="stat"><b id="stLow">0</b><small>Low Stock</small></div><div class="stat"><b id="stUnverified">0</b><small>Pending Orders</small></div><div class="stat"><b id="stHighRisk">0</b><small>High Risk</small></div></div>
+  <div class="adminTabs">
+    <button class="adminTab on" onclick="adminTab('products',this)">Products</button><button class="adminTab" onclick="adminTab('amazon',this)">Amazon Import</button><button class="adminTab" onclick="adminTab('orders',this)">Orders / অর্ডার</button><button class="adminTab" onclick="adminTab('customers',this)">Customers</button><button class="adminTab" onclick="adminTab('telegram',this)">Telegram</button><button class="adminTab" onclick="adminTab('store',this)">Store Settings</button><button class="adminTab" onclick="adminTab('coupons',this)">Coupons</button><button class="adminTab" onclick="adminTab('security',this)">Security</button>
+  </div>
+  
+<section class="adminPane" id="pane-amazon">
+  <div class="adminBox">
+    <h3 style="margin-top:0">Amazon Product Import</h3>
+    <div class="amazonNote">Amazon product link paste করুন → publicly available metadata থেকে title, image, description ও price যতটা পাওয়া যায় Preview হবে → আপনি Cost Price, Selling Price, Stock edit করে Save করবেন। Amazon blocking করলে manual Add Product ব্যবহার করুন।</div>
+    <div class="amazonPanel">
+      <div>
+        <div class="amazonFetch"><input id="amazonUrl" placeholder="Paste Amazon product URL"><button class="primary" onclick="fetchAmazonProduct()">Fetch</button></div>
+        <div class="amazonNote">এটি anti-bot bypass করে না এবং Amazon API credential প্রয়োজন করে না। Import করা content ব্যবহারের অধিকার/terms যাচাই করে publish করুন।</div>
+      </div>
+      <div class="amazonPreview" id="amazonPreview">Paste a product link and tap Fetch / Amazon link paste করে Fetch চাপুন।</div>
+    </div>
+  </div>
+</section>
+
+<section class="adminPane on" id="pane-products">
+    <div class="adminBox"><h3 id="productFormTitle" style="margin-top:0">Add Product</h3><div class="formGrid">
+      <div class="field"><label>Product Name</label><input id="aName"></div><div class="field"><label>Category</label><select id="aCategory"><option>Fashion</option><option>Electronics</option><option>Beauty</option><option>Lifestyle</option></select></div>
+      <div class="field"><label>Cost Price (Admin only)</label><input id="aCost" type="number" oninput="profitPreview()"></div><div class="field"><label>Selling Price</label><input id="aPrice" type="number" oninput="profitPreview()"></div>
+      <div class="field"><label>Old Price</label><input id="aOldPrice" type="number"></div><div class="field"><label>Stock</label><input id="aStock" type="number" value="10"></div>
+      <div class="field"><label>Badge</label><input id="aBadge" placeholder="NEW / TRENDING"></div><div class="field"><label>Source Website</label><input id="aSourceWebsite" placeholder="Amazon / Alibaba / Manual"></div>
+      <div class="field full"><label>Source URL (Admin only)</label><input id="aSourceUrl" placeholder="Paste product source link"></div>
+<div class="field"><label>Source Price (Admin only)</label><input id="aSourcePrice" type="number" step="0.01"></div>
+<div class="field"><label>Source Currency</label><input id="aSourceCurrency" placeholder="USD / INR / GBP"></div>
+<div class="field"><label>Amazon ASIN</label><input id="aSourceAsin" placeholder="Optional"></div>
+      <div class="field full"><label>Description</label><textarea id="aDescription"></textarea></div>
+      <div class="field"><label>Featured Product</label><select id="aFeatured"><option value="false">No</option><option value="true">Yes</option></select></div>
+      <div class="field"><label>Profit Preview</label><input id="aProfit" disabled></div>
+    </div>
+    <div class="field"><label>Product Images</label><div class="upload"><label class="uploadLabel" for="aImages"><svg class="ico"><use href="#upload"/></svg> Gallery থেকে ছবি নির্বাচন করুন</label><input id="aImages" type="file" accept="image/*" multiple onchange="uploadAdminImages(event)"><div style="font-size:9px;color:#8992a2;margin-top:7px">Maximum 6 images • 5MB each</div><div class="previews" id="aPreviews"></div></div></div>
+    <button class="primary" style="width:100%;margin-top:11px" onclick="saveProduct()">Save Product</button></div>
+    <div class="adminBox"><div id="adminProducts"></div></div>
+  </section>
+  <section class="adminPane" id="pane-orders"><div class="adminBox"><h3 style="margin-top:0">Orders / অর্ডার</h3><div class="orderSearch"><input id="orderSearch" placeholder="Search Order ID, name or phone / অর্ডার খুঁজুন" oninput="filterAdminOrders()"><select id="orderFilter" onchange="filterAdminOrders()"><option value="">All Status / সব স্ট্যাটাস</option><option>Pending</option><option>Confirmed</option><option>Packed</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></div><div id="adminOrders"></div></div></section>
+  <section class="adminPane" id="pane-customers"><div class="adminBox"><div id="adminCustomers"></div></div></section>
+  <section class="adminPane" id="pane-telegram"><div class="adminBox"><h3>Telegram Bot Settings</h3><div class="field"><label>Bot Token</label><input id="tgToken" type="password" placeholder="Paste NEW Bot Token"></div><div class="field"><label>Chat ID</label><input id="tgChat" placeholder="Paste Chat ID"></div><div id="tgStatus" style="color:#98a2b3;font-size:10px;margin:8px 0"></div><div class="tgBtns"><button class="primary" onclick="saveTelegram()">Save / Update</button><button onclick="testTelegram()">Send Test</button><button onclick="clearTelegram()">Remove</button></div></div></section>
+  <section class="adminPane" id="pane-store"><div class="adminBox"><h3>Store & Homepage Settings</h3><div class="formGrid"><div class="field"><label>Store Name</label><input id="sName"></div><div class="field"><label>Domain</label><input id="sDomain"></div><div class="field"><label>Support Phone</label><input id="sPhone"></div><div class="field"><label>Support Email</label><input id="sEmail"></div><div class="field full"><label>Hero Title</label><input id="sHeroTitle"></div><div class="field full"><label>Hero Bengali Support Text</label><textarea id="sHeroBangla"></textarea></div><div class="field"><label>Hero Button</label><input id="sHeroButton"></div><div class="field"><label>Announcement</label><input id="sAnnouncement"></div><div class="field"><label>Inside Dhaka Delivery</label><input id="sInside" type="number"></div><div class="field"><label>Outside Dhaka Delivery</label><input id="sOutside" type="number"></div><div class="field"><label>Free Delivery At</label><input id="sFree" type="number"></div></div><button class="primary" onclick="saveStoreSettings()">Save Settings</button></div></section>
+  <section class="adminPane" id="pane-coupons"><div class="adminBox"><h3>Coupon Manager</h3><div class="formGrid"><div class="field"><label>Coupon Code</label><input id="cpCode"></div><div class="field"><label>Type</label><select id="cpType"><option value="percent">Percent</option><option value="fixed">Fixed Amount</option></select></div><div class="field"><label>Value</label><input id="cpValue" type="number"></div><div class="field"><label>Minimum Order</label><input id="cpMin" type="number"></div></div><button class="primary" onclick="addCoupon()">Add Coupon</button><div id="couponList" style="margin-top:12px"></div></div></section>
+  <section class="adminPane" id="pane-security"><div class="adminBox"><h3>Change Admin PIN</h3><div class="formGrid"><div class="field"><label>Current PIN</label><input id="pinCurrent" type="password"></div><div class="field"><label>New PIN (6+)</label><input id="pinNew" type="password"></div></div><button class="primary" onclick="changeAdminPin()">Change PIN</button></div></section>
+</div></div>
+
+<nav class="bottom"><button onclick="scrollTo({top:0,behavior:'smooth'})"><svg class="ico"><use href="#home"/></svg>Home</button><button onclick="goProducts()"><svg class="ico"><use href="#grid"/></svg>Shop</button><button onclick="openWishlist()"><svg class="ico"><use href="#heart"/></svg>Wishlist</button><button onclick="openCart()"><svg class="ico"><use href="#cart"/></svg>Cart</button><button onclick="openAccount()"><svg class="ico"><use href="#user"/></svg>Account</button></nav>
+
+<div class="purchaseSuccess" id="purchaseSuccess">
+  <div class="purchaseSuccessCard">
+    <div class="successCheck">✓</div>
+    <h3>কেনাকাটা সফল হয়েছে</h3>
+    <p>আপনার তথ্য ও কেনাকাটার অনুরোধ সফলভাবে গ্রহণ করা হয়েছে।</p>
+    <div class="successMeta" id="purchaseSuccessMeta"></div>
+    <button onclick="closePurchaseSuccess()">Continue Shopping / বাজারে ফিরুন</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id),esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+let products=[],cart=JSON.parse(localStorage.getItem("kb7_cart")||"[]"),wishlist=JSON.parse(localStorage.getItem("kb7_wish")||"[]"),settings={};
+let checkoutItems=[],detailProduct=null,adminToken=sessionStorage.getItem("kb7_admin")||"",userToken=localStorage.getItem("kb7_user_token")||"",adminProducts=[],adminImages=[],editingId=null,adminCoupons=[],adminOrdersCache=[],checkoutKey="",pendingCheckout=false,amazonImportData=null;
+let shopAudience="All";
+function toast(m,type="info"){const t=$("toast");t.textContent=m;t.classList.remove("success","error");if(type!=="info")t.classList.add(type);t.classList.add("show");clearTimeout(window.__t);window.__t=setTimeout(()=>t.classList.remove("show"),2600)}
+async function api(url,opt={}){const r=await fetch(url,opt);let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.message||"Request failed");return d}
+function aHeaders(extra={}){return {...extra,Authorization:`Bearer ${adminToken}`}}function uHeaders(extra={}){return {...extra,Authorization:`Bearer ${userToken}`}}
+
+function saveLocal(){localStorage.setItem("kb7_cart",JSON.stringify(cart));localStorage.setItem("kb7_wish",JSON.stringify(wishlist));updateCounts();syncWishlist()}
+
+const BD_DISTRICTS=["Barguna","Barishal","Bhola","Jhalokathi","Patuakhali","Pirojpur","Bandarban","Brahmanbaria","Chandpur","Chattogram","Cumilla","Cox's Bazar","Feni","Khagrachhari","Lakshmipur","Noakhali","Rangamati","Dhaka","Faridpur","Gazipur","Gopalganj","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narsingdi","Rajbari","Shariatpur","Tangail","Bagerhat","Chuadanga","Jashore","Jhenaidah","Khulna","Kushtia","Magura","Meherpur","Narail","Satkhira","Jamalpur","Mymensingh","Netrokona","Sherpur","Bogura","Joypurhat","Naogaon","Natore","Chapainawabganj","Pabna","Rajshahi","Sirajganj","Dinajpur","Gaibandha","Kurigram","Lalmonirhat","Nilphamari","Panchagarh","Rangpur","Thakurgaon","Habiganj","Moulvibazar","Sunamganj","Sylhet"];
+function populateDistricts(){
+  for(const id of ["cDistrict","profileDistrict"]){
+    const el=$(id);if(!el)continue;
+    const current=el.value;
+    el.innerHTML='<option value="">Select District / জেলা নির্বাচন করুন</option>'+BD_DISTRICTS.map(d=>`<option value="${esc(d)}">${esc(d)}</option>`).join("");
+    if(BD_DISTRICTS.includes(current))el.value=current;
+  }
+}
+function setSmartGreeting(){
+  const h=new Date().getHours(),txt=h<12?"Good Morning / সুপ্রভাত ☀️":h<18?"Good Afternoon / শুভ অপরাহ্ণ 🌤️":"Good Evening / শুভ সন্ধ্যা 🌙";
+  if($("smartGreeting"))$("smartGreeting").textContent=txt;
+}
+function todayPick(){
+  if(!products.length)return null;
+  const d=new Date(),seed=d.getFullYear()*400+d.getMonth()*32+d.getDate();
+  return products[seed%products.length];
+}
+function updateFunFeatures(){
+  const p=todayPick();
+  if(p&&$("todayPickText"))$("todayPickText").textContent=`${p.name} • ৳${p.price}`;
+  const msgs=["আজ কী খুঁজছেন? Gift Finder try করুন 🎁","Wishlist-এ পছন্দের জিনিস রেখে দিন ❤️","Cart-এ যোগ করলে Free Delivery progress দেখবেন 🚚","কোনটা নেবেন বুঝতে পারছেন না? Surprise Me চাপুন 🎲"];
+  if($("mascotText"))$("mascotText").textContent=msgs[new Date().getMinutes()%msgs.length];
+}
+function openTodayPick(){const p=todayPick();if(p)openProduct(p.id);else toast("Products are loading…")}
+function surpriseMe(){if(!products.length)return toast("Products are loading…");const p=products[Math.floor(Math.random()*products.length)];openProduct(p.id);toast("Surprise pick / চমক পছন্দ ✨")}
+function openGiftFinder(){$("giftModal").classList.add("show");document.body.classList.add("lock");runGiftFinder()}
+function runGiftFinder(){
+  const budget=Number($("giftBudget").value),cat=$("giftCategory").value;
+  let list=products.filter(p=>p.price<=budget&&(cat==="All"||p.category===cat)).sort((a,b)=>(b.rating||0)-(a.rating||0)).slice(0,6);
+  $("giftResults").innerHTML=list.length?list.map(p=>`<div class="giftItem" onclick="closeModal('giftModal');openProduct(${p.id})"><img src="${esc(p.images?.[0]||"")}" alt=""><div><b>${esc(p.name)}</b><small>৳${p.price}</small></div></div>`).join(""):'<div style="grid-column:1/-1;color:#777">No matching gift found / এই বাজেটে পণ্য পাওয়া যায়নি।</div>';
+}
+function launchConfetti(){
+  const box=document.createElement("div");box.className="confetti";
+  const colors=["#ff784c","#11151b","#ffd166","#28b67a","#6d8cff"];
+  for(let i=0;i<45;i++){const x=document.createElement("i");x.style.left=Math.random()*100+"%";x.style.background=colors[i%colors.length];x.style.setProperty("--x",(Math.random()*220-110)+"px");x.style.animationDelay=(Math.random()*.35)+"s";box.appendChild(x)}
+  document.body.appendChild(box);setTimeout(()=>box.remove(),2300)
+}
+function journeyHtml(status){
+  if(status==="Cancelled")return '<div style="font-size:8px;color:#c74750;margin-top:8px">Order cancelled / অর্ডার বাতিল হয়েছে</div>';
+  const steps=["Placed","Confirmed","Packed","Shipped","Delivered"];
+  const map={"Pending":0,"Unverified":0,"OTP Verified":0,"Confirmed":1,"Packed":2,"Shipped":3,"Delivered":4};
+  const n=map[status]??0;
+  return `<div class="orderJourney">${steps.map((s,i)=>`<div class="journeyStep ${i<=n?"done":""}">${s}</div>`).join("")}</div>`;
+}
+async function loadSettings(){try{const d=await api("/api/settings");settings=d.settings||{};$("announcement").textContent=settings.announcement||"";$("domainText").textContent=(settings.domain||"kalaiyabazar.online").toUpperCase();$("heroTitle").innerHTML='কালাইয়া বাজারে <span>স্বাগতম</span>';$("heroBangla").textContent="বাজারে চলুন — পছন্দের কেনাকাটা শুরু হোক এখান থেকেই।";$("heroButton").textContent="Shop Now / শপিং করুন"}catch{}}
+async function loadProducts(){const d=await api("/api/products");products=d.products||[];renderProducts();renderRail();updateFunFeatures()}
+
+function enterShop(audience="All"){
+  shopAudience=audience;
+  $("bazarHome")?.classList.add("hide");
+  document.body.classList.remove("homeMode");document.body.classList.add("shopMode");
+  setAudience(audience,false);window.scrollTo({top:0,behavior:"instant"});
+  try{history.pushState({screen:"shop",audience},"",`#shop-${audience.toLowerCase()}`)}catch{}
+}
+function goHome(){
+  $("bazarHome")?.classList.remove("hide");
+  document.body.classList.add("homeMode");document.body.classList.remove("shopMode");
+  window.scrollTo({top:0,behavior:"instant"});
+  try{history.pushState({screen:"home"},"",location.pathname)}catch{}
+}
+function productAudience(p){
+  const g=String(p.gender||"").toLowerCase();
+  if(g==="men"||g==="male")return"Men";
+  if(g==="women"||g==="female")return"Women";
+  if(g==="unisex"||g==="all")return"Unisex";
+  const t=`${p.name||""} ${p.category||""} ${p.description||""}`.toLowerCase();
+  if(/women|woman|female|girl|ladies|handbag|makeup|skin care|skincare/.test(t))return"Women";
+  if(/men's|mens|male|boy|polo shirt|sneaker/.test(t))return"Men";
+  return"Unisex";
+}
+function audienceMatches(p){
+  if(shopAudience==="All")return true;
+  const a=productAudience(p);return a===shopAudience||a==="Unisex";
+}
+function setAudience(audience,rerender=true){
+  shopAudience=audience;
+  ["Men","Women","All"].forEach(x=>$(`shop${x}`)?.classList.toggle("on",x===audience));
+  if(rerender)renderProducts();
+}
+window.addEventListener("popstate",()=>{
+  if(location.hash.startsWith("#shop-"))enterShop(location.hash.replace("#shop-","").replace(/^./,c=>c.toUpperCase()));
+  else goHome();
+});
+
+function renderCategories(){const cats=["All","Fashion","Electronics","Beauty","Lifestyle"];$("categoryChips").innerHTML=cats.map(c=>`<button class="chip ${$("categoryFilter").value===c?"active":""}" onclick="setCategory('${c}')">${c}</button>`).join("")}
+function setCategory(c){$("categoryFilter").value=c;renderCategories();renderProducts();goProducts()}
+function renderProducts(){let d=[...products],q=$("searchInput").value.trim().toLowerCase(),c=$("categoryFilter").value,p=$("priceFilter").value,s=$("sortFilter").value;d=d.filter(x=>audienceMatches(x)&&(c==="All"||x.category===c)&&(!q||(x.name+" "+x.category).toLowerCase().includes(q))&&(p==="all"||x.price<=Number(p)));if(s==="low")d.sort((a,b)=>a.price-b.price);if(s==="high")d.sort((a,b)=>b.price-a.price);if(s==="new")d.sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));$("resultText").textContent=`${d.length} products found`;$("productGrid").innerHTML=d.map(card).join("")||`<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No products found.</div>`;renderCategories()}
+function card(p){const first=p.images?.[0]||"",second=p.images?.[1]||first,liked=wishlist.includes(Number(p.id));return `<article class="product"><div class="photo" onclick="openProduct(${p.id})"><img class="first" src="${esc(first)}" loading="lazy"><img class="second" src="${esc(second)}" loading="lazy"><span class="badge">${esc(p.badge||"NEW")}</span><button class="heart ${liked?"on":""}" onclick="event.stopPropagation();toggleWish(${p.id})"><svg class="ico"><use href="#heart"/></svg></button><button class="quick" onclick="event.stopPropagation();openProduct(${p.id})">Quick View</button></div><div class="pBody"><div class="cat">${esc(p.category)}</div><div class="pName">${esc(p.name)}</div>${p.rating?`<div class="stars">★★★★★ <span>${p.rating}</span></div>`:""}<div class="priceRow"><span class="price">৳${p.price}</span><span class="old">৳${p.oldPrice||p.price}</span></div><div class="stock">${p.stock>0?(p.stock<=5?`Only ${p.stock} left`:`In stock • ${p.stock}`):"Out of stock"}</div><div class="actions"><button class="smallBtn" onclick="addCart(${p.id})"><svg class="ico"><use href="#cart"/></svg></button><button class="simpleBuy" onclick="buyNow(${p.id})">Buy Now <span class="buyArrow">→</span> / কিনুন</button></div></div></article>`}
+function renderRail(){let d=[...products].sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0)).slice(0,8);$("newRail").innerHTML=d.map(p=>`<article class="railCard" onclick="openProduct(${p.id})"><img src="${esc(p.images?.[0]||"")}"><div><b>${esc(p.name)}</b><strong>৳${p.price}</strong></div></article>`).join("")}
+function searchChanged(){renderProducts();const q=$("searchInput").value.trim().toLowerCase();if(!q)return $("suggestions").classList.add("hide");const h=products.filter(x=>x.name.toLowerCase().includes(q)).slice(0,5);$("suggestions").innerHTML=h.map(x=>`<button onclick="openProduct(${x.id});$('suggestions').classList.add('hide')">${esc(x.name)} — ৳${x.price}</button>`).join("");$("suggestions").classList.toggle("hide",!h.length)}
+function clearSearch(){$("searchInput").value="";$("suggestions").classList.add("hide");renderProducts()}function focusSearch(){$("searchInput").focus()}function goProducts(){enterShop("All")}function resetFilters(){$("categoryFilter").value="All";$("priceFilter").value="all";$("sortFilter").value="popular";$("searchInput").value="";renderProducts()}
+function addCart(id){const p=products.find(x=>Number(x.id)===Number(id));if(!p||p.stock<=0)return toast("Out of stock");let i=cart.find(x=>x.id===Number(id));if(i){if(i.qty>=p.stock)return toast("Stock limit reached");i.qty++}else cart.push({id:Number(id),qty:1});saveLocal();toast("Added to cart")}
+function qty(id,d){let i=cart.find(x=>x.id===Number(id)),p=products.find(x=>Number(x.id)===Number(id));if(!i||!p)return;i.qty+=d;if(i.qty<=0)cart=cart.filter(x=>x.id!==Number(id));else if(i.qty>p.stock)i.qty=p.stock;saveLocal();renderCart()}
+function cartSubtotal(){return cart.reduce((s,i)=>{let p=products.find(x=>Number(x.id)===Number(i.id));return s+(p?p.price*i.qty:0)},0)}
+function updateCounts(){const c=cart.reduce((s,x)=>s+x.qty,0);$("cartCount").textContent=c;$("wishCount").textContent=wishlist.length;$("miniCount").textContent=`${c} item${c===1?"":"s"}`;$("miniTotal").textContent=`৳${cartSubtotal()}`;$("miniCart").classList.toggle("hide",c===0)}
+function openCart(){$("overlay").classList.add("show");$("cartDrawer").classList.add("show");renderCart()}function closeDrawers(){$("overlay").classList.remove("show");$("cartDrawer").classList.remove("show");$("wishDrawer").classList.remove("show")}
+function renderCart(){
+  $("cartItems").innerHTML=cart.length?cart.map(i=>{let p=products.find(x=>Number(x.id)===Number(i.id));if(!p)return"";return `<div class="cartItem"><img src="${esc(p.images?.[0]||"")}"><div><h4>${esc(p.name)}</h4><b style="color:var(--brand)">৳${p.price*i.qty}</b><div class="qty"><button onclick="qty(${p.id},-1)">−</button>${i.qty}<button onclick="qty(${p.id},1)">+</button></div></div><button class="remove" onclick="cart=cart.filter(x=>x.id!==${p.id});saveLocal();renderCart()">×</button></div>`}).join(""):`<div style="padding:40px;text-align:center;color:#777">Your cart is a little lonely 😄<br>আপনার কার্ট এখন একটু একা।</div>`;
+  const sub=cartSubtotal(),free=Number(settings.freeDeliveryAt||2500),left=Math.max(0,free-sub),pct=free?Math.min(100,Math.round(sub/free*100)):100;
+  $("cartSubtotal").textContent=`৳${sub}`;$("cartTotal").textContent=`৳${sub}`;
+  if($("freeShipBar"))$("freeShipBar").style.width=pct+"%";
+  if($("freeShipText"))$("freeShipText").textContent=left>0?`আর ৳${left} কিনলেই Free Delivery / ফ্রি ডেলিভারি`:"Free Delivery unlocked 🎉 / ফ্রি ডেলিভারি পাওয়া গেছে";
+  if($("cartFun"))$("cartFun").textContent=!cart.length?"Start shopping / শপিং শুরু করুন":cart.length===1?"Nice start! 😎 / সুন্দর শুরু":cart.length>=3?"Your cart is getting serious 😄 / কার্ট বেশ জমে উঠেছে":"Great picks ✨ / দারুণ পছন্দ";
+}
+function toggleWish(id){id=Number(id);wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];saveLocal();renderProducts();if($("wishDrawer").classList.contains("show"))renderWish()}
+function openWishlist(){$("overlay").classList.add("show");$("wishDrawer").classList.add("show");renderWish()}
+function renderWish(){$("wishItems").innerHTML=wishlist.length?wishlist.map(id=>{let p=products.find(x=>Number(x.id)===Number(id));if(!p)return"";return `<div class="cartItem"><img src="${esc(p.images?.[0]||"")}"><div><h4>${esc(p.name)}</h4><b style="color:var(--brand)">৳${p.price}</b></div><button class="remove" onclick="toggleWish(${p.id})">×</button></div>`}).join(""):`<div style="padding:40px;text-align:center;color:#777">Wishlist is empty.</div>`}
+async function syncWishlist(){if(!userToken)return;try{await api("/api/account/wishlist",{method:"PUT",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({wishlist})})}catch{}}
+function openProduct(id){const p=products.find(x=>Number(x.id)===Number(id));if(!p)return;detailProduct=p;$("productDetail").innerHTML=`<div class="detail"><div><div class="mainImg"><img id="detailMain" src="${esc(p.images?.[0]||"")}"></div><div class="thumbs">${(p.images||[]).map((x,i)=>`<button class="thumb ${i===0?"on":""}" onclick="$('detailMain').src='${esc(x)}';document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('on'));this.classList.add('on')"><img src="${esc(x)}"></button>`).join("")}</div></div><div><div class="cat">${esc(p.category)}</div><h2>${esc(p.name)}</h2>${p.rating?`<div class="stars">★★★★★ <span>${p.rating}</span></div>`:""}<div class="price" style="font-size:29px;margin:10px 0">৳${p.price}</div><div class="stock">${p.stock>0?`In stock • ${p.stock}`:"Out of stock"}</div><p class="desc">${esc(p.description||"")}</p><div class="info">Fast delivery available<br>Cash on Delivery available<br>Return conditions apply according to store policy</div><div class="actions"><button class="smallBtn" onclick="addCart(${p.id})"><svg class="ico"><use href="#cart"/></svg></button><button class="simpleBuy" onclick="closeModal('productModal');buyNow(${p.id})">Buy Now <span class="buyArrow">→</span> / কিনুন</button></div></div></div>`;$("productModal").classList.add("show");document.body.classList.add("lock")}
+function closeModal(id){$(id).classList.remove("show");document.body.classList.remove("lock")}
+function buyNow(id){checkoutItems=[{id:Number(id),qty:1}];openCheckout()}function checkoutCart(){if(!cart.length)return toast("Cart is empty / কার্ট খালি");checkoutItems=cart.map(x=>({...x}));closeDrawers();openCheckout()}
+async function openCheckout(){
+  if(!userToken){pendingCheckout=true;await openAccount();toast("Order করতে আগে Login করুন / Login required");return}
+  try{await prefillAccount()}catch{return}
+  checkoutKey=(crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random().toString(36).slice(2));
+  checkoutPreview();
+  $("checkoutModal").classList.add("show");document.body.classList.add("lock");
+}
+function onDistrictChange(){
+  const d=$("cDistrict").value;
+  if(d&&d!=="Dhaka"){$("cArea").value="outside";$("cArea").disabled=true}
+  else{$("cArea").disabled=false;if(d==="Dhaka")$("cArea").value="inside"}
+  checkoutPreview()
+}
+function checkoutPreview(){
+  const subtotal=checkoutItems.reduce((s,i)=>{let p=products.find(x=>Number(x.id)===Number(i.id));return s+(p?p.price*i.qty:0)},0),
+    area=$("cArea").value,
+    delivery=subtotal>=Number(settings.freeDeliveryAt||2500)?0:(area==="outside"?Number(settings.outsideDelivery||130):Number(settings.insideDelivery||80));
+  let discount=0,code=$("coupon").value.trim().toUpperCase(),
+    c=(settings.coupons||[]).find(x=>x.active&&String(x.code).toUpperCase()===code&&subtotal>=Number(x.minOrder||0));
+  if(c)discount=c.type==="fixed"?Number(c.value):Math.round(subtotal*Number(c.value)/100);
+  const total=subtotal+delivery-discount;
+  $("checkoutLines").innerHTML=checkoutItems.map(i=>{let p=products.find(x=>Number(x.id)===Number(i.id));return p?`${esc(p.name)} × ${i.qty} — <b>৳${p.price*i.qty}</b><br>`:""}).join("");
+  $("sumSubtotal").textContent=`৳${subtotal}`;$("sumDelivery").textContent=delivery?`৳${delivery}`:"FREE";
+  $("sumDiscount").textContent=`-৳${discount}`;$("sumTotal").textContent=`৳${total}`;
+  const b=$("confirmBtn");if(b&&!b.disabled)b.textContent=`Place Order • ৳${total} / অর্ডার করুন`;
+}
+
+function fieldHint(el,msg,type){
+  if(!el)return;
+  const field=el.closest(".field");if(!field)return;
+  let h=field.querySelector(".formHint");
+  if(!h){h=document.createElement("small");h.className="formHint";field.appendChild(h)}
+  h.textContent=msg||"";h.className=`formHint ${type||""}`;h.style.display=msg?"block":"none"
+}
+function markField(id,ok,msg=""){
+  const el=$(id);if(!el)return ok;
+  el.classList.toggle("fieldError",!ok);el.classList.toggle("fieldSuccess",ok);
+  fieldHint(el,msg,ok?"success":"error");return ok
+}
+function clearMark(id){const el=$(id);if(!el)return;el.classList.remove("fieldError","fieldSuccess");fieldHint(el,"","")}
+function validBdPhone(v){return /^01\d{9}$/.test(String(v||"").trim())}
+function validateLiveField(id){
+  const el=$(id);if(!el)return true;const v=String(el.value||"").trim();
+  if(id==="cName"||id==="regName"||id==="profileName")return markField(id,v.length>=3,v.length>=3?"✓ Looks good / ঠিক আছে":"কমপক্ষে ৩ অক্ষরের সঠিক নাম দিন");
+  if(id==="cPhone"||id==="loginPhone"||id==="regPhone")return markField(id,validBdPhone(v),validBdPhone(v)?"✓ সঠিক মোবাইল নম্বর":"সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন");
+  if(id==="cDistrict")return markField(id,BD_DISTRICTS.includes(v),BD_DISTRICTS.includes(v)?"✓ জেলা নির্বাচন হয়েছে":"জেলা নির্বাচন করুন");
+  if(id==="cUpazila"||id==="profileUpazila"){const ok=(v.match(/\p{L}/gu)||[]).length>=2;return markField(id,ok,ok?"✓ ঠিক আছে":"উপজেলা/থানা সঠিকভাবে লিখুন")}
+  if(id==="cAddress"||id==="profileAddress"){const ok=v.length>=10&&(v.match(/\p{L}/gu)||[]).length>=4;return markField(id,ok,ok?"✓ পূর্ণ ঠিকানা":"পূর্ণ ঠিকানা লিখুন")}
+  if(id==="loginPassword"||id==="regPassword"){const ok=v.length>=6;return markField(id,ok,ok?"✓ ঠিক আছে":"Password কমপক্ষে ৬ অক্ষর দিন")}
+  return true
+}
+function setupSmartForms(){
+  const ids=["cName","cPhone","cDistrict","cUpazila","cAddress","loginPhone","loginPassword","regName","regPhone","regPassword","profileName","profileUpazila","profileAddress","aName","aPrice","aStock"];
+  ids.forEach(id=>{const el=$(id);if(!el)return;el.addEventListener("input",()=>validateLiveField(id));el.addEventListener("change",()=>validateLiveField(id))});
+}
+function showPurchaseSuccess(orderId,total,status){
+  $("purchaseSuccessMeta").innerHTML=`Order ID / রেফারেন্স: <b>${esc(orderId)}</b><br>Total / মোট: <b>৳${Number(total||0)}</b><br>Status / অবস্থা: <b>${esc(statusBi(status))}</b>`;
+  $("purchaseSuccess").classList.add("show")
+}
+function closePurchaseSuccess(){$("purchaseSuccess").classList.remove("show");enterShop(shopAudience||"All")}
+
+function clientCheckoutValid(){
+  const ids=["cName","cPhone","cDistrict","cUpazila","cAddress"];let firstBad=null,ok=true;
+  ids.forEach(id=>{const good=validateLiveField(id);if(!good){ok=false;if(!firstBad)firstBad=$(id)}});
+  if(!ok){firstBad?.focus();toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন / Please correct highlighted fields","error");return false}
+  return true
+}
+async function confirmOrder(){
+  if(!userToken){pendingCheckout=true;closeModal("checkoutModal");openAccount();return toast("Login required / Login করুন")}
+  if(!clientCheckoutValid())return;
+  const b=$("confirmBtn");b.disabled=true;b.textContent="Processing… / প্রসেস হচ্ছে…";
   try{
-    if(!fs.existsSync(file)) return fallback;
-    const raw=fs.readFileSync(file,"utf8");
-    return raw?JSON.parse(raw):fallback;
-  }catch(e){ console.error("Read error",file,e.message); return fallback; }
+    const d=await api("/api/orders",{method:"POST",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({
+      name:$("cName").value.trim(),phone:$("cPhone").value.trim(),district:$("cDistrict").value,upazila:$("cUpazila").value.trim(),
+      address:$("cAddress").value.trim(),orderNote:$("cOrderNote").value.trim(),payment:$("cPayment").value,area:$("cArea").value,
+      coupon:$("coupon").value.trim(),clientOrderKey:checkoutKey,items:checkoutItems
+    })});
+    if(!d.duplicate){
+      const ids=new Set(checkoutItems.map(x=>Number(x.id)));cart=cart.filter(x=>!ids.has(Number(x.id)));saveLocal()
+    }
+    closeModal("checkoutModal");checkoutKey="";launchConfetti();showPurchaseSuccess(d.orderId,d.total,d.status);await loadProducts()
+  }catch(e){toast(e.message,"error")}
+  finally{b.disabled=false;checkoutPreview()}
 }
-function writeJson(file,data){ fs.writeFileSync(file,JSON.stringify(data,null,2),"utf8"); }
-function safe(v,max=500){ return String(v??"").trim().slice(0,max); }
-function num(v,fallback=0){ const n=Number(v); return Number.isFinite(n)?n:fallback; }
-function id(prefix){ return prefix+Date.now().toString(36)+crypto.randomBytes(3).toString("hex"); }
 
-const BD_DISTRICTS=new Set([
-  "Barguna","Barishal","Bhola","Jhalokathi","Patuakhali","Pirojpur",
-  "Bandarban","Brahmanbaria","Chandpur","Chattogram","Cumilla","Cox's Bazar","Feni","Khagrachhari","Lakshmipur","Noakhali","Rangamati",
-  "Dhaka","Faridpur","Gazipur","Gopalganj","Kishoreganj","Madaripur","Manikganj","Munshiganj","Narayanganj","Narsingdi","Rajbari","Shariatpur","Tangail",
-  "Bagerhat","Chuadanga","Jashore","Jhenaidah","Khulna","Kushtia","Magura","Meherpur","Narail","Satkhira",
-  "Jamalpur","Mymensingh","Netrokona","Sherpur",
-  "Bogura","Joypurhat","Naogaon","Natore","Chapainawabganj","Pabna","Rajshahi","Sirajganj",
-  "Dinajpur","Gaibandha","Kurigram","Lalmonirhat","Nilphamari","Panchagarh","Rangpur","Thakurgaon",
-  "Habiganj","Moulvibazar","Sunamganj","Sylhet"
-]);
-function normalizeSpaces(v,max=500){return safe(v,max).replace(/\s+/g," ").trim()}
-function validHumanName(v){
-  const s=normalizeSpaces(v,100);
-  const letters=s.match(/\p{L}/gu)||[];
-  if(s.length<3||letters.length<2)return false;
-  const compact=s.replace(/[\s.'’-]/g,"");
-  if(compact.length<2)return false;
-  return !/^(.)(\1)+$/u.test(compact);
+/* ACCOUNT */
+function accountGuestTab(n,b){document.querySelectorAll("#accountGuest .accountTabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");document.querySelectorAll("#accountGuest .accountPane").forEach(x=>x.classList.remove("on"));$(`guest-${n}`).classList.add("on")}
+function accountTab(n,b){document.querySelectorAll("#accountLogged .accountTabs button").forEach(x=>x.classList.remove("on"));if(b)b.classList.add("on");document.querySelectorAll("#accountLogged .accountPane").forEach(x=>x.classList.remove("on"));$(`acc-${n}`).classList.add("on")}
+async function openAccount(){$("accountModal").classList.add("show");document.body.classList.add("lock");if(userToken){try{await loadAccount()}catch{userToken="";localStorage.removeItem("kb7_user_token");showAccountGuest()}}else showAccountGuest()}
+function showAccountGuest(){$("accountGuest").classList.remove("hide");$("accountLogged").classList.add("hide")}
+async function accountLogin(){
+  const p=validateLiveField("loginPhone"),pw=validateLiveField("loginPassword");if(!p||!pw)return toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন","error");
+  try{const d=await api("/api/account/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({phone:$("loginPhone").value.trim(),password:$("loginPassword").value})});userToken=d.token;localStorage.setItem("kb7_user_token",userToken);await loadAccount();toast("✓ Login successful / লগইন সফল","success");if(pendingCheckout){pendingCheckout=false;closeModal("accountModal");setTimeout(openCheckout,250)}}catch(e){markField("loginPhone",false,"Login information মিলছে না");markField("loginPassword",false,"Phone/Password আবার যাচাই করুন");toast(e.message,"error")}
 }
-function validAreaText(v){
-  const s=normalizeSpaces(v,120),letters=s.match(/\p{L}/gu)||[];
-  return s.length>=2&&letters.length>=2&&!/^(.)(\1)+$/u.test(s.replace(/\s/g,""));
+async function accountRegister(){
+  const a=validateLiveField("regName"),b=validateLiveField("regPhone"),c=validateLiveField("regPassword");if(!a||!b||!c)return toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন","error");
+  try{const d=await api("/api/account/register",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:$("regName").value.trim(),phone:$("regPhone").value.trim(),password:$("regPassword").value})});userToken=d.token;localStorage.setItem("kb7_user_token",userToken);await loadAccount();toast("✓ Account created / অ্যাকাউন্ট তৈরি হয়েছে","success");if(pendingCheckout){pendingCheckout=false;closeModal("accountModal");setTimeout(openCheckout,250)}}catch(e){toast(e.message,"error")}
 }
-function validAddress(v){
-  const s=normalizeSpaces(v,500),letters=s.match(/\p{L}/gu)||[];
-  if(s.length<10||letters.length<4)return false;
-  const compact=s.replace(/[\s,./#\-]/g,"");
-  return compact.length>=6&&!/^(.)(\1)+$/u.test(compact);
+const STATUS_BN={"Pending":"Pending / অর্ডার গ্রহণ করা হয়েছে","Unverified":"Pending / অর্ডার গ্রহণ করা হয়েছে","OTP Verified":"Pending / অর্ডার গ্রহণ করা হয়েছে","Confirmed":"Confirmed / নিশ্চিত","Packed":"Packed / প্যাক করা হয়েছে","Shipped":"Shipped / পাঠানো হয়েছে","Delivered":"Delivered / ডেলিভারি সম্পন্ন","Cancelled":"Cancelled / বাতিল"};
+function statusBi(s){return STATUS_BN[s]||s||"Pending / অপেক্ষমান"}
+async function loadAccount(){
+  const d=await api("/api/account/me",{headers:uHeaders()});
+  $("accountGuest").classList.add("hide");$("accountLogged").classList.remove("hide");
+  $("profileName").value=d.user.name;$("profilePhone").value=d.user.phone;
+  $("profileDistrict").value=d.user.district||"";$("profileUpazila").value=d.user.upazila||"";$("profileAddress").value=d.user.address||"";
+  wishlist=d.user.wishlist||wishlist;saveLocal();
+  $("myOrders").innerHTML=d.orders.length?d.orders.map(o=>`<div class="orderCard"><b>${esc(o.id)}</b> <span class="status">${esc(statusBi(o.status))}</span><br><small>${new Date(o.createdAt).toLocaleString()} • ৳${o.total}</small>${journeyHtml(o.status)}</div>`).join(""):`<div style="color:#777">No orders yet / এখনো কোনো অর্ডার নেই।</div>`;
+  $("accountWishlist").innerHTML=wishlist.length?wishlist.map(id=>{let p=products.find(x=>Number(x.id)===Number(id));return p?`<div class="orderCard"><b>${esc(p.name)}</b><br><small>৳${p.price}</small></div>`:""}).join(""):`<div style="color:#777">Wishlist is empty.</div>`
 }
-function strictCodOtp(){return String(process.env.COD_STRICT_OTP||"false").toLowerCase()==="true"}
-function hashSecret(secret,salt=crypto.randomBytes(16).toString("hex")){
-  const hash=crypto.scryptSync(String(secret),salt,64).toString("hex");
-  return {salt,hash};
+async function saveProfile(){
+  const n=validateLiveField("profileName"),u=!$("profileUpazila").value.trim()||validateLiveField("profileUpazila"),a=!$("profileAddress").value.trim()||validateLiveField("profileAddress");if(!n||!u||!a)return toast("লাল চিহ্নিত ঘরগুলো ঠিক করুন","error");
+  try{await api("/api/account/profile",{method:"PUT",headers:uHeaders({"Content-Type":"application/json"}),body:JSON.stringify({name:$("profileName").value.trim(),district:$("profileDistrict").value,upazila:$("profileUpazila").value.trim(),address:$("profileAddress").value.trim()})});toast("✓ Profile saved / প্রোফাইল সেভ হয়েছে","success")}catch(e){toast(e.message,"error")}
 }
-function verifySecret(secret,rec){
+
+async function accountLogout(){try{await api("/api/account/logout",{method:"POST",headers:uHeaders()})}catch{}userToken="";localStorage.removeItem("kb7_user_token");showAccountGuest();toast("Logged out")}
+async function prefillAccount(){const d=await api("/api/account/me",{headers:uHeaders()});$("cName").value=d.user.name||"";$("cPhone").value=d.user.phone||"";$("cDistrict").value=d.user.district||"";$("cUpazila").value=d.user.upazila||"";$("cAddress").value=d.user.address||"";onDistrictChange()}
+
+/* ADMIN */
+let taps=0,tapTimer;$("secretBrand").addEventListener("click",()=>{taps++;clearTimeout(tapTimer);if(taps>=5){taps=0;adminEnter()}else tapTimer=setTimeout(()=>taps=0,2200)});
+async function adminEnter(){if(adminToken){try{await loadAdmin();$("adminModal").classList.add("show");document.body.classList.add("lock");return}catch{adminToken="";sessionStorage.removeItem("kb7_admin")}}const pin=prompt("Admin PIN");if(pin===null)return;try{const d=await api("/api/admin/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({pin})});adminToken=d.token;sessionStorage.setItem("kb7_admin",adminToken);await loadAdmin();$("adminModal").classList.add("show");document.body.classList.add("lock")}catch(e){alert(e.message)}}
+async function adminLogout(){try{await api("/api/admin/logout",{method:"POST",headers:aHeaders()})}catch{}adminToken="";sessionStorage.removeItem("kb7_admin");$("adminModal").classList.remove("show");document.body.classList.remove("lock");toast("Admin logged out")}
+function adminTab(n,b){document.querySelectorAll(".adminTab").forEach(x=>x.classList.remove("on"));if(b)b.classList.add("on");document.querySelectorAll(".adminPane").forEach(x=>x.classList.remove("on"));$(`pane-${n}`).classList.add("on");if(n==="telegram")loadTelegram();if(n==="store")fillStore();if(n==="coupons")renderCoupons()}
+
+async function fetchAmazonProduct(){
+  const url=$("amazonUrl").value.trim();if(!url)return toast("Amazon product link paste করুন");
+  $("amazonPreview").innerHTML="Fetching public Amazon metadata…";
   try{
-    const h=crypto.scryptSync(String(secret),rec.salt,64);
-    const b=Buffer.from(rec.hash,"hex");
-    return h.length===b.length && crypto.timingSafeEqual(h,b);
-  }catch{return false}
+    const d=await api("/api/admin/import/amazon",{method:"POST",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({url})});
+    amazonImportData=d.product;const p=d.product,main=p.images?.[0]||"";
+    $("amazonPreview").innerHTML=`<div class="amazonProduct">${main?`<img src="${esc(main)}" alt="">`:"<div></div>"}<div><b>${esc(p.title||"Amazon Product")}</b><div class="amazonNote">ASIN: ${esc(p.asin||"Not detected")}<br>${p.sourcePrice?`Source page price: ${esc(p.sourceCurrency||"")} ${p.sourcePrice}`:"Price not detected"}<br>${esc((p.description||"").slice(0,420))}</div></div></div><div class="amazonThumbs">${(p.images||[]).map(x=>`<img src="${esc(x)}" alt="">`).join("")}</div><button class="primary" style="width:100%" onclick="useAmazonProduct()">Use This Product / এই পণ্যটি নিন</button>`;
+  }catch(e){amazonImportData=null;$("amazonPreview").innerHTML=`<div style="color:#ff9d87">${esc(e.message)}</div><div class="amazonNote">Amazon page blocking করলে Products tab থেকে manual entry করুন।</div>`}
+}
+function guessCategoryFromText(t){
+  t=String(t||"").toLowerCase();
+  if(/beauty|skin|makeup|perfume|cosmetic|hair/.test(t))return"Beauty";
+  if(/phone|watch|headphone|speaker|electronic|charger|computer|camera/.test(t))return"Electronics";
+  if(/shirt|shoe|sneaker|bag|dress|fashion|wallet|jewelry/.test(t))return"Fashion";
+  return"Lifestyle"
+}
+function useAmazonProduct(){
+  const p=amazonImportData;if(!p)return;
+  editingId=null;$("productFormTitle").textContent="Add Amazon Product";
+  $("aName").value=p.title||"";$("aCategory").value=guessCategoryFromText((p.title||"")+" "+(p.description||""));
+  $("aCost").value="";$("aPrice").value="";$("aOldPrice").value="";$("aStock").value=10;$("aBadge").value="NEW";
+  $("aSourceWebsite").value="Amazon";$("aSourceUrl").value=p.sourceUrl||"";$("aSourcePrice").value=p.sourcePrice||0;$("aSourceCurrency").value=p.sourceCurrency||"";$("aSourceAsin").value=p.asin||"";
+  $("aDescription").value=p.description||"";$("aFeatured").value="false";adminImages=[...(p.images||[])].slice(0,6);renderPreviews();profitPreview();
+  const btn=[...document.querySelectorAll(".adminTab")].find(x=>x.textContent.trim()==="Products");adminTab("products",btn);toast("Amazon preview loaded. Set cost, selling price and stock.")
 }
 
-const defaultProducts = [
-{id:1001,name:"Premium Men's Sneakers",category:"Fashion",price:1490,oldPrice:1890,costPrice:1050,stock:18,badge:"BEST SELLER",rating:4.9,description:"Clean everyday sneakers with a premium casual look.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85","https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=85"],featured:true,createdAt:new Date().toISOString()},
-{id:1002,name:"Luxury Smart Watch",category:"Electronics",price:2190,oldPrice:2790,costPrice:1550,stock:12,badge:"TRENDING",rating:4.8,description:"Modern smart watch with a clean premium finish.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=85","https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=1000&q=85"],featured:true,createdAt:new Date().toISOString()},
-{id:1003,name:"Wireless Headphones",category:"Electronics",price:1290,oldPrice:1690,costPrice:880,stock:23,badge:"NEW",rating:4.8,description:"Wireless headphones for music, calls and daily entertainment.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=85"],featured:true,createdAt:new Date().toISOString()},
-{id:1004,name:"Women's Premium Handbag",category:"Fashion",price:1890,oldPrice:2390,costPrice:1320,stock:9,badge:"LIMITED",rating:4.9,description:"Elegant handbag with a minimalist premium look.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85"],featured:false,createdAt:new Date().toISOString()},
-{id:1005,name:"Skin Care Collection",category:"Beauty",price:1190,oldPrice:1490,costPrice:770,stock:17,badge:"POPULAR",rating:4.7,description:"A clean daily skin-care collection.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1000&q=85"],featured:false,createdAt:new Date().toISOString()},
-{id:1006,name:"Premium Travel Backpack",category:"Lifestyle",price:1390,oldPrice:1790,costPrice:940,stock:14,badge:"TRENDING",rating:4.8,description:"Durable backpack for travel, office and everyday use.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85"],featured:true,createdAt:new Date().toISOString()},
-{id:1007,name:"Classic Polo Shirt",category:"Fashion",price:990,oldPrice:1290,costPrice:620,stock:30,badge:"NEW",rating:4.6,description:"Minimal polo shirt for a clean everyday look.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?auto=format&fit=crop&w=1000&q=85"],featured:false,createdAt:new Date().toISOString()},
-{id:1008,name:"Portable Bluetooth Speaker",category:"Electronics",price:1590,oldPrice:1990,costPrice:1080,stock:15,badge:"BEST SELLER",rating:4.8,description:"Compact speaker with a modern, travel-friendly design.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=1000&q=85"],featured:true,createdAt:new Date().toISOString()},
-{id:1009,name:"Signature Eau de Parfum",category:"Beauty",price:1790,oldPrice:2290,costPrice:1200,stock:11,badge:"PREMIUM",rating:4.9,description:"A polished fragrance presentation for gifting or personal use.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1000&q=85"],featured:true,createdAt:new Date().toISOString()},
-{id:1010,name:"Minimal Steel Bottle",category:"Lifestyle",price:690,oldPrice:890,costPrice:390,stock:25,badge:"NEW",rating:4.6,description:"Reusable bottle with a clean minimal finish.",sourceWebsite:"Demo",sourceUrl:"",images:["https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=85"],featured:false,createdAt:new Date().toISOString()}
-];
-
-const defaultPublicSettings = {
-  storeName:"KalaiyaBazar",
-  domain:"kalaiyabazar.com",
-  supportPhone:"01604540726",
-  supportEmail:"",
-  heroTitle:"Shop better. Live smarter.",
-  heroBangla:"ফ্যাশন, টেক, বিউটি ও লাইফস্টাইল—প্রয়োজনীয় পণ্য আরও সুন্দরভাবে খুঁজে নিন।",
-  heroButton:"Shop Collection",
-  announcement:"Premium shopping • Cash on Delivery • WhatsApp support: 01604540726",
-  insideDelivery:80,
-  outsideDelivery:130,
-  freeDeliveryAt:2500,
-  coupons:[{code:"KALAIYA10",type:"percent",value:10,minOrder:0,active:true}],
-  paymentMethods:{cod:true,bkash:true,nagad:true}
-};
-
-if(!fs.existsSync(PRODUCTS_FILE)) writeJson(PRODUCTS_FILE,defaultProducts);
-if(!fs.existsSync(ORDERS_FILE)) writeJson(ORDERS_FILE,[]);
-if(!fs.existsSync(CUSTOMERS_FILE)) writeJson(CUSTOMERS_FILE,[]);
-if(!fs.existsSync(USERS_FILE)) writeJson(USERS_FILE,[]);
-if(!fs.existsSync(SETTINGS_FILE)){
-  const adminPin=hashSecret(DEFAULT_ADMIN_PIN);
-  writeJson(SETTINGS_FILE,{
-    adminPin,
-    telegramBotToken:"",
-    telegramChatId:"",
-    public:defaultPublicSettings
-  });
+async function loadAdmin(){const [dash,pro,ord,cus,st]=await Promise.all([api("/api/admin/dashboard",{headers:aHeaders()}),api("/api/admin/products",{headers:aHeaders()}),api("/api/admin/orders",{headers:aHeaders()}),api("/api/admin/customers",{headers:aHeaders()}),api("/api/admin/settings",{headers:aHeaders()})]);adminProducts=pro.products||[];adminOrdersCache=ord.orders||[];settings=st.settings||settings;adminCoupons=settings.coupons||[];$("stProducts").textContent=dash.stats.products;$("stOrders").textContent=dash.stats.orders;$("stCustomers").textContent=dash.stats.customers;$("stRevenue").textContent=`৳${dash.stats.revenue}`;$("stLow").textContent=dash.stats.lowStock;$("stUnverified").textContent=dash.stats.pending??dash.stats.unverified??0;$("stHighRisk").textContent=dash.stats.highRisk||0;renderAdminProducts();renderAdminOrders(adminOrdersCache);renderAdminCustomers(cus.customers||[])}
+function renderAdminProducts(){$("adminProducts").innerHTML=adminProducts.map(p=>`<div class="adminItem"><img src="${esc(p.images?.[0]||"")}"><div><b>${esc(p.name)}</b><small>Sell ৳${p.price} • Cost ৳${p.costPrice||0} • Stock ${p.stock}<br>${esc(p.sourceWebsite||"")} ${p.sourcePrice?`• Source ${esc(p.sourceCurrency||"")} ${p.sourcePrice}`:""} ${p.featured?"• Featured":""}</small></div><div class="aBtns"><button class="edit" onclick="editProduct(${p.id})">Edit</button><button class="del" onclick="deleteProduct(${p.id})">Delete</button></div></div>`).join("")}
+function renderAdminOrders(list){
+  const ss=["Pending","Confirmed","Packed","Shipped","Delivered","Cancelled"];
+  $("adminOrders").innerHTML=list.length?list.map(o=>{
+    const r=o.riskLevel||"Low";
+    return `<div class="adminOrderCard"><div class="adminOrderTop"><div><b>${esc(o.id)}</b><span class="riskBadge risk-${esc(r)}">${esc(r)} Risk</span><div class="adminOrderMeta">${esc(o.name)} • <a href="tel:${esc(o.phone)}" style="color:#c9d2df">${esc(o.phone)}</a> • ৳${o.total}<br>${esc(o.address||"")}${o.orderNote?`<br>Note / নোট: ${esc(o.orderNote)}`:""}<br>Payment / পেমেন্ট: ${esc(o.payment||"")}</div></div><span class="status">${esc(statusBi(o.status))}</span></div><div class="adminOrderActions"><a href="tel:${esc(o.phone)}">Call / কল করুন</a>${(o.status==="Pending"||o.status==="Unverified"||o.status==="OTP Verified")?`<button class="confirm" onclick="orderStatus('${esc(o.id)}','Confirmed')">Confirm / নিশ্চিত করুন</button>`:""}${o.status!=="Cancelled"&&o.status!=="Delivered"?`<button class="cancel" onclick="orderStatus('${esc(o.id)}','Cancelled')">Cancel / বাতিল</button>`:""}<select onchange="orderStatus('${esc(o.id)}',this.value)" style="background:#0f1117;color:#fff;border:1px solid #30343e;border-radius:8px;padding:7px">${ss.map(s=>`<option value="${s}" ${s===o.status?"selected":""}>${statusBi(s)}</option>`).join("")}</select></div></div>`
+  }).join(""):`No orders / কোনো অর্ডার নেই`
 }
-
-function privateSettings(){
-  const s=readJson(SETTINGS_FILE,{});
-  if(!s.adminPin) s.adminPin=hashSecret(DEFAULT_ADMIN_PIN);
-  if(!s.public) s.public=defaultPublicSettings;
-  if(!Array.isArray(s.public.coupons)) s.public.coupons=defaultPublicSettings.coupons;
-  if(!s.public.domain||s.public.domain==="kalaiyabazar.online") s.public.domain="kalaiyabazar.com";
-  if(!s.public.supportPhone) s.public.supportPhone="01604540726";
-  return s;
+async function orderStatus(id,status){try{await api(`/api/admin/orders/${encodeURIComponent(id)}`,{method:"PATCH",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({status})});toast("Order updated / অর্ডার আপডেট হয়েছে");await loadAdmin()}catch(e){toast(e.message)}}
+async function uploadAdminImages(e){const files=[...e.target.files].slice(0,6);if(!files.length)return;const fd=new FormData();files.forEach(f=>fd.append("images",f));try{const d=await api("/api/admin/upload",{method:"POST",headers:aHeaders(),body:fd});adminImages=[...adminImages,...d.urls].slice(0,6);renderPreviews();toast("Images uploaded")}catch(er){toast(er.message)}e.target.value=""}
+function renderPreviews(){$("aPreviews").innerHTML=adminImages.map((u,i)=>`<div class="preview"><img src="${esc(u)}"><button onclick="adminImages.splice(${i},1);renderPreviews()">×</button></div>`).join("")}
+function profitPreview(){const c=Number($("aCost").value||0),s=Number($("aPrice").value||0),p=s-c,m=s>0?Math.round(p/s*100):0;$("aProfit").value=`৳${p} • ${m}% margin`}
+function clearProductForm(){editingId=null;adminImages=[];$("productFormTitle").textContent="Add Product";["aName","aCost","aPrice","aOldPrice","aBadge","aSourceWebsite","aSourceUrl","aSourcePrice","aSourceCurrency","aSourceAsin","aDescription"].forEach(id=>$(id).value="");$("aStock").value=10;$("aFeatured").value="false";renderPreviews();profitPreview()}
+function editProduct(id){const p=adminProducts.find(x=>Number(x.id)===Number(id));if(!p)return;editingId=Number(id);$("productFormTitle").textContent="Edit Product";$("aName").value=p.name;$("aCategory").value=p.category;$("aCost").value=p.costPrice||0;$("aPrice").value=p.price;$("aOldPrice").value=p.oldPrice||p.price;$("aStock").value=p.stock;$("aBadge").value=p.badge||"";$("aSourceWebsite").value=p.sourceWebsite||"";$("aSourceUrl").value=p.sourceUrl||"";$("aSourcePrice").value=p.sourcePrice||0;$("aSourceCurrency").value=p.sourceCurrency||"";$("aSourceAsin").value=p.sourceAsin||"";$("aDescription").value=p.description||"";$("aFeatured").value=String(Boolean(p.featured));adminImages=[...(p.images||[])];renderPreviews();profitPreview()}
+async function saveProduct(){
+  const nameOk=$("aName").value.trim().length>=2,priceOk=Number($("aPrice").value)>0,stockOk=Number($("aStock").value)>=0,imgOk=adminImages.length>0;
+  markField("aName",nameOk,nameOk?"✓ ঠিক আছে":"Product name দিন");
+  markField("aPrice",priceOk,priceOk?"✓ Price valid":"Valid selling price দিন");
+  markField("aStock",stockOk,stockOk?"✓ Stock valid":"Valid stock দিন");
+  if(!nameOk||!priceOk||!stockOk||!imgOk){toast(!imgOk?"কমপক্ষে একটি product image দিন":"লাল চিহ্নিত ঘরগুলো ঠিক করুন","error");return}
+  const body={name:$("aName").value.trim(),category:$("aCategory").value,costPrice:Number($("aCost").value),price:Number($("aPrice").value),oldPrice:Number($("aOldPrice").value),stock:Number($("aStock").value),badge:$("aBadge").value.trim(),sourceWebsite:$("aSourceWebsite").value.trim(),sourceUrl:$("aSourceUrl").value.trim(),sourcePrice:Number($("aSourcePrice").value||0),sourceCurrency:$("aSourceCurrency").value.trim(),sourceAsin:$("aSourceAsin").value.trim(),description:$("aDescription").value.trim(),featured:$("aFeatured").value==="true",images:adminImages};
+  try{await api(editingId?`/api/admin/products/${editingId}`:"/api/admin/products",{method:editingId?"PUT":"POST",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify(body)});toast(editingId?"✓ Product updated":"✓ Product added","success");clearProductForm();await loadProducts();await loadAdmin()}catch(e){toast(e.message,"error")}
 }
-function saveSettings(s){writeJson(SETTINGS_FILE,s)}
-function publicSettings(){return privateSettings().public}
+async function deleteProduct(id){if(!confirm("Delete product?"))return;try{await api(`/api/admin/products/${id}`,{method:"DELETE",headers:aHeaders()});toast("Deleted");await loadProducts();await loadAdmin()}catch(e){toast(e.message)}}
+async function loadTelegram(){try{const d=await api("/api/admin/telegram",{headers:aHeaders()});$("tgChat").value=d.chatId||"";$("tgToken").value="";$("tgStatus").textContent=d.configured?`Connected • ${d.tokenMasked} • Chat ID ${d.chatId}`:"Not configured"}catch(e){$("tgStatus").textContent=e.message}}
+async function saveTelegram(){try{const d=await api("/api/admin/telegram",{method:"PUT",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({botToken:$("tgToken").value.trim(),chatId:$("tgChat").value.trim()})});$("tgToken").value="";$("tgStatus").textContent=`Connected • ${d.tokenMasked} • Chat ID ${d.chatId}`;toast("Telegram saved")}catch(e){toast(e.message)}}
+async function testTelegram(){try{const d=await api("/api/admin/telegram/test",{method:"POST",headers:aHeaders()});toast(d.message)}catch(e){toast(e.message)}}async function clearTelegram(){if(!confirm("Remove Telegram settings?"))return;try{await api("/api/admin/telegram",{method:"DELETE",headers:aHeaders()});loadTelegram();toast("Removed")}catch(e){toast(e.message)}}
+function fillStore(){$("sName").value=settings.storeName||"";$("sDomain").value=settings.domain||"";$("sPhone").value=settings.supportPhone||"";$("sEmail").value=settings.supportEmail||"";$("sHeroTitle").value=settings.heroTitle||"";$("sHeroBangla").value=settings.heroBangla||"";$("sHeroButton").value=settings.heroButton||"";$("sAnnouncement").value=settings.announcement||"";$("sInside").value=settings.insideDelivery||80;$("sOutside").value=settings.outsideDelivery||130;$("sFree").value=settings.freeDeliveryAt||2500}
+async function saveStoreSettings(){const body={storeName:$("sName").value.trim(),domain:$("sDomain").value.trim(),supportPhone:$("sPhone").value.trim(),supportEmail:$("sEmail").value.trim(),heroTitle:$("sHeroTitle").value.trim(),heroBangla:$("sHeroBangla").value.trim(),heroButton:$("sHeroButton").value.trim(),announcement:$("sAnnouncement").value.trim(),insideDelivery:Number($("sInside").value),outsideDelivery:Number($("sOutside").value),freeDeliveryAt:Number($("sFree").value)};try{const d=await api("/api/admin/settings",{method:"PUT",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify(body)});settings=d.settings;await loadSettings();toast("Store settings saved")}catch(e){toast(e.message)}}
+function renderCoupons(){$("couponList").innerHTML=adminCoupons.length?adminCoupons.map((c,i)=>`<div style="padding:9px;border-bottom:1px solid #292d36"><b>${esc(c.code)}</b> • ${c.type==="fixed"?"৳":""}${c.value}${c.type==="percent"?"%":""} • Min ৳${c.minOrder||0} <button class="del" style="float:right;border:0;border-radius:7px;padding:5px 7px" onclick="removeCoupon(${i})">Remove</button></div>`).join(""):`<div style="color:#8992a2">No coupons</div>`}
+async function saveCoupons(){try{await api("/api/admin/coupons",{method:"PUT",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({coupons:adminCoupons})});settings.coupons=adminCoupons;renderCoupons();toast("Coupons saved")}catch(e){toast(e.message)}}
+function addCoupon(){const c={code:$("cpCode").value.trim().toUpperCase(),type:$("cpType").value,value:Number($("cpValue").value),minOrder:Number($("cpMin").value),active:true};if(!c.code)return toast("Enter coupon code");adminCoupons.push(c);saveCoupons();$("cpCode").value="";$("cpValue").value="";$("cpMin").value=""}function removeCoupon(i){adminCoupons.splice(i,1);saveCoupons()}
+async function changeAdminPin(){try{await api("/api/admin/change-pin",{method:"PUT",headers:aHeaders({"Content-Type":"application/json"}),body:JSON.stringify({currentPin:$("pinCurrent").value,newPin:$("pinNew").value})});$("pinCurrent").value="";$("pinNew").value="";toast("Admin PIN changed")}catch(e){toast(e.message)}}
 
-app.use(express.json({limit:"400kb"}));
-app.use("/uploads",express.static(UPLOAD_DIR));
-app.use(express.static(PUBLIC_DIR));
-
-const adminSessions=new Map();
-const userSessions=new Map();
-const codVerifiedTokens=new Map();
-const otpRate=new Map();
-const SESSION_TTL=12*60*60*1000;
-function bearer(req){const h=String(req.headers.authorization||"");return h.startsWith("Bearer ")?h.slice(7):""}
-function adminAuth(req,res,next){
-  const t=bearer(req),x=adminSessions.get(t);
-  if(!t||!x||x<Date.now()) return res.status(401).json({success:false,message:"Admin login required"});
-  adminSessions.set(t,Date.now()+SESSION_TTL); req.adminToken=t; next();
-}
-function userAuth(req,res,next){
-  const t=bearer(req),x=userSessions.get(t);
-  if(!t||!x||x.expires<Date.now()) return res.status(401).json({success:false,message:"Please login first"});
-  x.expires=Date.now()+SESSION_TTL; req.userPhone=x.phone; req.userToken=t; next();
-}
-function createAdminSession(){const t=crypto.randomBytes(32).toString("hex");adminSessions.set(t,Date.now()+SESSION_TTL);return t}
-function createUserSession(phone){const t=crypto.randomBytes(32).toString("hex");userSessions.set(t,{phone,expires:Date.now()+SESSION_TTL});return t}
-
-
-/* COD phone verification (Twilio Verify when configured) */
-function bdPhone(v){
-  const p=safe(v,30).replace(/\s+/g,"");
-  return /^01\d{9}$/.test(p)?p:"";
-}
-function e164bd(phone){ return "+880"+phone.slice(1); }
-function twilioVerifyConfigured(){
-  const service=String(process.env.TWILIO_VERIFY_SERVICE_SID||"").trim();
-  const keySid=String(process.env.TWILIO_API_KEY_SID||"").trim();
-  const keySecret=String(process.env.TWILIO_API_KEY_SECRET||"").trim();
-  const accountSid=String(process.env.TWILIO_ACCOUNT_SID||"").trim();
-  const authToken=String(process.env.TWILIO_AUTH_TOKEN||"").trim();
-  return Boolean(service && ((keySid&&keySecret)||(accountSid&&authToken)));
-}
-function twilioAuthHeader(){
-  const user=String(process.env.TWILIO_API_KEY_SID||process.env.TWILIO_ACCOUNT_SID||"").trim();
-  const pass=String(process.env.TWILIO_API_KEY_SECRET||process.env.TWILIO_AUTH_TOKEN||"").trim();
-  return "Basic "+Buffer.from(user+":"+pass).toString("base64");
-}
-async function twilioVerifyRequest(endpoint,params){
-  const sid=String(process.env.TWILIO_VERIFY_SERVICE_SID||"").trim();
-  const r=await fetch(`https://verify.twilio.com/v2/Services/${encodeURIComponent(sid)}/${endpoint}`,{
-    method:"POST",
-    headers:{
-      "Authorization":twilioAuthHeader(),
-      "Content-Type":"application/x-www-form-urlencoded"
-    },
-    body:new URLSearchParams(params)
-  });
-  const d=await r.json().catch(()=>({}));
-  if(!r.ok) throw new Error(d.message||`OTP service error (${r.status})`);
-  return d;
-}
-function otpRateAllowed(key){
-  const now=Date.now(),windowMs=10*60*1000,max=3;
-  const old=(otpRate.get(key)||[]).filter(t=>now-t<windowMs);
-  if(old.length>=max){otpRate.set(key,old);return false}
-  old.push(now);otpRate.set(key,old);return true;
-}
-function issueCodVerifiedToken(phone){
-  const token=crypto.randomBytes(28).toString("hex");
-  codVerifiedTokens.set(token,{phone,expires:Date.now()+15*60*1000});
-  return token;
-}
-function consumeCodVerifiedToken(token,phone){
-  const rec=codVerifiedTokens.get(String(token||""));
-  if(!rec||rec.phone!==phone||rec.expires<Date.now()) return false;
-  codVerifiedTokens.delete(String(token||""));
-  return true;
-}
-function orderRisk(phone,orders){
-  const mine=orders.filter(o=>o.phone===phone);
-  const cancelled=mine.filter(o=>o.status==="Cancelled").length;
-  const unverified=mine.filter(o=>o.status==="Unverified").length;
-  const last24=mine.filter(o=>Date.now()-Date.parse(o.createdAt||0)<24*60*60*1000).length;
-  let score=Math.min(100,cancelled*35+unverified*10+(last24>=3?20:0));
-  const level=score>=60?"High":score>=30?"Medium":"Low";
-  const reasons=[];
-  if(cancelled) reasons.push(`${cancelled} previous cancelled order(s)`);
-  if(unverified>=2) reasons.push(`${unverified} unverified order(s)`);
-  if(last24>=3) reasons.push(`${last24} orders in the last 24 hours`);
-  return {score,level,reasons};
-}
-
-/* uploads */
-const storage=multer.diskStorage({
-  destination:(req,file,cb)=>cb(null,UPLOAD_DIR),
-  filename:(req,file,cb)=>cb(null,`${Date.now()}-${crypto.randomBytes(5).toString("hex")}${path.extname(file.originalname).toLowerCase()||".jpg"}`)
-});
-const upload=multer({storage,limits:{fileSize:5*1024*1024,files:6},fileFilter:(req,file,cb)=>file.mimetype.startsWith("image/")?cb(null,true):cb(new Error("Only image files allowed"))});
-
-/* telegram */
-async function sendTelegram(text){
-  const s=privateSettings();
-  if(!s.telegramBotToken||!s.telegramChatId) return {ok:false,message:"Telegram is not configured"};
-  try{
-    const r=await fetch(`https://api.telegram.org/bot${s.telegramBotToken}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:s.telegramChatId,text})});
-    const d=await r.json();
-    return d.ok?{ok:true}:{ok:false,message:d.description||"Telegram error"};
-  }catch(e){return {ok:false,message:e.message}}
-}
-function maskToken(t){if(!t)return"";return t.length<14?"••••••••":t.slice(0,6)+"••••••••"+t.slice(-5)}
-
-function sanitizeProductInput(body,existing={}){
-  const images=Array.isArray(body.images)?body.images.map(x=>safe(x,700)).filter(Boolean).slice(0,6):(existing.images||[]);
-  const name=safe(body.name,120),price=Math.max(0,num(body.price));
-  if(!name||price<=0||!images.length) throw new Error("Name, valid price and at least one image are required");
-  return {
-    ...existing,
-    name,
-    category:safe(body.category,50)||"Lifestyle",
-    price,
-    oldPrice:Math.max(price,num(body.oldPrice,price)),
-    costPrice:Math.max(0,num(body.costPrice,0)),
-    stock:Math.max(0,Math.floor(num(body.stock,0))),
-    badge:safe(body.badge,30)||"NEW",
-    description:safe(body.description,1200),
-    sourceWebsite:safe(body.sourceWebsite,80),
-    sourceUrl:safe(body.sourceUrl,700),
-    sourcePrice:Math.max(0,num(body.sourcePrice,0)),
-    sourceCurrency:safe(body.sourceCurrency,12),
-    sourceAsin:safe(body.sourceAsin,40),
-    images,
-    featured:Boolean(body.featured),
-    rating:num(existing.rating,4.8),
-    createdAt:existing.createdAt||new Date().toISOString(),
-    updatedAt:new Date().toISOString()
-  }
-}
-
-
-/* Amazon product-link importer (best effort; public page metadata only) */
-const AMAZON_BASE_DOMAINS=[
-  "amazon.com","amazon.in","amazon.co.uk","amazon.ae","amazon.sa","amazon.ca","amazon.com.au",
-  "amazon.de","amazon.fr","amazon.it","amazon.es","amazon.co.jp","amazon.sg","amazon.nl",
-  "amazon.se","amazon.pl","amazon.com.mx","amazon.com.br","amazon.com.tr","amazon.eg"
-];
-function isAmazonHost(host){
-  const h=String(host||"").toLowerCase().replace(/\.$/,"");
-  return AMAZON_BASE_DOMAINS.some(d=>h===d||h.endsWith("."+d));
-}
-function cleanHtmlText(v){
-  return String(v||"")
-    .replace(/&amp;/gi,"&").replace(/&quot;/gi,'"').replace(/&#39;/gi,"'")
-    .replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&nbsp;/gi," ")
-    .replace(/&#(\d+);/g,(_,n)=>String.fromCharCode(Number(n)))
-    .replace(/\s+/g," ").trim();
-}
-function htmlMeta(html,key){
-  const tags=html.match(/<meta\b[^>]*>/gi)||[];
-  key=String(key).toLowerCase();
-  for(const tag of tags){
-    const attrs={};
-    for(const m of tag.matchAll(/([:\w-]+)\s*=\s*["']([^"']*)["']/g)) attrs[m[1].toLowerCase()]=m[2];
-    if(String(attrs.property||attrs.name||"").toLowerCase()===key && attrs.content) return cleanHtmlText(attrs.content);
-  }
-  return "";
-}
-function jsonLdProduct(html){
-  const scripts=[...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
-  const walk=v=>{
-    if(!v)return null;
-    if(Array.isArray(v)){for(const x of v){const f=walk(x);if(f)return f}return null}
-    if(typeof v==="object"){
-      const t=v["@type"];
-      if((typeof t==="string"&&t.toLowerCase()==="product")||(Array.isArray(t)&&t.some(x=>String(x).toLowerCase()==="product")))return v;
-      if(v["@graph"]){const f=walk(v["@graph"]);if(f)return f}
-      for(const x of Object.values(v)){if(x&&typeof x==="object"){const f=walk(x);if(f)return f}}
-    }
-    return null;
-  };
-  for(const s of scripts){
-    try{const obj=JSON.parse(s[1].trim());const p=walk(obj);if(p)return p}catch{}
-  }
-  return null;
-}
-function normalizeImageList(value){
-  const arr=[];
-  const push=x=>{if(typeof x==="string"&&/^https:\/\//i.test(x)&&!arr.includes(x))arr.push(x)};
-  if(Array.isArray(value)) value.forEach(push); else push(value);
-  return arr.slice(0,6);
-}
-function priceFromOffer(offers){
-  const list=Array.isArray(offers)?offers:[offers];
-  for(const o of list){
-    if(!o||typeof o!=="object")continue;
-    const n=num(o.price??o.lowPrice,NaN);
-    if(Number.isFinite(n)&&n>0)return {price:n,currency:safe(o.priceCurrency,12)};
-  }
-  return {price:0,currency:""};
-}
-async function fetchAmazonPage(startUrl){
-  let current=new URL(startUrl);
-  if(current.protocol!=="https:"||!isAmazonHost(current.hostname)) throw new Error("Please paste a valid Amazon product link");
-  for(let i=0;i<4;i++){
-    const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),9000);
-    let r;
-    try{
-      r=await fetch(current.toString(),{
-        redirect:"manual",signal:ctrl.signal,
-        headers:{
-          "User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36",
-          "Accept":"text/html,application/xhtml+xml",
-          "Accept-Language":"en-US,en;q=0.9"
-        }
-      });
-    }finally{clearTimeout(timer)}
-    if([301,302,303,307,308].includes(r.status)){
-      const loc=r.headers.get("location");if(!loc)throw new Error("Amazon redirect could not be followed");
-      current=new URL(loc,current);
-      if(current.protocol!=="https:"||!isAmazonHost(current.hostname))throw new Error("Amazon redirected outside an allowed Amazon domain");
-      continue;
-    }
-    if(!r.ok)throw new Error(`Amazon page could not be read (${r.status}). You can still add the product manually.`);
-    const len=num(r.headers.get("content-length"),0);
-    if(len>2500000)throw new Error("Amazon page is too large to import safely");
-    let html=await r.text();if(html.length>2500000)html=html.slice(0,2500000);
-    return {html,url:current.toString()};
-  }
-  throw new Error("Too many Amazon redirects");
-}
-function amazonPreviewFromHtml(html,finalUrl){
-  const ld=jsonLdProduct(html)||{};
-  const offer=priceFromOffer(ld.offers);
-  const title=cleanHtmlText(ld.name||htmlMeta(html,"og:title")||htmlMeta(html,"twitter:title")||((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)||[])[1]||""));
-  const description=cleanHtmlText(ld.description||htmlMeta(html,"og:description")||htmlMeta(html,"description"));
-  let images=normalizeImageList(ld.image);
-  const og=htmlMeta(html,"og:image");if(og&&!images.includes(og))images.unshift(og);
-  images=images.filter(x=>/^https:\/\//i.test(x)).slice(0,6);
-  const price=offer.price||num(htmlMeta(html,"product:price:amount"),0);
-  const currency=offer.currency||htmlMeta(html,"product:price:currency");
-  const asin=((finalUrl.match(/\/(?:dp|gp\/product|gp\/aw\/d)\/([A-Z0-9]{10})(?:[/?]|$)/i)||[])[1]||"").toUpperCase();
-  if(!title&&!images.length)throw new Error("Amazon did not expose usable product metadata. Please add this product manually.");
-  return {title:title.replace(/\s*[:|]\s*Amazon\.[^|:]+.*$/i,"").slice(0,180),description:description.slice(0,1200),images,sourcePrice:price,sourceCurrency:currency,asin,sourceUrl:finalUrl,sourceWebsite:"Amazon"};
-}
-
-/* public */
-app.get("/api/settings",(req,res)=>res.json({success:true,settings:publicSettings()}));
-app.get("/api/products",(req,res)=>{
-  const p=readJson(PRODUCTS_FILE,defaultProducts).map(({costPrice,sourceWebsite,sourceUrl,sourcePrice,sourceCurrency,sourceAsin,...x})=>x);
-  res.json({success:true,products:p});
-});
-
-
-app.get("/api/cod/config",(req,res)=>{
-  res.json({success:true,otpEnabled:twilioVerifyConfigured(),otpRequired:strictCodOtp()||twilioVerifyConfigured(),manualFallback:!strictCodOtp()});
-});
-app.post("/api/cod/send-otp",userAuth,async(req,res)=>{
-  try{
-    const phone=bdPhone(req.body.phone);
-    if(!phone) return res.status(400).json({success:false,message:"Valid 11-digit Bangladesh mobile number is required"});
-    if(phone!==req.userPhone) return res.status(403).json({success:false,message:"OTP can only be sent to your logged-in account number"});
-    if(!twilioVerifyConfigured()){
-      return res.status(503).json({success:false,manual:true,message:"SMS OTP is not configured yet. You can still place the COD order; Admin will verify by phone call."});
-    }
-    const rateKey=`${req.ip}:${phone}`;
-    if(!otpRateAllowed(rateKey)) return res.status(429).json({success:false,message:"Too many OTP requests. Please wait 10 minutes."});
-    const d=await twilioVerifyRequest("Verifications",{To:e164bd(phone),Channel:"sms"});
-    res.json({success:true,status:d.status||"pending",message:"OTP sent to your mobile number"});
-  }catch(e){
-    res.status(400).json({success:false,message:e.message||"Could not send OTP"});
-  }
-});
-app.post("/api/cod/verify-otp",userAuth,async(req,res)=>{
-  try{
-    const phone=bdPhone(req.body.phone),code=safe(req.body.code,12);
-    if(!phone||!/^\d{4,10}$/.test(code)) return res.status(400).json({success:false,message:"Valid phone and OTP code are required"});
-    if(phone!==req.userPhone) return res.status(403).json({success:false,message:"OTP verification must use your logged-in account number"});
-    if(!twilioVerifyConfigured()) return res.status(503).json({success:false,manual:true,message:"SMS OTP is not configured. Admin phone verification will be used."});
-    const d=await twilioVerifyRequest("VerificationCheck",{To:e164bd(phone),Code:code});
-    if(d.status!=="approved") return res.status(400).json({success:false,message:"OTP is not correct or has expired"});
-    const verificationToken=issueCodVerifiedToken(phone);
-    res.json({success:true,verificationToken,message:"Phone verified successfully"});
-  }catch(e){
-    res.status(400).json({success:false,message:e.message||"Could not verify OTP"});
-  }
-});
-
-app.post("/api/orders",userAuth,async(req,res)=>{
-  try{
-    const users=readJson(USERS_FILE,[]),account=users.find(u=>u.phone===req.userPhone);
-    if(!account) return res.status(401).json({success:false,message:"Please login again"});
-
-    const name=normalizeSpaces(req.body.name,100),phone=req.userPhone,district=safe(req.body.district,100),
-      upazila=normalizeSpaces(req.body.upazila,120),address=normalizeSpaces(req.body.address,500),
-      payment=safe(req.body.payment,60)||"Cash on Delivery",
-      area=req.body.area==="outside"?"outside":"inside",orderNote=normalizeSpaces(req.body.orderNote,500),
-      clientOrderKey=safe(req.body.clientOrderKey,80);
-
-    if(bdPhone(req.body.phone)!==phone) return res.status(403).json({success:false,message:"Checkout phone must match your logged-in account"});
-    if(!validHumanName(name)) return res.status(400).json({success:false,message:"Please enter a valid customer name"});
-    if(!BD_DISTRICTS.has(district)) return res.status(400).json({success:false,message:"Please select a valid district"});
-    if(!validAreaText(upazila)) return res.status(400).json({success:false,message:"Please enter a valid Upazila/Thana"});
-    if(!validAddress(address)) return res.status(400).json({success:false,message:"Please enter a complete delivery address (at least 10 characters)"});
-    if(req.body.confirmAccurate!==true) return res.status(400).json({success:false,message:"Please confirm that your delivery information is correct"});
-    if(!["Cash on Delivery","bKash","Nagad"].includes(payment)) return res.status(400).json({success:false,message:"Invalid payment method"});
-
-    const requested=Array.isArray(req.body.items)?req.body.items.slice(0,30):[];
-    if(!requested.length) return res.status(400).json({success:false,message:"Your order has no products"});
-
-    const orders=readJson(ORDERS_FILE,[]);
-    if(clientOrderKey){
-      const duplicate=orders.find(o=>o.phone===phone&&o.clientOrderKey===clientOrderKey);
-      if(duplicate) return res.json({success:true,duplicate:true,orderId:duplicate.id,total:duplicate.total,status:duplicate.status,codVerified:duplicate.codVerified,riskLevel:duplicate.riskLevel});
-    }
-
-    const settings=publicSettings(),products=readJson(PRODUCTS_FILE,defaultProducts),items=[];let subtotal=0;
-    for(const r of requested){
-      const p=products.find(x=>Number(x.id)===Number(r.id)),qty=Math.max(1,Math.min(99,Math.floor(num(r.qty,1))));
-      if(!p)return res.status(400).json({success:false,message:"A product in your order no longer exists"});
-      if(p.stock<qty)return res.status(400).json({success:false,message:`${p.name}: insufficient stock`});
-      const lineTotal=p.price*qty;subtotal+=lineTotal;items.push({id:p.id,name:p.name,qty,price:p.price,lineTotal});
-    }
-
-    const couponCode=safe(req.body.coupon,40).toUpperCase();
-    const coupon=(settings.coupons||[]).find(c=>c.active&&String(c.code).toUpperCase()===couponCode&&subtotal>=num(c.minOrder,0));
-    if(couponCode&&!coupon) return res.status(400).json({success:false,message:"Coupon is invalid, inactive, or minimum order was not met"});
-    let discount=0;
-    if(coupon) discount=coupon.type==="fixed"?num(coupon.value):Math.round(subtotal*num(coupon.value)/100);
-
-    // Non-Dhaka districts can never use the Dhaka-city delivery rate.
-    const safeArea=district!=="Dhaka"?"outside":area;
-    const delivery=subtotal>=num(settings.freeDeliveryAt,2500)?0:(safeArea==="outside"?num(settings.outsideDelivery,130):num(settings.insideDelivery,80));
-    const total=Math.max(0,subtotal+delivery-discount);
-
-    const isCod=payment==="Cash on Delivery";
-    const otpAvailable=twilioVerifyConfigured();
-    const codVerified=isCod?consumeCodVerifiedToken(req.body.codVerificationToken,phone):false;
-    if(isCod&&(strictCodOtp()||otpAvailable)&&!codVerified){
-      return res.status(400).json({success:false,message:"Please verify your mobile number with OTP before placing a COD order"});
-    }
-    if(isCod&&strictCodOtp()&&!otpAvailable){
-      return res.status(503).json({success:false,message:"COD OTP verification is temporarily unavailable. Please try again later."});
-    }
-
-    const risk=orderRisk(phone,orders);
-    const initialStatus=isCod?(codVerified?"OTP Verified":"Unverified"):"Pending";
-
-    for(const item of items){const p=products.find(x=>Number(x.id)===Number(item.id));p.stock-=item.qty}
-    const order={
-      id:"KB"+Date.now().toString().slice(-9),clientOrderKey,name,phone,district,upazila,address,payment,area:safeArea,orderNote,
-      coupon:coupon?coupon.code:"",items,subtotal,delivery,discount,total,status:initialStatus,
-      codVerified,verificationMethod:codVerified?"SMS OTP":(isCod?"Admin Call":"Not Required"),
-      riskScore:risk.score,riskLevel:risk.level,riskReasons:risk.reasons,
-      location:account.lastLocation&&account.lastLocation.consent===true?account.lastLocation:null,
-      accountRequired:true,createdAt:new Date().toISOString()
-    };
-    orders.unshift(order);writeJson(ORDERS_FILE,orders);writeJson(PRODUCTS_FILE,products);
-
-    const customers=readJson(CUSTOMERS_FILE,[]),c=customers.find(x=>x.phone===phone);
-    if(c){
-      Object.assign(c,{name,address,district,upazila,lastOrder:order.id,orderCount:num(c.orderCount,0)+1,riskLevel:risk.level,riskScore:risk.score});
-    }else{
-      customers.unshift({id:Date.now(),name,phone,address,district,upazila,lastOrder:order.id,orderCount:1,riskLevel:risk.level,riskScore:risk.score,createdAt:new Date().toISOString()});
-    }
-    writeJson(CUSTOMERS_FILE,customers);
-
-    account.name=name;account.address=address;account.district=district;account.upazila=upazila;writeJson(USERS_FILE,users);
-
-    const msg=`🛍 NEW KALAIYABAZAR ORDER\n\nOrder ID: ${order.id}\nCustomer: ${name}\nPhone: ${phone}\nDistrict: ${district}\nUpazila/Thana: ${upazila}\nAddress: ${address}\nTotal: ৳${total}\nPayment: ${payment}\nCOD Verification: ${isCod?(codVerified?"OTP Verified":"Needs Admin Call"):"Not Required"}\nRisk: ${risk.level} (${risk.score})\nStatus: ${initialStatus}`;
-    const tg=await sendTelegram(msg);
-    res.json({success:true,orderId:order.id,total,status:initialStatus,codVerified,riskLevel:risk.level,telegramSent:tg.ok});
-  }catch(e){console.error(e);res.status(500).json({success:false,message:"Could not create order"})}
-});
-
-/* account */
-app.post("/api/account/register",(req,res)=>{
-  const name=normalizeSpaces(req.body.name,100),phone=bdPhone(req.body.phone),password=String(req.body.password||"");
-  if(!validHumanName(name)||!phone||password.length<6)return res.status(400).json({success:false,message:"Valid name, Bangladesh mobile number and password (6+ characters) are required"});
-  const users=readJson(USERS_FILE,[]);
-  if(users.some(u=>u.phone===phone))return res.status(409).json({success:false,message:"An account already exists with this phone"});
-  const pass=hashSecret(password);
-  users.push({id:id("U"),name,phone,password:pass,address:"",district:"",upazila:"",wishlist:[],createdAt:new Date().toISOString()});
-  writeJson(USERS_FILE,users);
-  const token=createUserSession(phone);
-  res.json({success:true,token,user:{name,phone,address:"",district:"",upazila:""}});
-});
-app.post("/api/account/login",(req,res)=>{
-  const phone=safe(req.body.phone,30),password=String(req.body.password||"");
-  const users=readJson(USERS_FILE,[]),u=users.find(x=>x.phone===phone);
-  if(!u||!verifySecret(password,u.password))return res.status(401).json({success:false,message:"Wrong phone or password"});
-  const token=createUserSession(phone);
-  res.json({success:true,token,user:{name:u.name,phone:u.phone,address:u.address||"",district:u.district||"",upazila:u.upazila||""}});
-});
-app.post("/api/account/logout",userAuth,(req,res)=>{userSessions.delete(req.userToken);res.json({success:true})});
-app.get("/api/account/me",userAuth,(req,res)=>{
-  const u=readJson(USERS_FILE,[]).find(x=>x.phone===req.userPhone);
-  if(!u)return res.status(404).json({success:false,message:"Account not found"});
-  const orders=readJson(ORDERS_FILE,[]).filter(o=>o.phone===u.phone);
-  res.json({success:true,user:{name:u.name,phone:u.phone,address:u.address||"",district:u.district||"",upazila:u.upazila||"",wishlist:u.wishlist||[],location:u.lastLocation||null},orders});
-});
-app.put("/api/account/profile",userAuth,(req,res)=>{
-  const users=readJson(USERS_FILE,[]),u=users.find(x=>x.phone===req.userPhone);
-  if(!u)return res.status(404).json({success:false,message:"Account not found"});
-  const name=normalizeSpaces(req.body.name,100),district=safe(req.body.district,100),upazila=normalizeSpaces(req.body.upazila,120),address=normalizeSpaces(req.body.address,500);
-  if(!validHumanName(name))return res.status(400).json({success:false,message:"Please enter a valid name"});
-  if(district&&!BD_DISTRICTS.has(district))return res.status(400).json({success:false,message:"Please select a valid district"});
-  if(upazila&&!validAreaText(upazila))return res.status(400).json({success:false,message:"Please enter a valid Upazila/Thana"});
-  if(address&&!validAddress(address))return res.status(400).json({success:false,message:"Please enter a complete address"});
-  u.name=name;u.address=address;u.district=district;u.upazila=upazila;writeJson(USERS_FILE,users);
-  res.json({success:true,user:{name:u.name,phone:u.phone,address:u.address,district:u.district,upazila:u.upazila}});
-});
-
-app.put("/api/account/location",userAuth,(req,res)=>{
-  const lat=num(req.body.latitude,NaN),lng=num(req.body.longitude,NaN),accuracy=Math.max(0,num(req.body.accuracy,0));
-  if(req.body.consent!==true||!Number.isFinite(lat)||!Number.isFinite(lng)||lat<-90||lat>90||lng<-180||lng>180){
-    return res.status(400).json({success:false,message:"Valid location permission and coordinates are required"});
-  }
-  const users=readJson(USERS_FILE,[]),u=users.find(x=>x.phone===req.userPhone);
-  if(!u)return res.status(404).json({success:false,message:"Account not found"});
-  u.lastLocation={latitude:lat,longitude:lng,accuracy,consent:true,updatedAt:new Date().toISOString()};
-  writeJson(USERS_FILE,users);
-  res.json({success:true,location:u.lastLocation});
-});
-
-app.put("/api/account/wishlist",userAuth,(req,res)=>{
-  const users=readJson(USERS_FILE,[]),u=users.find(x=>x.phone===req.userPhone);
-  if(!u)return res.status(404).json({success:false,message:"Account not found"});
-  u.wishlist=Array.isArray(req.body.wishlist)?req.body.wishlist.map(Number).filter(Number.isFinite).slice(0,200):[];
-  writeJson(USERS_FILE,users);res.json({success:true});
-});
-
-/* admin login */
-app.post("/api/admin/login",(req,res)=>{
-  const s=privateSettings(),pin=String(req.body.pin||"");
-  if(!verifySecret(pin,s.adminPin))return res.status(401).json({success:false,message:"Wrong Admin PIN"});
-  res.json({success:true,token:createAdminSession()});
-});
-app.post("/api/admin/logout",adminAuth,(req,res)=>{adminSessions.delete(req.adminToken);res.json({success:true})});
-app.get("/api/admin/dashboard",adminAuth,(req,res)=>{
-  const products=readJson(PRODUCTS_FILE,[]),orders=readJson(ORDERS_FILE,[]),customers=readJson(CUSTOMERS_FILE,[]);
-  const revenue=orders.filter(o=>o.status!=="Cancelled").reduce((s,o)=>s+num(o.total),0);
-  res.json({success:true,stats:{
-    products:products.length,orders:orders.length,customers:customers.length,revenue,
-    lowStock:products.filter(p=>p.stock<=5).length,
-    unverified:orders.filter(o=>o.status==="Unverified").length,
-    highRisk:orders.filter(o=>o.riskLevel==="High"&&o.status!=="Cancelled"&&o.status!=="Delivered").length
-  }});
-});
-
-app.post("/api/admin/import/amazon",adminAuth,async(req,res)=>{
-  try{
-    const raw=safe(req.body.url,1200);
-    if(!raw)return res.status(400).json({success:false,message:"Paste an Amazon product URL"});
-    const page=await fetchAmazonPage(raw);
-    const product=amazonPreviewFromHtml(page.html,page.url);
-    res.json({success:true,product,note:"Preview imported from publicly exposed page metadata. Review images, description, price and your rights to use the content before saving."});
-  }catch(e){
-    res.status(400).json({success:false,message:e.message||"Amazon import failed"});
-  }
-});
-
-app.get("/api/admin/products",adminAuth,(req,res)=>res.json({success:true,products:readJson(PRODUCTS_FILE,[])}));
-app.post("/api/admin/upload",adminAuth,upload.array("images",6),(req,res)=>res.json({success:true,urls:(req.files||[]).map(f=>`/uploads/${f.filename}`)}));
-app.post("/api/admin/products",adminAuth,(req,res)=>{
-  try{const products=readJson(PRODUCTS_FILE,[]),p=sanitizeProductInput(req.body,{id:Date.now()});products.unshift(p);writeJson(PRODUCTS_FILE,products);res.json({success:true,product:p})}
-  catch(e){res.status(400).json({success:false,message:e.message})}
-});
-app.put("/api/admin/products/:id",adminAuth,(req,res)=>{
-  try{const products=readJson(PRODUCTS_FILE,[]),i=products.findIndex(p=>Number(p.id)===Number(req.params.id));if(i<0)return res.status(404).json({success:false,message:"Product not found"});products[i]=sanitizeProductInput(req.body,products[i]);writeJson(PRODUCTS_FILE,products);res.json({success:true,product:products[i]})}
-  catch(e){res.status(400).json({success:false,message:e.message})}
-});
-app.delete("/api/admin/products/:id",adminAuth,(req,res)=>{let products=readJson(PRODUCTS_FILE,[]);products=products.filter(p=>Number(p.id)!==Number(req.params.id));writeJson(PRODUCTS_FILE,products);res.json({success:true})});
-app.get("/api/admin/orders",adminAuth,(req,res)=>res.json({success:true,orders:readJson(ORDERS_FILE,[])}));
-app.patch("/api/admin/orders/:id",adminAuth,async(req,res)=>{
-  const allowed=["Pending","Unverified","OTP Verified","Confirmed","Packed","Shipped","Delivered","Cancelled"],
-    status=safe(req.body.status,40);
-  if(!allowed.includes(status))return res.status(400).json({success:false,message:"Invalid status"});
-  const orders=readJson(ORDERS_FILE,[]),o=orders.find(x=>x.id===req.params.id);
-  if(!o)return res.status(404).json({success:false,message:"Order not found"});
-  o.status=status;o.updatedAt=new Date().toISOString();
-  if(status==="Confirmed"&&!o.codVerified){
-    o.manualVerified=true;o.verificationMethod="Admin Call";o.verifiedAt=new Date().toISOString();
-  }
-  if(status==="Cancelled")o.cancelledAt=new Date().toISOString();
-  writeJson(ORDERS_FILE,orders);
-  await sendTelegram(`📦 ORDER UPDATE / অর্ডার আপডেট\n\nOrder ID: ${o.id}\nCustomer: ${o.name}\nStatus: ${status}\nTotal: ৳${o.total}`);
-  res.json({success:true,order:o})
-});
-app.get("/api/admin/customers",adminAuth,(req,res)=>res.json({success:true,customers:readJson(CUSTOMERS_FILE,[])}));
-
-/* telegram */
-app.get("/api/admin/telegram",adminAuth,(req,res)=>{const s=privateSettings();res.json({success:true,configured:Boolean(s.telegramBotToken&&s.telegramChatId),tokenMasked:maskToken(s.telegramBotToken),chatId:s.telegramChatId||""})});
-app.put("/api/admin/telegram",adminAuth,(req,res)=>{const s=privateSettings(),token=safe(req.body.botToken,300),chat=safe(req.body.chatId,100);if(token)s.telegramBotToken=token;s.telegramChatId=chat;if(!s.telegramBotToken||!s.telegramChatId)return res.status(400).json({success:false,message:"Bot Token and Chat ID are required"});saveSettings(s);res.json({success:true,tokenMasked:maskToken(s.telegramBotToken),chatId:s.telegramChatId})});
-app.delete("/api/admin/telegram",adminAuth,(req,res)=>{const s=privateSettings();s.telegramBotToken="";s.telegramChatId="";saveSettings(s);res.json({success:true})});
-app.post("/api/admin/telegram/test",adminAuth,async(req,res)=>{const r=await sendTelegram("✅ KalaiyaBazar Telegram Test\n\nBot Token and Chat ID are connected.");if(!r.ok)return res.status(400).json({success:false,message:r.message});res.json({success:true,message:"Test message sent"})});
-
-/* admin store settings */
-app.get("/api/admin/settings",adminAuth,(req,res)=>res.json({success:true,settings:publicSettings()}));
-app.put("/api/admin/settings",adminAuth,(req,res)=>{
-  const s=privateSettings(),p=s.public;
-  Object.assign(p,{
-    storeName:safe(req.body.storeName,80)||p.storeName,domain:safe(req.body.domain,120),supportPhone:safe(req.body.supportPhone,40),supportEmail:safe(req.body.supportEmail,120),
-    heroTitle:safe(req.body.heroTitle,160)||p.heroTitle,heroBangla:safe(req.body.heroBangla,300),heroButton:safe(req.body.heroButton,60)||p.heroButton,
-    announcement:safe(req.body.announcement,220),insideDelivery:Math.max(0,num(req.body.insideDelivery,p.insideDelivery)),outsideDelivery:Math.max(0,num(req.body.outsideDelivery,p.outsideDelivery)),freeDeliveryAt:Math.max(0,num(req.body.freeDeliveryAt,p.freeDeliveryAt))
-  });
-  saveSettings(s);res.json({success:true,settings:p})
-});
-app.put("/api/admin/coupons",adminAuth,(req,res)=>{
-  const s=privateSettings();s.public.coupons=Array.isArray(req.body.coupons)?req.body.coupons.slice(0,30).map(c=>({code:safe(c.code,40).toUpperCase(),type:c.type==="fixed"?"fixed":"percent",value:Math.max(0,num(c.value)),minOrder:Math.max(0,num(c.minOrder)),active:Boolean(c.active)})).filter(c=>c.code):[];saveSettings(s);res.json({success:true,coupons:s.public.coupons})
-});
-app.put("/api/admin/change-pin",adminAuth,(req,res)=>{
-  const current=String(req.body.currentPin||""),next=String(req.body.newPin||"");const s=privateSettings();
-  if(!verifySecret(current,s.adminPin))return res.status(400).json({success:false,message:"Current PIN is wrong"});
-  if(next.length<6)return res.status(400).json({success:false,message:"New PIN must be at least 6 digits/characters"});
-  s.adminPin=hashSecret(next);saveSettings(s);res.json({success:true})
-});
-
-app.get("/{*splat}",(req,res)=>res.sendFile(path.join(PUBLIC_DIR,"index.html")));
-app.use((err,req,res,next)=>{console.error(err);res.status(500).json({success:false,message:err.message||"Server error"})});
-app.listen(PORT,()=>console.log(`KalaiyaBazar V12 running: http://localhost:${PORT}`));
+/* INIT */
+populateDistricts();setSmartGreeting();renderCategories();updateCounts();loadSettings();loadProducts();setupSmartForms();
+if(location.hash.startsWith("#shop-")){const a=location.hash.replace("#shop-","").toLowerCase();setTimeout(()=>enterShop(a==="men"?"Men":a==="women"?"Women":"All"),0)}else{document.body.classList.add("homeMode")}
+</script>
+</body>
+</html>
